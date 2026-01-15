@@ -5,6 +5,15 @@
 \RequirePackage[absolute]{textpos}
 \RequirePackage{hyperref}
 
+\makeatletter
+\@ifundefined{AddToShipoutPictureBG}{%
+    \let\AddToShipoutPictureBG\AddToShipoutPicture
+}{}
+\@ifundefined{AddToShipoutPictureFG}{%
+    \let\AddToShipoutPictureFG\AddToShipoutPictureBG
+}{}
+\makeatother
+
 \definecolor{KUrod}{RGB}{144,26,30}
 
 \newif\ifKU@backgroundfileok
