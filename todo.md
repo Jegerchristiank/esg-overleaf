@@ -52,43 +52,43 @@ Denne liste er lineær og kan krydses af fra top til bund.
 
 ## 4. Kontekst og rammer (opgaver/03)
 ### 4.1 Overblik
-- [ ] Skriv sektionens intro i `opgaver/03/03-kontekst-og-rammer.tex` med formål og struktur.
+- [x] Skriv sektionens intro i `opgaver/03/03-kontekst-og-rammer.tex` med formål og struktur.
 
 ### 4.2 ESG-rapportering i sundhedssektoren
-- [ ] Udfyld `opgaver/03/03-01-esg-rapportering-i-sundhedssektoren.tex` med definitioner og branchens status.
-- [ ] Indsæt relevante tal/cases og forklar deres betydning.
+- [x] Udfyld `opgaver/03/03-01-esg-rapportering-i-sundhedssektoren.tex` med definitioner og branchens status.
+- [x] Indsæt relevante tal/cases og forklar deres betydning.
 
 ### 4.3 Regulatoriske rammer (CSRD, EU-taksonomien, GRI)
-- [ ] Udfyld `opgaver/03/03-02-regulatoriske-rammer-csrd-eu-taksonomien-og-gri.tex`.
-- [ ] Beskriv krav, scope, tidslinje og væsentlighed.
-- [ ] Overvej en tabel, der sammenligner rammerne (krav, målgruppe, data).
+- [x] Udfyld `opgaver/03/03-02-regulatoriske-rammer-csrd-eu-taksonomien-og-gri.tex`.
+- [x] Beskriv krav, scope, tidslinje og væsentlighed.
+- [x] Overvej en tabel, der sammenligner rammerne (krav, målgruppe, data).
 
 ### 4.4 SMV'er og behovet for forenkling
-- [ ] Udfyld `opgaver/03/03-03-smver-og-behovet-for-forenkling.tex` med SMV-perspektiv, ressourcer og barrierer.
-- [ ] Understøt med empiriske kilder.
+- [x] Udfyld `opgaver/03/03-03-smver-og-behovet-for-forenkling.tex` med SMV-perspektiv, ressourcer og barrierer.
+- [x] Understøt med empiriske kilder.
 
 ### 4.5 ESG-as-a-Service som servicekoncept
-- [ ] Udfyld `opgaver/03/03-04-esg-as-a-service-som-servicekoncept.tex` med definition, værdiforslag og afgrænsning.
-- [ ] Positionér konceptet ift. SaaS/outsourcing og regulatorisk compliance.
+- [x] Udfyld `opgaver/03/03-04-esg-as-a-service-som-servicekoncept.tex` med definition, værdiforslag og afgrænsning.
+- [x] Positionér konceptet ift. SaaS/outsourcing og regulatorisk compliance.
 
 ## 5. Teoretisk ramme (opgaver/04)
 ### 5.1 Overblik
-- [ ] Skriv intro til teori-sektionen i `opgaver/04/04-teoretisk-ramme.tex` og begrund teorivalg.
+- [x] Skriv intro til teori-sektionen i `opgaver/04/04-teoretisk-ramme.tex` og begrund teorivalg.
 
 ### 5.2 Standardisering og organisationer (Brunsson)
-- [ ] Udfyld `opgaver/04/04-01-standardisering-og-organisationer-brunsson.tex` med kernebegreber og relevans.
-- [ ] Link teorien til ESG-rapportering som standardiseringspraksis.
+- [x] Udfyld `opgaver/04/04-01-standardisering-og-organisationer-brunsson.tex` med kernebegreber og relevans.
+- [x] Link teorien til ESG-rapportering som standardiseringspraksis.
 
 ### 5.3 Policy- og governanceperspektiver
-- [ ] Udfyld `opgaver/04/04-02-policy-og-governanceperspektiver.tex` med politiske og institutionelle rammer.
-- [ ] Vis hvordan governance påvirker ESG-implementering.
+- [x] Udfyld `opgaver/04/04-02-policy-og-governanceperspektiver.tex` med politiske og institutionelle rammer.
+- [x] Vis hvordan governance påvirker ESG-implementering.
 
 ### 5.4 Økonomiske og kommercielle perspektiver
-- [ ] Udfyld `opgaver/04/04-03-oekonomiske-og-kommercielle-perspektiver.tex` med business case, value creation, stakeholder/shareholder.
-- [ ] Indsæt centrale citationer (f.eks. Friedman, ESG-performance studier).
+- [x] Udfyld `opgaver/04/04-03-oekonomiske-og-kommercielle-perspektiver.tex` med business case, value creation, stakeholder/shareholder.
+- [x] Indsæt centrale citationer (f.eks. Friedman, ESG-performance studier).
 
 ### 5.5 Opsamling af den teoretiske ramme
-- [ ] Udfyld `opgaver/04/04-04-opsamling-af-den-teoretiske-ramme.tex` med en syntese og forventede analytiske greb.
+- [x] Udfyld `opgaver/04/04-04-opsamling-af-den-teoretiske-ramme.tex` med en syntese og forventede analytiske greb.
 
 ## 6. Metode (opgaver/05)
 ### 6.1 Overblik
