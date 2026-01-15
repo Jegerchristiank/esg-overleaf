@@ -7,6 +7,33 @@
 
 \definecolor{KUrod}{RGB}{144,26,30}
 
+\newif\ifKU@logofileok
+\newread\KU@logoread
+\def\KU@logofile{KU-logo.pdf}
+\def\KU@lfspointer{version https://git-lfs.github.com/spec/v1}
+
+\newcommand*{\KU@checklogofile}{%
+    \KU@logofileokfalse
+    \IfFileExists{\KU@logofile}{%
+        \begingroup
+        \endlinechar=-1
+        \openin\KU@logoread=\KU@logofile
+        \read\KU@logoread to \KU@logofirstline
+        \closein\KU@logoread
+        \ifx\KU@logofirstline\KU@lfspointer
+            \global\KU@logofileokfalse
+        \else
+            \global\KU@logofileoktrue
+        \fi
+        \endgroup
+        \ifKU@logofileok\else
+            \PackageWarning{KUstyle}{KU-logo.pdf is a Git LFS pointer. Replace it with the actual PDF to enable the cover background}%
+        \fi
+    }{%
+        \PackageWarning{KUstyle}{KU-logo.pdf not found. Cover background omitted}%
+    }%
+}
+
 \hypersetup{
     colorlinks,
     citecolor=black,
@@ -22,12 +49,27 @@
 
 \def\maketitle{
     \thispagestyle{empty}
-    \AddToShipoutPictureBG*{\includegraphics[width=\paperwidth,height=\paperheight]{KU-logo.pdf}}
+    \KU@checklogofile
+    \ifKU@logofileok
+        \AddToShipoutPictureBG*{\includegraphics[width=\paperwidth,height=\paperheight]{\KU@logofile}}
+    \fi
     \ 
     
     \ifdefined\@fpimage
         \begin{textblock}{10}(1.5,4.7)
-        \noindent\includegraphics*[width=\textwidth, height=80mm, keepaspectratio]{\@fpimage}
+        \ifx\@fpimage\KU@logofile
+            \ifKU@logofileok
+                \noindent\includegraphics*[width=\textwidth, height=80mm, keepaspectratio]{\@fpimage}
+            \else
+                \PackageWarning{KUstyle}{Frontpage image omitted because KU-logo.pdf is not a valid PDF}%
+            \fi
+        \else
+            \IfFileExists{\@fpimage}{%
+                \noindent\includegraphics*[width=\textwidth, height=80mm, keepaspectratio]{\@fpimage}%
+            }{%
+                \PackageWarning{KUstyle}{Frontpage image file not found. Image omitted}%
+            }%
+        \fi
         \end{textblock}
     \fi
     
