@@ -7,30 +7,54 @@
 
 \definecolor{KUrod}{RGB}{144,26,30}
 
-\newif\ifKU@logofileok
+\newif\ifKU@backgroundfileok
+\newif\ifKU@brandfileok
 \newread\KU@logoread
-\def\KU@logofile{KU-logo.pdf}
+\def\KU@backgroundfile{sund-logo.pdf}
+\def\KU@brandfile{sund-danish.pdf}
 \def\KU@lfspointer{version https://git-lfs.github.com/spec/v1}
 
-\newcommand*{\KU@checklogofile}{%
-    \KU@logofileokfalse
-    \IfFileExists{\KU@logofile}{%
+\newcommand*{\KU@checkbackgroundfile}{%
+    \KU@backgroundfileokfalse
+    \IfFileExists{\KU@backgroundfile}{%
         \begingroup
         \endlinechar=-1
-        \openin\KU@logoread=\KU@logofile
+        \openin\KU@logoread=\KU@backgroundfile
         \read\KU@logoread to \KU@logofirstline
         \closein\KU@logoread
         \ifx\KU@logofirstline\KU@lfspointer
-            \global\KU@logofileokfalse
+            \global\KU@backgroundfileokfalse
         \else
-            \global\KU@logofileoktrue
+            \global\KU@backgroundfileoktrue
         \fi
         \endgroup
-        \ifKU@logofileok\else
-            \PackageWarning{KUstyle}{KU-logo.pdf is a Git LFS pointer. Replace it with the actual PDF to enable the cover background}%
+        \ifKU@backgroundfileok\else
+            \PackageWarning{KUstyle}{sund-logo.pdf is a Git LFS pointer. Replace it with the actual PDF to enable the cover background}%
         \fi
     }{%
-        \PackageWarning{KUstyle}{KU-logo.pdf not found. Cover background omitted}%
+        \PackageWarning{KUstyle}{sund-logo.pdf not found. Cover background omitted}%
+    }%
+}
+
+\newcommand*{\KU@checkbrandfile}{%
+    \KU@brandfileokfalse
+    \IfFileExists{\KU@brandfile}{%
+        \begingroup
+        \endlinechar=-1
+        \openin\KU@logoread=\KU@brandfile
+        \read\KU@logoread to \KU@logofirstline
+        \closein\KU@logoread
+        \ifx\KU@logofirstline\KU@lfspointer
+            \global\KU@brandfileokfalse
+        \else
+            \global\KU@brandfileoktrue
+        \fi
+        \endgroup
+        \ifKU@brandfileok\else
+            \PackageWarning{KUstyle}{sund-danish.pdf is a Git LFS pointer. Replace it with the actual PDF to enable the cover logo}%
+        \fi
+    }{%
+        \PackageWarning{KUstyle}{sund-danish.pdf not found. Cover logo omitted}%
     }%
 }
 
@@ -49,19 +73,23 @@
 
 \def\maketitle{
     \thispagestyle{empty}
-    \KU@checklogofile
-    \ifKU@logofileok
-        \AddToShipoutPictureBG*{\includegraphics[width=\paperwidth,height=\paperheight]{\KU@logofile}}
+    \KU@checkbackgroundfile
+    \KU@checkbrandfile
+    \ifKU@backgroundfileok
+        \AddToShipoutPictureBG*{\includegraphics[width=\paperwidth,height=\paperheight]{\KU@backgroundfile}}
+    \fi
+    \ifKU@brandfileok
+        \AddToShipoutPictureBG*{\includegraphics[width=\paperwidth,height=\paperheight]{\KU@brandfile}}
     \fi
     \ 
     
     \ifdefined\@fpimage
         \begin{textblock}{10}(1.5,4.7)
-        \ifx\@fpimage\KU@logofile
-            \ifKU@logofileok
+        \ifx\@fpimage\KU@backgroundfile
+            \ifKU@backgroundfileok
                 \noindent\includegraphics*[width=\textwidth, height=80mm, keepaspectratio]{\@fpimage}
             \else
-                \PackageWarning{KUstyle}{Frontpage image omitted because KU-logo.pdf is not a valid PDF}%
+                \PackageWarning{KUstyle}{Frontpage image omitted because sund-logo.pdf is not a valid PDF}%
             \fi
         \else
             \IfFileExists{\@fpimage}{%
