@@ -20,7 +20,7 @@
 #### 02-indledning (opgaver/02/02-indledning.tex)
 - Saet problemfeltet: ESG-rapportering i sundhedssektoren under skaerpet regulering.
 - Peg paa sektorens saerlige kompleksitet (datafragmentering, hoj regulering, kritiske ydelser).
-- Introducer rapportens bidrag: sammenkobling af policy, organisation, oekonomi og kommercialisering med MVP-case.
+- Introduceer rapportens bidrag: sammenkobling af policy, organisation, oekonomi og kommercialisering med MVP-case.
 - Skitser metodegreb og case i en saetning, som forankrer resten af rapporten.
 - Henvis kort til rapportens struktur og argumentkaede.
 
@@ -212,7 +212,7 @@
 - Inddrag UI-flow og skaermbilleder som evidens for proceslogik.
 - Angiv rapportoutput: PDF, CSRD/ESRS-pakke, XBRL.
 - Forklar hvem output er maalrettet (ledelse, revisor, myndighed, kunder).
-- Placer flowdiagram og udvalgte screenshots.
+- Placér flowdiagram og udvalgte screenshots.
 
 #### 06-06 Demonstration og evaluering (opgaver/06/06-06-demonstration-og-evaluering.tex)
 - Definer 2-3 testszenarier (energi, affald, social).
