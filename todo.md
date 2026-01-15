@@ -13,13 +13,13 @@ Denne liste er lineær og kan krydses af fra top til bund.
 - [x] Definér figurstandard (filformat, opløsning, caption, kildeangivelse, label).
 
 ## 1. Kilde- og datagrundlag
-- [ ] Gennemgå `references-beskrivelse.txt` og pensum; markér hvilke kilder der skal bruges hvor.
-- [ ] Udbyg `references.bib` med komplette metadata for alle centrale kilder.
-- [ ] Indsaml officielle dokumenter: CSRD/ESRS, EU-taksonomien, GRI-standards; læg URL + accessed i .bib.
-- [ ] Saml empiriske tal og cases fra sundhedssektoren (miljøpåvirkning, affald, energi, arbejdsvilkår).
-- [ ] Indsamle data til case om egen virksomhed: produktbeskrivelse, målgruppe, processer, økonomi.
-- [ ] Indsamle tekniske detaljer til MVP: arkitektur, datamodel, integrationspunkter, automatisering.
-- [ ] Opret en "påstand → kilde"-matrix i noter, så hver claim kan spores.
+- [x] Gennemgå `references-beskrivelse.txt` og pensum; markér hvilke kilder der skal bruges hvor.
+- [x] Udbyg `references.bib` med komplette metadata for alle centrale kilder.
+- [x] Indsaml officielle dokumenter: CSRD/ESRS, EU-taksonomien, GRI-standards; læg URL + accessed i .bib.
+- [x] Saml empiriske tal og cases fra sundhedssektoren (miljøpåvirkning, affald, energi, arbejdsvilkår).
+- [ ] Indsamle data til case om egen virksomhed: produktbeskrivelse, målgruppe, processer, økonomi (skabelon i `noter/case-egen-virksomhed.md`).
+- [x] Indsamle tekniske detaljer til MVP: arkitektur, datamodel, integrationspunkter, automatisering.
+- [x] Opret en "påstand → kilde"-matrix i noter, så hver claim kan spores.
 
 ## 2. Disposition og argument-kæde
 - [ ] Skriv en kort argument-kæde (1-2 linjer pr. hovedsektion): hvad etableres, hvad bruges, hvad konkluderes.
