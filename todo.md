@@ -3,14 +3,14 @@
 Denne liste er lineær og kan krydses af fra top til bund.
 
 ## 0. Forberedelse og rammer (nu)
-- [ ] Kompiler projektet med XeLaTeX/LuaLaTeX og noter alle warnings.
-- [ ] Udfyld dato og metadata på forsiden i `main.tex`.
-- [ ] Bekræft at `KUstyle.sty` + `preamble.tex` ikke konflikter (ingen dublerede pakker).
-- [ ] Fastlæg label-konvention og navngivning; brug `sec:`, `subsec:`, `fig:`, `tab:`, `eq:`, `app:`.
-- [ ] Afgør om der skal bruges `siunitx`, `booktabs`, `longtable`; tilføj kun hvis nødvendigt og dokumentér hvorfor.
-- [ ] Opret makroer for gentagne begreber/forkortelser i `preamble.tex` (fx ESG, CSRD, SMV, MVP).
-- [ ] Definér en enkel tabelstandard (caption, kilde, note) som du bruger konsekvent.
-- [ ] Definér figurstandard (filformat, opløsning, caption, kildeangivelse, label).
+- [x] Kompiler projektet med XeLaTeX/LuaLaTeX og noter alle warnings.
+- [x] Udfyld dato og metadata på forsiden i `main.tex`.
+- [x] Bekræft at `KUstyle.sty` + `preamble.tex` ikke konflikter (ingen dublerede pakker).
+- [x] Fastlæg label-konvention og navngivning; brug `sec:`, `subsec:`, `fig:`, `tab:`, `eq:`, `app:`.
+- [x] Afgør om der skal bruges `siunitx`, `booktabs`, `longtable`; tilføj kun hvis nødvendigt og dokumentér hvorfor.
+- [x] Opret makroer for gentagne begreber/forkortelser i `preamble.tex` (fx ESG, CSRD, SMV, MVP).
+- [x] Definér en enkel tabelstandard (caption, kilde, note) som du bruger konsekvent.
+- [x] Definér figurstandard (filformat, opløsning, caption, kildeangivelse, label).
 
 ## 1. Kilde- og datagrundlag
 - [ ] Gennemgå `references-beskrivelse.txt` og pensum; markér hvilke kilder der skal bruges hvor.

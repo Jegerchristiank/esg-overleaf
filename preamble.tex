@@ -5,9 +5,31 @@
 \usepackage{tabularx}
 \usepackage{fontspec}
 \usepackage{csquotes}
+\usepackage{booktabs} % Consistent table rules for evidence tables.
+
+% Package decisions:
+% - siunitx: add when numeric tables/units are introduced (not needed yet).
+% - longtable: add only if a table must span multiple pages.
+
+% Label conventions:
+% sec:, subsec:, fig:, tab:, eq:, app:
 
 % Main font configuration
 \setmainfont{Arial}
+
+% Abbreviation macros (use consistently in text).
+\newcommand{\ESG}{ESG}
+\newcommand{\CSRD}{CSRD}
+\newcommand{\SMV}{SMV}
+\newcommand{\MVP}{MVP}
+
+% Table/figure source and note helpers (use below floats).
+\newcommand{\TableSource}[1]{\par{\small\textit{Kilde: #1}}}
+\newcommand{\TableNote}[1]{\par{\small\textit{Note: #1}}}
+\newcommand{\FigureSource}[1]{\par{\small\textit{Kilde: #1}}}
+
+% Table standard: caption above (label after caption), booktabs rules, source/note below tabular.
+% Figure standard: PDF/PNG preferred, 300 dpi for raster, caption+label, source below.
 
 % Bibliography setup
 \usepackage[backend=biber,style=authoryear,maxcitenames=2]{biblatex}
