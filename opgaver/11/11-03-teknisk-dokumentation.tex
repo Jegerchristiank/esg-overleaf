@@ -1,3 +1,16 @@
 \subsection{Teknisk dokumentation}
 \label{app:teknisk-dokumentation}
 
+Dette bilag uddyber de tekniske hovedkomponenter i MVP'en som supplement til kapitel \ref{sec:software-og-mvp}. Beskrivelsen bygger på interne specifikationer og er begrænset til de komponenter, der er relevante for sporbarhed og rapportoutput.\parencite{InternalSoftwareSpec2026,InternalSoftwareDetails2026}
+
+\paragraph{Arkitektur} MVP'en er bygget som en webbaseret løsning med frontend (Next.js), backend (Node.js) og PostgreSQL som persistenslag. En fælles pakke indeholder typer, validering og beregningslogik, hvilket sikrer konsistente datafelter på tværs af lagene.\parencite{InternalSoftwareSpec2026}
+
+\paragraph{Datamodel} Persistensen er organiseret i tabellerne \texttt{wizard\_storage}, \texttt{wizard\_profiles} og \texttt{wizard\_audit\_log}. Modellen muliggør versionsstyring og historik, så alle ændringer kan genskabes og efterprøves.\parencite{InternalSoftwareDetails2026}
+
+\paragraph{API og adgang} Data udveksles gennem \texttt{GET/PUT /wizard/snapshot} med bearer-token autentifikation. Backend validerer input og returnerer fejl ved manglende rettigheder eller datavalidering, hvilket understøtter datakvalitet og adgangskontrol.\parencite{InternalSoftwareDetails2026}
+
+\paragraph{Automatisering og audit} Autosave og audit-log dokumenterer løbende ændringer i profiler og beregnede resultater. Versioner opdateres kun ved reelle ændringer, hvilket reducerer støj i loggen og styrker sporbarhed.\parencite{InternalSoftwareDetails2026}
+
+\paragraph{Rapportoutput} Systemet understøtter eksport til PDF og strukturerede formater (CSRD/ESRS-pakker og XBRL), så output kan genbruges til compliance og videre analyse.\parencite{InternalSoftwareSpec2026,InternalSoftwareDetails2026}
+
+\paragraph{Antagelser og begrænsninger} Dokumentationen bygger på interne specifikationer og beskriver MVP'ens aktuelle scope. Den forudsætter tilgængelige datakilder i konsistente formater og dækker ikke en fuld sikkerheds- og driftsarkitektur, som typisk først specificeres i en senere produktionsfase.

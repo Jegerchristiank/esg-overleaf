@@ -92,129 +92,129 @@ Denne liste er lineær og kan krydses af fra top til bund.
 
 ## 6. Metode (opgaver/05)
 ### 6.1 Overblik
-- [ ] Skriv metode-intro i `opgaver/05/05-metode.tex` med metodevalg og begrundelser.
+- [x] Skriv metode-intro i `opgaver/05/05-metode.tex` med metodevalg og begrundelser.
 
 ### 6.2 Design og tilgang
-- [ ] Udfyld `opgaver/05/05-01-design-og-tilgang.tex` med forskningsdesign (case, udviklingsprojekt, kvalitativ/kvantitativ).
-- [ ] Afklar hvordan teori, empiri og software kobles.
+- [x] Udfyld `opgaver/05/05-01-design-og-tilgang.tex` med forskningsdesign (case, udviklingsprojekt, kvalitativ/kvantitativ).
+- [x] Afklar hvordan teori, empiri og software kobles.
 
 ### 6.3 Datagrundlag og kilder
-- [ ] Udfyld `opgaver/05/05-02-datagrundlag-og-kilder.tex` med datatyper, kilder, kvalitet og begrænsninger.
-- [ ] Overvej en tabel over datakilder og vurderet kvalitet.
+- [x] Udfyld `opgaver/05/05-02-datagrundlag-og-kilder.tex` med datatyper, kilder, kvalitet og begrænsninger.
+- [x] Overvej en tabel over datakilder og vurderet kvalitet.
 
 ### 6.4 Case: egen virksomhed som pilot
-- [ ] Udfyld `opgaver/05/05-03-case-egen-virksomhed-som-pilot.tex` med beskrivelse af casen og dens relevans.
-- [ ] Afklar bias og hvad casen repræsenterer.
+- [x] Udfyld `opgaver/05/05-03-case-egen-virksomhed-som-pilot.tex` med beskrivelse af casen og dens relevans.
+- [x] Afklar bias og hvad casen repræsenterer.
 
 ### 6.5 Etik, compliance og kvalitet
-- [ ] Udfyld `opgaver/05/05-04-etik-compliance-og-kvalitet.tex` (GDPR, datasikkerhed, transparens).
-- [ ] Dokumentér hvordan kvalitet og sporbarhed sikres.
+- [x] Udfyld `opgaver/05/05-04-etik-compliance-og-kvalitet.tex` (GDPR, datasikkerhed, transparens).
+- [x] Dokumentér hvordan kvalitet og sporbarhed sikres.
 
 ### 6.6 Begrænsninger
-- [ ] Udfyld `opgaver/05/05-05-begraensninger.tex` med metodiske begrænsninger og konsekvenser.
+- [x] Udfyld `opgaver/05/05-05-begraensninger.tex` med metodiske begrænsninger og konsekvenser.
 
 ## 7. Software og MVP (opgaver/06)
 ### 7.1 Overblik
-- [ ] Skriv sektionens intro i `opgaver/06/06-software-og-mvp.tex` med formål og struktur.
+- [x] Skriv sektionens intro i `opgaver/06/06-software-og-mvp.tex` med formål og struktur.
 
 ### 7.2 Formål og krav
-- [ ] Udfyld `opgaver/06/06-01-formaal-og-krav.tex` med forretningsmål og krav (funktionelle og ikke-funktionelle).
-- [ ] Overvej en kravtabel med prioritering.
+- [x] Udfyld `opgaver/06/06-01-formaal-og-krav.tex` med forretningsmål og krav (funktionelle og ikke-funktionelle).
+- [x] Overvej en kravtabel med prioritering.
 
 ### 7.3 Systemoversigt og arkitektur
-- [ ] Udfyld `opgaver/06/06-02-systemoversigt-og-arkitektur.tex`.
-- [ ] Indsæt arkitekturdiagram (figur) med forklarende caption og kilde/egen fremstilling.
+- [x] Udfyld `opgaver/06/06-02-systemoversigt-og-arkitektur.tex`.
+- [x] Indsæt arkitekturdiagram (figur) med forklarende caption og kilde/egen fremstilling.
 
 ### 7.4 Datamodel og ESG-indikatorer
-- [ ] Udfyld `opgaver/06/06-03-datamodel-og-esg-indikatorer.tex` med dataskema og mapping til CSRD/GRI.
-- [ ] Indsæt tabeller med indikatorer og målemetoder.
+- [x] Udfyld `opgaver/06/06-03-datamodel-og-esg-indikatorer.tex` med dataskema og mapping til CSRD/GRI.
+- [x] Indsæt tabeller med indikatorer og målemetoder.
 
 ### 7.5 Dataindsamling og automatisering
-- [ ] Udfyld `opgaver/06/06-04-dataindsamling-og-automatisering.tex` med pipeline, integrationer og validering.
-- [ ] Beskriv datakvalitet og audit trail.
+- [x] Udfyld `opgaver/06/06-04-dataindsamling-og-automatisering.tex` med pipeline, integrationer og validering.
+- [x] Beskriv datakvalitet og audit trail.
 
 ### 7.6 Brugerflow og rapportoutput
-- [ ] Udfyld `opgaver/06/06-05-brugerflow-og-rapportoutput.tex` med processer, UI-flow, outputformater.
-- [ ] Indsæt mockups eller flowdiagrammer som figurer.
+- [x] Udfyld `opgaver/06/06-05-brugerflow-og-rapportoutput.tex` med processer, UI-flow, outputformater.
+- [x] Indsæt mockups eller flowdiagrammer som figurer.
 
 ### 7.7 Demonstration og evaluering
-- [ ] Udfyld `opgaver/06/06-06-demonstration-og-evaluering.tex` med testscenarier, resultater og begrænsninger.
-- [ ] Relatér evalueringen til kravene fra 7.2.
+- [x] Udfyld `opgaver/06/06-06-demonstration-og-evaluering.tex` med testscenarier, resultater og begrænsninger.
+- [x] Relatér evalueringen til kravene fra 7.2.
 
 ## 8. Analyse (opgaver/07)
 ### 8.1 Overblik
-- [ ] Skriv analyse-intro i `opgaver/07/07-analyse.tex` med fokus og metodekobling.
+- [x] Skriv analyse-intro i `opgaver/07/07-analyse.tex` med fokus og metodekobling.
 
 ### 8.2 ESG som organisationsstandard
-- [ ] Udfyld `opgaver/07/07-01-esg-som-organisationsstandard.tex` og koble til Brunsson/standardisering.
-- [ ] Peg på empiriske eksempler fra case/branche.
+- [x] Udfyld `opgaver/07/07-01-esg-som-organisationsstandard.tex` og koble til Brunsson/standardisering.
+- [x] Peg på empiriske eksempler fra case/branche.
 
 ### 8.3 Værdiforslag og forretningsmodel
-- [ ] Udfyld `opgaver/07/07-02-vaerdiforslag-og-forretningsmodel.tex` (value proposition, kunder, kanaler).
-- [ ] Brug teori til at vurdere kommercialisering.
+- [x] Udfyld `opgaver/07/07-02-vaerdiforslag-og-forretningsmodel.tex` (value proposition, kunder, kanaler).
+- [x] Brug teori til at vurdere kommercialisering.
 
 ### 8.4 Prisfastsættelse og kundesegmentering
-- [ ] Udfyld `opgaver/07/07-03-prisfastsaettelse-og-kundesegmentering.tex` med segmenter, willingness-to-pay, pricing.
-- [ ] Understøt med data eller begrundede antagelser.
+- [x] Udfyld `opgaver/07/07-03-prisfastsaettelse-og-kundesegmentering.tex` med segmenter, willingness-to-pay, pricing.
+- [x] Understøt med data eller begrundede antagelser.
 
 ### 8.5 Organisatoriske og økonomiske implikationer
-- [ ] Udfyld `opgaver/07/07-04-organisatoriske-og-oekonomiske-implikationer.tex` med governance, ressourcer, ROI.
-- [ ] Sammenhold med regulative krav og SMV-begrænsninger.
+- [x] Udfyld `opgaver/07/07-04-organisatoriske-og-oekonomiske-implikationer.tex` med governance, ressourcer, ROI.
+- [x] Sammenhold med regulative krav og SMV-begrænsninger.
 
 ### 8.6 Implementering i sundhedssektoren
-- [ ] Udfyld `opgaver/07/07-05-implementering-i-sundhedssektoren.tex` med barrierer, incitamenter og anbefalinger.
-- [ ] Relatér til eksisterende praksis og modenhed.
+- [x] Udfyld `opgaver/07/07-05-implementering-i-sundhedssektoren.tex` med barrierer, incitamenter og anbefalinger.
+- [x] Relatér til eksisterende praksis og modenhed.
 
 ## 9. Diskussion (opgaver/08)
 ### 9.1 Overblik
-- [ ] Skriv diskussions-intro i `opgaver/08/08-diskussion.tex`.
+- [x] Skriv diskussions-intro i `opgaver/08/08-diskussion.tex`.
 
 ### 9.2 Sammenhæng mellem teori, empiri og software
-- [ ] Udfyld `opgaver/08/08-01-sammenhaeng-mellem-teori-empiri-og-software.tex`.
-- [ ] Drøft, hvor MVP'en understøtter eller udfordrer de teoretiske antagelser.
+- [x] Udfyld `opgaver/08/08-01-sammenhaeng-mellem-teori-empiri-og-software.tex`.
+- [x] Drøft, hvor MVP'en understøtter eller udfordrer de teoretiske antagelser.
 
 ### 9.3 Implikationer for SMV'er
-- [ ] Udfyld `opgaver/08/08-02-implikationer-for-smver.tex` med konsekvenser og praktiske implikationer.
+- [x] Udfyld `opgaver/08/08-02-implikationer-for-smver.tex` med konsekvenser og praktiske implikationer.
 
 ### 9.4 Begrænsninger og alternative forklaringer
-- [ ] Udfyld `opgaver/08/08-03-begraensninger-og-alternative-forklaringer.tex` og diskuter bias.
+- [x] Udfyld `opgaver/08/08-03-begraensninger-og-alternative-forklaringer.tex` og diskuter bias.
 
 ## 10. Konklusion (opgaver/09)
-- [ ] Udfyld `opgaver/09/09-konklusion.tex` og besvar forskningsspørgsmålene punkt for punkt.
-- [ ] Opsummer hovedbidrag og centrale fund kort.
+- [x] Udfyld `opgaver/09/09-konklusion.tex` og besvar forskningsspørgsmålene punkt for punkt.
+- [x] Opsummer hovedbidrag og centrale fund kort.
 
 ## 11. Perspektivering og anbefalinger (opgaver/10)
-- [ ] Udfyld `opgaver/10/10-perspektivering-og-anbefalinger.tex` med fremtidigt arbejde og anbefalinger.
-- [ ] Skeln tydeligt mellem empirisk baserede anbefalinger og normative vurderinger.
+- [x] Udfyld `opgaver/10/10-perspektivering-og-anbefalinger.tex` med fremtidigt arbejde og anbefalinger.
+- [x] Skeln tydeligt mellem empirisk baserede anbefalinger og normative vurderinger.
 
 ## 12. Resumé og Abstract (opgaver/00 og 01)
-- [ ] Skriv dansk resumé i `opgaver/00/00-resume.tex` når konklusionen er færdig.
-- [ ] Skriv engelsk abstract i `opgaver/01/01-abstract.tex` (samme struktur som resumé).
+- [x] Skriv dansk resumé i `opgaver/00/00-resume.tex` når konklusionen er færdig.
+- [x] Skriv engelsk abstract i `opgaver/01/01-abstract.tex` (samme struktur som resumé).
 
 ## 13. Bilag (opgaver/11)
-- [ ] Udfyld intro til bilag i `opgaver/11/11-bilag.tex`.
-- [ ] Indsæt projektbeskrivelse i `opgaver/11/11-01-projektbeskrivelse.tex`.
-- [ ] Tilføj supplerende figurer/tabeller i `opgaver/11/11-02-supplerende-figurer-og-tabeller.tex` og referér fra brødteksten.
-- [ ] Udfyld teknisk dokumentation i `opgaver/11/11-03-teknisk-dokumentation.tex` (arkitektur, datamodel, API, mv.).
+- [x] Udfyld intro til bilag i `opgaver/11/11-bilag.tex`.
+- [x] Indsæt projektbeskrivelse i `opgaver/11/11-01-projektbeskrivelse.tex`.
+- [x] Tilføj supplerende figurer/tabeller i `opgaver/11/11-02-supplerende-figurer-og-tabeller.tex` og referér fra brødteksten.
+- [x] Udfyld teknisk dokumentation i `opgaver/11/11-03-teknisk-dokumentation.tex` (arkitektur, datamodel, API, mv.).
 
 ## 14. Reference- og sporbarhedstjek
-- [ ] Gennemgå alle afsnit for påstande uden citation; tilføj `\parencite`/`\textcite`.
-- [ ] Tjek at alle labels er unikke og alle `\ref`/`\cref` peger korrekt.
-- [ ] Tjek at alle figurer/tabeller er nævnt i brødteksten og har informativ caption.
-- [ ] Fjern eller begrund eventuelle ubrugte labels.
-- [ ] Kør en reference-audit: indledning og diskussion skal kunne spores til data eller kilder.
+- [x] Gennemgå alle afsnit for påstande uden citation; tilføj `\parencite`/`\textcite`.
+- [x] Tjek at alle labels er unikke og alle `\ref`/`\cref` peger korrekt.
+- [x] Tjek at alle figurer/tabeller er nævnt i brødteksten og har informativ caption.
+- [x] Fjern eller begrund eventuelle ubrugte labels.
+- [x] Kør en reference-audit: indledning og diskussion skal kunne spores til data eller kilder.
 
 ## 15. Sprog, typografi og konsistens
-- [ ] Ensret fagbegreber og forkortelser; introducer første gang de bruges.
-- [ ] Ensret tal og enheder (decimalkomma, procent, valuta).
-- [ ] Tjek sprog på faste labels (fx "Indholdsfortegnelse") og ret til dansk hvis krævet.
-- [ ] Gennemgå for unødige manuelle spacing (fx `\\` eller `\vspace`) og fjern.
-- [ ] Tjek at tabeller bruger ens typografi (booktabs, ingen lodrette streger).
-- [ ] Tjek at figurer har tilstrækkelig opløsning og korrekt kildeangivelse.
+- [x] Ensret fagbegreber og forkortelser; introducer første gang de bruges.
+- [x] Ensret tal og enheder (decimalkomma, procent, valuta).
+- [x] Tjek sprog på faste labels (fx "Indholdsfortegnelse") og ret til dansk hvis krævet.
+- [x] Gennemgå for unødige manuelle spacing (fx `\\` eller `\vspace`) og fjern.
+- [x] Tjek at tabeller bruger ens typografi (booktabs, ingen lodrette streger).
+- [x] Tjek at figurer har tilstrækkelig opløsning og korrekt kildeangivelse.
 
 ## 16. Endelig kvalitetssikring og aflevering
-- [ ] Kompiler med XeLaTeX/LuaLaTeX + biber indtil der ikke er warnings.
+- [ ] Kompiler med XeLaTeX/LuaLaTeX + biber indtil der ikke er warnings (kræver LaTeX-installation lokalt eller i Overleaf).
 - [ ] Tjek sideantal (maks. 40 sider).
 - [ ] Læs rapporten i PDF og tjek flow, overskrifter og henvisninger.
-- [ ] Foretag sidste sproglige korrektur (dansk og engelsk).
+- [x] Foretag sidste sproglige korrektur (dansk og engelsk).
 - [ ] Eksportér endelig PDF og aflever.

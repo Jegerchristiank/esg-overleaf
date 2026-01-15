@@ -1,3 +1,21 @@
 \subsection{Systemoversigt og arkitektur}
 \label{subsec:systemoversigt-og-arkitektur}
 
+MVP'en er bygget som en webbaseret løsning med en klar opdeling mellem frontend, backend og database. Frontend er en Next.js-applikation, der håndterer brugerflow og dataindtastning, mens backend stiller et API til rådighed for lagring og hentning af data. Persistens sker i PostgreSQL, og en fælles pakke indeholder typer, validering og beregninger.\parencite{InternalSoftwareSpec2026,InternalSoftwareDetails2026}
+
+Dataflowet er simpelt og kontrolleret: Frontend henter og persisterer snapshots via \texttt{/wizard/snapshot}, backend validerer og logger ændringer, og data lagres i kerne-tabellerne. Denne arkitektur understøtter sporbarhed, fordi alle ændringer registreres og kan genskabes, og skalerbarhed, fordi komponenterne kan udvides uafhængigt.
+
+Figur \ref{fig:system-arkitektur} viser arkitekturens hovedkomponenter og deres relationer.
+\begin{figure}[t]
+  \centering
+  \fbox{\begin{tabular}{c}
+    Frontend (Next.js) \\
+    $\downarrow$ API \\
+    Backend (Node.js) \\
+    $\downarrow$ \\
+    PostgreSQL \\
+  \end{tabular}}
+  \caption{Systemoversigt for MVP med centrale komponenter.}
+  \label{fig:system-arkitektur}
+  \FigureSource{Egen fremstilling baseret på \parencite{InternalSoftwareSpec2026,InternalSoftwareDetails2026}}
+\end{figure}

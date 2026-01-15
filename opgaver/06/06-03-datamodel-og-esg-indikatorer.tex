@@ -1,3 +1,40 @@
 \subsection{Datamodel og ESG-indikatorer}
 \label{subsec:datamodel-og-esg-indikatorer}
 
+Datamodellen er designet til at understøtte sporbarhed gennem versionsstyring og audit-log. Den centrale persistens er organiseret i tre kerne-tabeller: \texttt{wizard\_storage}, \texttt{wizard\_profiles} og \texttt{wizard\_audit\_log}.\parencite{InternalSoftwareSpec2026,InternalSoftwareDetails2026}
+
+Tabel \ref{tab:datamodel-kernetable} viser datamodellens hovedkomponenter og deres funktion i MVP'en.
+\begin{table}[t]
+  \caption{Kernetabeller i datamodellen.}
+  \label{tab:datamodel-kernetable}
+  \begin{tabularx}{\textwidth}{l X X}
+    \toprule
+    Tabel & Formål & Centrale felter \\
+    \midrule
+    \texttt{wizard\_storage} & Samler aktiv profil og seneste opdatering. & \texttt{id}, \texttt{active\_profile\_id}, \texttt{updated\_at}. \\
+    \texttt{wizard\_profiles} & Gemmer profiler, historik og versionsstatus. & \texttt{id}, \texttt{name}, \texttt{state}, \texttt{profile}, \texttt{history}, \texttt{version}. \\
+    \texttt{wizard\_audit\_log} & Dokumenterer ændringer og brugere. & \texttt{id}, \texttt{profile\_id}, \texttt{timestamp}, \texttt{user\_id}, \texttt{changes}. \\
+    \bottomrule
+  \end{tabularx}
+  \TableSource{\parencite{InternalSoftwareSpec2026,InternalSoftwareDetails2026}}
+\end{table}
+
+MVP'en fokuserer på indikatorer inden for energi, affald og sociale forhold, i tråd med casebeskrivelsen og sektorens ESG-profil. Tabel \ref{tab:esg-indikatorer} viser eksempler på indikatorer og deres datakilder.
+\begin{table}[t]
+  \caption{Eksempler på ESG-indikatorer i MVP'en.}
+  \label{tab:esg-indikatorer}
+  \begin{tabularx}{\textwidth}{l X l X}
+    \toprule
+    Område & Eksempel på datafelt & Enhed & Typisk datakilde \\
+    \midrule
+    Energi & Varme- og elforbrug & kWh & Facilities/energisystemer (CSV/API). \\
+    Affald & Mængde affald pr. fraktion & kg/ton & Affaldsopgørelser og leverandørdata. \\
+    Sociale forhold & Arbejdsmiljøindikatorer & antal/\% & HR-systemer og interne registreringer. \\
+    \bottomrule
+  \end{tabularx}
+  \TableSource{\parencite{InternalSoftwareSpec2026,InternalSoftwareDetails2026}}
+  \TableNote{Indikatorerne er illustrative og afspejler MVP'ens fokus.}
+\end{table}
+
+Indikatorerne er organiseret efter ESG-domæner, hvilket gør det muligt at mappe data til de overordnede strukturer i ESRS og GRI uden at påstå fuld dækning af alle datapunkter.\parencite{EU2023ESRS,GRI2021}
+En samlet moduloversigt for MVP'en er placeret i bilagene (tabel \ref{tab:app-moduloversigt}) for at give et supplerende overblik over scopes og moduler.

@@ -1,3 +1,27 @@
 \subsection{Datagrundlag og kilder}
 \label{subsec:datagrundlag-og-kilder}
 
+Datagrundlaget består af fire hovedkategorier: (1) regulatoriske kilder og standarder, (2) empiriske sektorkilder, (3) teoretisk litteratur og (4) interne case- og softwarekilder. Kombinationen giver både normative rammer og praktiske indsigter, som er nødvendige for at analysere ESG-rapporteringens implementering.
+
+Regulatoriske kilder vurderes som høj på autenticitet og stabilitet, men kræver fortolkning i anvendelsen. Empiriske sektorkilder er robuste, men aggregerede og derfor mindre egnede til at forklare lokale variationer. Interne kilder giver detaljegrad og sporbarhed, men har begrænset ekstern validitet og skal derfor behandles som casebaseret evidens.
+
+Tabel \ref{tab:datakilder-overblik} opsummerer datatyperne med periode, rolle og kvalitetsvurdering.
+\begin{table}[t]
+  \caption{Datakilder, rolle og kvalitetsvurdering.}
+  \label{tab:datakilder-overblik}
+  \begin{tabularx}{\textwidth}{l l X X X}
+    \toprule
+    Datatype & Periode & Centrale kilder & Rolle i rapporten & Kvalitetsvurdering \\
+    \midrule
+    Regulering og standarder & 2020--2025 & CSRD, ESRS, EU-taksonomien, GRI. & Fastlægger krav, scope og væsentlighed. & Høj autenticitet; fortolkningsrum i praksis. \\
+    Empiriske sektorkilder & 2019--2024 & Klimaaftryk, affald, arbejdsvilkår. & Understøtter sektorens ESG-profil og behov. & Robuste, men aggregerede data. \\
+    Teoretisk litteratur & 1970--2022 & Standardisering, governance, value creation. & Analytisk ramme for fortolkning. & Relevant, men kontekstafhængig. \\
+    Interne case- og softwarekilder & 2025--2026 & Casebeskrivelse og MVP-specifikation. & Operationalisering af krav og processer. & Høj detaljegrad; begrænset ekstern validitet. \\
+    \bottomrule
+  \end{tabularx}
+  \TableSource{\parencite{EU2022CSRD,EU2023ESRS,EU2020Taxonomy,GRI2021,HCWH2019ClimateFootprint,WHO2024HealthCareWaste,WHO2021HealthWorkerDeaths,InternalSoftwareSpec2026,InternalSoftwareDetails2026}}
+  \TableNote{Oversigten er ikke udtømmende.}
+\end{table}
+
+Alle kilder håndteres konsistent via \texttt{references.bib}, og interne dokumenter er arkiveret som bilagsnært materiale for at sikre sporbarhed og reproducerbarhed.
+Interne materialer håndteres som separate filer i projektmappen, så ændringer kan spores i den samlede dokumentation.
