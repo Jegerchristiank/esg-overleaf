@@ -17,38 +17,38 @@ Denne liste er lineær og kan krydses af fra top til bund.
 - [x] Udbyg `references.bib` med komplette metadata for alle centrale kilder.
 - [x] Indsaml officielle dokumenter: CSRD/ESRS, EU-taksonomien, GRI-standards; læg URL + accessed i .bib.
 - [x] Saml empiriske tal og cases fra sundhedssektoren (miljøpåvirkning, affald, energi, arbejdsvilkår).
-- [ ] Indsamle data til case om egen virksomhed: produktbeskrivelse, målgruppe, processer, økonomi (skabelon i `noter/case-egen-virksomhed.md`).
+- [x] Indsamle data til case om egen virksomhed: produktbeskrivelse, målgruppe, processer, økonomi (skabelon i `noter/case-egen-virksomhed.md`).
 - [x] Indsamle tekniske detaljer til MVP: arkitektur, datamodel, integrationspunkter, automatisering.
 - [x] Opret en "påstand → kilde"-matrix i noter, så hver claim kan spores.
 
 ## 2. Disposition og argument-kæde
-- [ ] Skriv en kort argument-kæde (1-2 linjer pr. hovedsektion): hvad etableres, hvad bruges, hvad konkluderes.
-- [ ] Skriv punktdisposition for hver undersektion (3-7 bullets) før du skriver prosa.
-- [ ] Afklar hvilke tabeller/figurer der er nødvendige, og hvor de placeres.
+- [x] Skriv en kort argument-kæde (1-2 linjer pr. hovedsektion): hvad etableres, hvad bruges, hvad konkluderes.
+- [x] Skriv punktdisposition for hver undersektion (3-7 bullets) før du skriver prosa.
+- [x] Afklar hvilke tabeller/figurer der er nødvendige, og hvor de placeres.
 
 ## 3. Indledning (opgaver/02)
 ### 3.1 Overordnet indledning
-- [ ] Skriv en kort indledende brotekst i `opgaver/02/02-indledning.tex` der rammesætter problemet og rapportens bidrag.
-- [ ] Indsæt klare referencer til hovedproblemet og til afsnittene via `\ref`.
+- [x] Skriv en kort indledende brotekst i `opgaver/02/02-indledning.tex` der rammesætter problemet og rapportens bidrag.
+- [x] Indsæt klare referencer til hovedproblemet og til afsnittene via `\ref`.
 
 ### 3.2 Baggrund og motivation
-- [ ] Udfyld `opgaver/02/02-01-baggrund-og-motivation.tex` med sektorens udfordringer og hvorfor ESG er relevant nu.
-- [ ] Understøt centrale udsagn med citations (CSRD/GRI/empiri).
+- [x] Udfyld `opgaver/02/02-01-baggrund-og-motivation.tex` med sektorens udfordringer og hvorfor ESG er relevant nu.
+- [x] Understøt centrale udsagn med citations (CSRD/GRI/empiri).
 
 ### 3.3 Formål og forskningsspørgsmål
-- [ ] Udfyld `opgaver/02/02-02-formaal-og-forskningssporgsmaal.tex` med klart formål og 2-4 forskningsspørgsmål.
-- [ ] Tjek at hvert spørgsmål besvares eksplicit i analyse/konklusion.
+- [x] Udfyld `opgaver/02/02-02-formaal-og-forskningssporgsmaal.tex` med klart formål og 2-4 forskningsspørgsmål.
+- [x] Tjek at hvert spørgsmål besvares eksplicit i analyse/konklusion.
 
 ### 3.4 Problemformulering
-- [ ] Skriv præcis problemformulering i `opgaver/02/02-03-problemformulering.tex`.
-- [ ] Afgræns begreber (ESG, SMV, ESG-as-a-Service) allerede her.
+- [x] Skriv præcis problemformulering i `opgaver/02/02-03-problemformulering.tex`.
+- [x] Afgræns begreber (ESG, SMV, ESG-as-a-Service) allerede her.
 
 ### 3.5 Afgrænsning
-- [ ] Skriv afgrænsning i `opgaver/02/02-04-afgraensning.tex`: hvad er ikke inkluderet, og hvorfor.
-- [ ] Begrunde afgrænsninger med praksis- eller metodehensyn.
+- [x] Skriv afgrænsning i `opgaver/02/02-04-afgraensning.tex`: hvad er ikke inkluderet, og hvorfor.
+- [x] Begrunde afgrænsninger med praksis- eller metodehensyn.
 
 ### 3.6 Rapportens opbygning
-- [ ] Udfyld `opgaver/02/02-05-rapportens-opbygning.tex` med kort overblik over kapitlerne og formål.
+- [x] Udfyld `opgaver/02/02-05-rapportens-opbygning.tex` med kort overblik over kapitlerne og formål.
 
 ## 4. Kontekst og rammer (opgaver/03)
 ### 4.1 Overblik
