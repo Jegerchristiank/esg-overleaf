@@ -70,6 +70,7 @@
 \newcommand*{\ptype}[1]{\def\@ptype{#1}}
 \newcommand*{\subtitle}[1]{\def\@subtitle{#1}}
 \newcommand*{\fpimage}[1]{\def\@fpimage{#1}}
+\newcommand*{\normalsider}[1]{\def\@normalsider{#1}}
 
 \def\maketitle{
     \thispagestyle{empty}
@@ -79,7 +80,7 @@
         \AddToShipoutPictureBG*{\includegraphics[width=\paperwidth,height=\paperheight]{\KU@backgroundfile}}
     \fi
     \ifKU@brandfileok
-        \AddToShipoutPictureBG*{\includegraphics[width=\paperwidth,height=\paperheight]{\KU@brandfile}}
+        \AddToShipoutPictureFG*{\includegraphics[width=\paperwidth,height=\paperheight]{\KU@brandfile}}
     \fi
     \ 
     
@@ -126,6 +127,12 @@
     \ifdefined\@advisor
         \begin{textblock}{10}(1.5,14.2)
         \noindent\fontsize{11}{11}\selectfont \@advisor 
+        \end{textblock}
+    \fi
+
+    \ifdefined\@normalsider
+        \begin{textblock}{10}(1.5,14.7)
+        \noindent\fontsize{11}{11}\selectfont \@normalsider
         \end{textblock}
     \fi
     
