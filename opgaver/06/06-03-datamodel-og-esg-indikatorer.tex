@@ -1,22 +1,22 @@
 \subsection{Datamodel og ESG-indikatorer}
 \label{subsec:datamodel-og-esg-indikatorer}
 
-Datamodellen er designet til at understøtte sporbarhed gennem versionsstyring og audit-log. Den centrale persistens er organiseret i tre kerne-tabeller: \texttt{wizard\_storage}, \texttt{wizard\_profiles} og \texttt{wizard\_audit\_log}.\parencite{InternalSoftwareSpec2026,InternalSoftwareDetails2026}
+Datamodellen er designet til at understøtte sporbarhed gennem versionshistorik og auditspor. Den organiserer data i tre logiske lag: profil og afgrænsning, indikatorregistreringer og ændringshistorik.
 
 Tabel \ref{tab:datamodel-kernetable} viser datamodellens hovedkomponenter og deres funktion i MVP'en.
 \begin{table}[t]
-  \caption{Kernetabeller i datamodellen.}
+  \caption{Hovedkomponenter i datamodellen.}
   \label{tab:datamodel-kernetable}
   \begin{tabularx}{\textwidth}{l X X}
     \toprule
-    Tabel & Formål & Centrale felter \\
+    Dataobjekt & Formål & Eksempler på indhold \\
     \midrule
-    \texttt{wizard\_storage} & Samler aktiv profil og seneste opdatering. & \texttt{id}, \texttt{active\_profile\_id}, \texttt{updated\_at}. \\
-    \texttt{wizard\_profiles} & Gemmer profiler, historik og versionsstatus. & \texttt{id}, \texttt{name}, \texttt{state}, \texttt{profile}, \texttt{history}, \texttt{version}. \\
-    \texttt{wizard\_audit\_log} & Dokumenterer ændringer og brugere. & \texttt{id}, \texttt{profile\_id}, \texttt{timestamp}, \texttt{user\_id}, \texttt{changes}. \\
+    Profil og afgrænsning & Fastlægger organisationens scope og relevante moduler. & Grundoplysninger, perioder, afgrænsninger. \\
+    Indikatorregistrering & Samler data pr. modul til beregning og rapportering. & Forbrugstal, mængder, enheder, datakilder. \\
+    Ændrings- og beregningsspor & Dokumenterer ændringer og udledte resultater. & Tidsstempel, ændringstype, beregningsgrundlag. \\
     \bottomrule
   \end{tabularx}
-  \TableSource{\parencite{InternalSoftwareSpec2026,InternalSoftwareDetails2026}}
+  \TableSource{Egen fremstilling; datadefinitioner fremgår af bilag \ref{app:teknisk-dokumentation}.}
 \end{table}
 
 MVP'en fokuserer på indikatorer inden for energi, affald og sociale forhold, i tråd med casebeskrivelsen og sektorens ESG-profil. Tabel \ref{tab:esg-indikatorer} viser eksempler på indikatorer og deres datakilder.
@@ -27,12 +27,12 @@ MVP'en fokuserer på indikatorer inden for energi, affald og sociale forhold, i 
     \toprule
     Område & Eksempel på datafelt & Enhed & Typisk datakilde \\
     \midrule
-    Energi & Varme- og elforbrug & kWh & Facilities/energisystemer (CSV/API). \\
+    Energi & Varme- og elforbrug & kWh & Drifts- og energidata. \\
     Affald & Mængde affald pr. fraktion & kg/ton & Affaldsopgørelser og leverandørdata. \\
-    Sociale forhold & Arbejdsmiljøindikatorer & antal/\% & HR-systemer og interne registreringer. \\
+    Sociale forhold & Arbejdsmiljøindikatorer & antal/\% & HR-data og interne registreringer. \\
     \bottomrule
   \end{tabularx}
-  \TableSource{\parencite{InternalSoftwareSpec2026,InternalSoftwareDetails2026}}
+  \TableSource{Egen fremstilling baseret på case-materiale (bilag \ref{app:teknisk-dokumentation}).}
   \TableNote{Indikatorerne er illustrative og afspejler MVP'ens fokus.}
 \end{table}
 

@@ -1,7 +1,7 @@
 \subsection{Supplerende figurer og tabeller}
 \label{app:supplerende-figurer-og-tabeller}
 
-Dette bilag samler supplerende materiale, der refereres fra hovedteksten, men som ikke er nødvendigt at placere i de centrale kapitler.
+Dette bilag samler supplerende materiale, der refereres fra hovedteksten, men som ikke er nødvendigt at placere i de centrale kapitler. Moduloversigten i tabel \ref{tab:app-moduloversigt} og skærmbillederne dokumenterer den fulde brugerrejse fra profilafgrænsning til rapportoutput.
 
 \begin{table}[t]
   \caption{Moduloversigt pr. scope i MVP'en.}
@@ -17,21 +17,123 @@ Dette bilag samler supplerende materiale, der refereres fra hovedteksten, men so
     Governance og strategisk & G1, D1--D2, SBM, IRO, MR. \\
     \bottomrule
   \end{tabularx}
-  \TableSource{\parencite{InternalSoftwareSpec2026,InternalSoftwareDetails2026}}
+  \TableSource{Egen fremstilling baseret på case-materiale.}
 \end{table}
+
+\paragraph{Profil og modulvalg} Profiloverblik og profil-flow vises i figurer \ref{fig:app-landing-profil-overblik}, \ref{fig:app-profil-flow-start}, \ref{fig:app-profil-flow-ja}, \ref{fig:app-profil-flow-nej} og \ref{fig:app-profil-flow-progression}. Moduloverblik og navigation er dokumenteret i figurer \ref{fig:app-modul-overblik} og \ref{fig:app-modul-navigation}.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{\detokenize{billeder af software/Landing – profil‑overblik.png}}
+  \caption{Profiloverblik som startpunkt for brugerrejsen.}
+  \label{fig:app-landing-profil-overblik}
+  \FigureSource{Egen fremstilling (skærmbillede fra MVP).}
+\end{figure}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{\detokenize{billeder af software/Profil‑flow – startskærm.png}}
+  \caption{Profil-flowets startskærm med formål og progression.}
+  \label{fig:app-profil-flow-start}
+  \FigureSource{Egen fremstilling (skærmbillede fra MVP).}
+\end{figure}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{\detokenize{billeder af software/Profil‑flow – svar “Ja” .png}}
+  \caption{Profil-flow med svar ``Ja'' og opdateret progression.}
+  \label{fig:app-profil-flow-ja}
+  \FigureSource{Egen fremstilling (skærmbillede fra MVP).}
+\end{figure}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{\detokenize{billeder af software/Profil‑flow – svar “Nej” .png}}
+  \caption{Profil-flow med svar ``Nej'' og opdateret progression.}
+  \label{fig:app-profil-flow-nej}
+  \FigureSource{Egen fremstilling (skærmbillede fra MVP).}
+\end{figure}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{\detokenize{billeder af software/Profil‑flow – progression.png}}
+  \caption{Profil-flow efter flere svar med progression.}
+  \label{fig:app-profil-flow-progression}
+  \FigureSource{Egen fremstilling (skærmbillede fra MVP).}
+\end{figure}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{\detokenize{billeder af software/Wizard – overblik før moduler.png}}
+  \caption{Moduloverblik med adgang til moduler.}
+  \label{fig:app-modul-overblik}
+  \FigureSource{Egen fremstilling (skærmbillede fra MVP).}
+\end{figure}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{\detokenize{billeder af software/Modul‑navigation – overblik .png}}
+  \caption{Modulnavigation opdelt efter scope.}
+  \label{fig:app-modul-navigation}
+  \FigureSource{Egen fremstilling (skærmbillede fra MVP).}
+\end{figure}
+
+\paragraph{Dataindtastning og beregning} B2-modulet illustrerer dataindsamling, beregning og sporbarhed i figurer \ref{fig:app-b2-tomt}, \ref{fig:app-b2-udfyldt}, \ref{fig:app-b2-resultat} og \ref{fig:app-b2-trace}.
 
 \begin{figure}[t]
   \centering
   \includegraphics[width=\textwidth]{\detokenize{billeder af software/B2 – tomt:ikke udfyldt.png}}
-  \caption{B2-modul uden udfyldte felter (supplement).}
+  \caption{B2-modul uden udfyldte felter.}
   \label{fig:app-b2-tomt}
   \FigureSource{Egen fremstilling (skærmbillede fra MVP).}
 \end{figure}
 
 \begin{figure}[t]
   \centering
+  \includegraphics[width=\textwidth]{\detokenize{billeder af software/B2 – udfyldt formular.png}}
+  \caption{B2-modul med udfyldt energi-input.}
+  \label{fig:app-b2-udfyldt}
+  \FigureSource{Egen fremstilling (skærmbillede fra MVP).}
+\end{figure}
+
+\begin{figure}[t]
+  \centering
   \includegraphics[width=\textwidth]{\detokenize{billeder af software/B2 – CO₂‑estimat i UI.png}}
-  \caption{B2-modul med beregnet CO$_2$-estimat (supplement).}
+  \caption{B2-modul med beregnet CO$_2$-estimat.}
   \label{fig:app-b2-resultat}
+  \FigureSource{Egen fremstilling (skærmbillede fra MVP).}
+\end{figure}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{\detokenize{billeder af software/B2 – teknisk beregningstrace.png}}
+  \caption{Beregningstrace for CO$_2$-estimat.}
+  \label{fig:app-b2-trace}
+  \FigureSource{Egen fremstilling (skærmbillede fra MVP).}
+\end{figure}
+
+\paragraph{Review og eksport} Review og eksport vises i figurer \ref{fig:app-review-topoverblik}, \ref{fig:app-reportoutput-preview} og \ref{fig:app-review-download}.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{\detokenize{billeder af software/Review – topoverblik.png}}
+  \caption{Review-side med status og eksportmuligheder.}
+  \label{fig:app-review-topoverblik}
+  \FigureSource{Egen fremstilling (skærmbillede fra MVP).}
+\end{figure}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{\detokenize{billeder af software/Review – PDF‑preview:sektion.png}}
+  \caption{PDF-preview som del af rapportoutput.}
+  \label{fig:app-reportoutput-preview}
+  \FigureSource{Egen fremstilling (skærmbillede fra MVP).}
+\end{figure}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{\detokenize{billeder af software/Review – download‑knapper .png}}
+  \caption{Download-knapper til rapportoutput.}
+  \label{fig:app-review-download}
   \FigureSource{Egen fremstilling (skærmbillede fra MVP).}
 \end{figure}

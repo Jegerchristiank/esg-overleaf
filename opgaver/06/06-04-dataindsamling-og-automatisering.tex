@@ -1,24 +1,24 @@
 \subsection{Dataindsamling og automatisering}
 \label{subsec:dataindsamling-og-automatisering}
 
-Dataindsamlingen er bygget op omkring et wizard-flow, hvor brugeren indtaster eller uploader data pr. modul. Input valideres gennem valideringsregler i data-skemaet, og data persisteres som snapshots, så input kan spores over tid.\parencite{InternalSoftwareSpec2026,InternalSoftwareDetails2026}
+Dataindsamlingen er organiseret som et guidet modulforløb, hvor brugeren indtaster eller uploader data pr. modul. Input valideres gennem faste regler, og data gemmes med versionshistorik, så ændringer kan spores over tid. Detaljer om datadefinitioner og kontrolpunkter fremgår af bilag \ref{app:teknisk-dokumentation}.
 
 Figur \ref{fig:dataflow-pipeline} opsummerer dataflowet fra datakilder til rapportoutput og viser, hvor validering og beregning sker i processen.
 \begin{figure}[t]
   \centering
   \fbox{\begin{tabular}{c}
-    Datakilder (ERP/HR/facilities) \\
-    $\downarrow$ CSV/API/manuel input \\
-    Wizard-flow og validering \\
+    Datakilder (drift, HR, økonomi) \\
+    $\downarrow$ Strukturering og manuel input \\
+    Guidet indsamling og validering \\
     $\downarrow$ Beregningsmotor \\
-    $\downarrow$ Audit-log og versionsstyring \\
-    $\downarrow$ Rapportoutput (PDF/CSRD/XBRL) \\
+    $\downarrow$ Auditspor og versionshistorik \\
+    $\downarrow$ Rapportoutput (PDF og standardiserede formater) \\
   \end{tabular}}
   \caption{Forenklet dataflow fra indsamling til rapportoutput.}
   \label{fig:dataflow-pipeline}
   \FigureSource{Egen fremstilling.}
 \end{figure}
 
-Automatisering sker primært gennem autosave og beregningsmotor. Autosave reducerer risikoen for datatab, mens beregningsmotoren omsætter input til indikatorer og samlede resultater. Audit-log registrerer ændringer og versioner og skaber en teknisk sporbarhed, som er nødvendig for efterprøvelse. Versioner opdateres kun ved reelle ændringer, så loggen bevarer relevans.
+Automatisering sker gennem løbende gemmefunktion og beregning af indikatorer. Det reducerer risikoen for datatab og skaber et konsistent grundlag for rapportoutput. Auditsporet registrerer ændringer og versioner og gør det muligt at efterprøve resultater og antagelser.
 
-Dataindsamling kan ske via CSV/API/Excel fra ERP- og HR-systemer samt facilities, men MVP'en understøtter også manuel indtastning for at sikre, at rapporteringen kan gennemføres uden fulde integrationer. Kvalitetskontrol sker gennem valideringsregler, obligatoriske felter og konsistente enheder.
+Dataindsamling kan ske via strukturerede udtræk fra drifts-, økonomi- og HR-data, men løsningen understøtter også manuel indtastning for at sikre, at rapporteringen kan gennemføres uden fulde integrationer. Kvalitetskontrol sker gennem valideringsregler, obligatoriske felter og konsistente enheder.

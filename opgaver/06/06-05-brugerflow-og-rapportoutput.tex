@@ -1,7 +1,7 @@
 \subsection{Brugerflow og rapportoutput}
 \label{subsec:brugerflow-og-rapportoutput}
 
-Brugerflowet er designet til at guide en SMV gennem en struktureret indsamling af ESG-data. Flowet starter med et profil-overblik, hvor brugeren kan oprette eller fortsætte en profil, som definerer relevante moduler (figur \ref{fig:landing-profil-overblik}). Dernæst følger et kort profil-flow, der afgrænser scope og databehov (figur \ref{fig:profil-flow-start}), og et wizard-overblik, der giver adgang til de enkelte moduler (figur \ref{fig:wizard-overblik}).
+Brugerflowet er designet til at guide en SMV gennem en struktureret indsamling af ESG-data. Flowet starter med et profiloverblik, hvor brugeren kan oprette eller fortsætte en profil, som definerer relevante moduler (figur \ref{fig:app-landing-profil-overblik}). Dernæst følger et kort profil-flow, der afgrænser scope og databehov (figur \ref{fig:app-profil-flow-start}), og et moduloverblik, der giver adgang til de enkelte moduler (figur \ref{fig:app-modul-overblik}).
 
 Figur \ref{fig:brugerflow-diagram} opsummerer brugerrejsen fra onboarding til eksport og viser den overordnede proceslogik.
 \begin{figure}[t]
@@ -15,70 +15,13 @@ Figur \ref{fig:brugerflow-diagram} opsummerer brugerrejsen fra onboarding til ek
     $\downarrow$ \\
     Review og kvalitetstjek \\
     $\downarrow$ \\
-    Eksport (PDF/CSRD/XBRL) \\
+    Eksport (PDF og standardiserede formater) \\
   \end{tabular}}
   \caption{Brugerflow fra onboarding til rapporteksport.}
   \label{fig:brugerflow-diagram}
   \FigureSource{Egen fremstilling.}
 \end{figure}
 
-Dataindtastningen foregår modul for modul. Figur \ref{fig:b2-udfyldt} viser et konkret eksempel på udfyldt input i et energimodul, mens figur \ref{fig:b2-trace} dokumenterer den beregningslogik, der gør resultatet efterprøvbart. Supplerende skærmbilleder af tomt modul og beregnet CO$_2$-estimat er placeret i bilag \ref{app:supplerende-figurer-og-tabeller} (figurer \ref{fig:app-b2-tomt} og \ref{fig:app-b2-resultat}). Slutpunktet er en review-side, hvor rapportstatus og eksportmuligheder fremgår (figur \ref{fig:review-topoverblik}).
+Dataindtastningen foregår modul for modul. Figur \ref{fig:app-b2-udfyldt} viser et konkret eksempel på udfyldt input i et energimodul, mens figur \ref{fig:app-b2-trace} dokumenterer beregningslogikken, der gør resultatet efterprøvbart. Supplerende skærmbilleder af tomt modul og beregnet CO$_2$-estimat er placeret i bilag \ref{app:supplerende-figurer-og-tabeller} (figurer \ref{fig:app-b2-tomt} og \ref{fig:app-b2-resultat}). Slutpunktet er en review-side, hvor rapportstatus og eksportmuligheder fremgår (figur \ref{fig:app-review-topoverblik}).
 
-Rapportoutput genereres som PDF til ledelse og interessenter samt som strukturerede data til videre brug (CSRD/ESRS-pakker og XBRL), hvilket gør output anvendeligt på tværs af compliance- og beslutningssammenhænge.\parencite{InternalSoftwareSpec2026,InternalSoftwareDetails2026} Outputet er målrettet ledelse, revisor, myndigheder og kunder, som efterspørger dokumenteret sporbarhed.
-Figur \ref{fig:reportoutput-preview} viser et eksempel på PDF-preview som del af rapportoutputtet.
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\textwidth]{\detokenize{billeder af software/Landing – profil‑overblik.png}}
-  \caption{Profil-overblik som startpunkt for brugerrejsen.}
-  \label{fig:landing-profil-overblik}
-  \FigureSource{Egen fremstilling (skærmbillede fra MVP).}
-\end{figure}
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\textwidth]{\detokenize{billeder af software/Profil‑flow – startskærm.png}}
-  \caption{Profil-flowet afgrænser scope og relevante moduler.}
-  \label{fig:profil-flow-start}
-  \FigureSource{Egen fremstilling (skærmbillede fra MVP).}
-\end{figure}
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\textwidth]{\detokenize{billeder af software/Wizard – overblik før moduler.png}}
-  \caption{Wizard-overblik med adgang til moduler.}
-  \label{fig:wizard-overblik}
-  \FigureSource{Egen fremstilling (skærmbillede fra MVP).}
-\end{figure}
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\textwidth]{\detokenize{billeder af software/B2 – udfyldt formular.png}}
-  \caption{Eksempel på udfyldt energi-input i modul B2.}
-  \label{fig:b2-udfyldt}
-  \FigureSource{Egen fremstilling (skærmbillede fra MVP).}
-\end{figure}
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\textwidth]{\detokenize{billeder af software/B2 – teknisk beregningstrace.png}}
-  \caption{Beregningstrace der gør resultatet efterprøvbart.}
-  \label{fig:b2-trace}
-  \FigureSource{Egen fremstilling (skærmbillede fra MVP).}
-\end{figure}
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\textwidth]{\detokenize{billeder af software/Review – topoverblik.png}}
-  \caption{Review-side med status og eksportmuligheder.}
-  \label{fig:review-topoverblik}
-  \FigureSource{Egen fremstilling (skærmbillede fra MVP).}
-\end{figure}
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\textwidth]{\detokenize{billeder af software/Review – PDF‑preview:sektion.png}}
-  \caption{Eksempel på PDF-preview af rapportoutput.}
-  \label{fig:reportoutput-preview}
-  \FigureSource{Egen fremstilling (skærmbillede fra MVP).}
-\end{figure}
+Rapportoutput genereres som PDF til ledelse og interessenter samt som strukturerede data til compliance, hvilket gør output anvendeligt på tværs af beslutnings- og dokumentationssammenhænge. Eksempel på PDF-preview fremgår af figur \ref{fig:app-reportoutput-preview} i bilag \ref{app:supplerende-figurer-og-tabeller}.
