@@ -1,14 +1,18 @@
 % Common packages and configuration for the KU thesis template
 \usepackage{KUstyle}
 \usepackage[margin=0.8in]{geometry}
+\usepackage{fontspec}
+\usepackage[english,danish]{babel}
+\usepackage{csquotes}
 \usepackage{setspace}
 \usepackage{tabularx}
-\usepackage{fontspec}
-\usepackage{csquotes}
+\usepackage{amsmath}
+\usepackage{siunitx}
+\usepackage{mdframed}
 \usepackage{booktabs} % Consistent table rules for evidence tables.
 
 % Package decisions:
-% - siunitx: add when numeric tables/units are introduced (not needed yet).
+% - siunitx: used for numeric examples/units.
 % - longtable: add only if a table must span multiple pages.
 
 % Label conventions:
@@ -16,6 +20,13 @@
 
 % Main font configuration
 \setmainfont{Arial}
+
+% Numeric and unit formatting (Danish decimal comma).
+\sisetup{
+  output-decimal-marker = {,},
+  group-separator = {.},
+  group-minimum-digits = 4
+}
 
 % Table/figure source and note helpers (use below floats).
 \newcommand{\TableSource}[1]{\par{\small\textit{Kilde: #1}}}
@@ -26,8 +37,33 @@
 % Figure standard: PDF/PNG preferred, 300 dpi for raster, caption+label, source below.
 
 % Bibliography setup
-\usepackage[backend=biber,style=authoryear,maxcitenames=2]{biblatex}
+\usepackage[backend=biber,style=authoryear,maxcitenames=2,giveninits=true]{biblatex}
 \addbibresource{references.bib}
 
 % Customisation of default names
 \renewcommand{\contentsname}{Indholdsfortegnelse}
+
+% Legal reference helpers.
+\newcommand{\lawpar}[1]{\S~#1}
+\newcommand{\lawart}[1]{art.~#1}
+
+% Quote styling: make display quotes visually distinct and attributable.
+\newmdenv[
+  leftline=true,
+  rightline=false,
+  topline=false,
+  bottomline=false,
+  linecolor=KUrod,
+  linewidth=2pt,
+  backgroundcolor=black!5,
+  skipabove=\baselineskip,
+  skipbelow=\baselineskip,
+  innerleftmargin=0.8em,
+  innerrightmargin=0.8em,
+  innertopmargin=0.6em,
+  innerbottommargin=0.6em
+]{quoteblock}
+
+\newcommand{\quoteattrib}[1]{\par\hfill--- \normalfont #1}
+
+\renewenvironment{displayquote}{\begin{quoteblock}\small\itshape}{\end{quoteblock}}

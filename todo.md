@@ -213,8 +213,8 @@ Denne liste er lineær og kan krydses af fra top til bund.
 - [x] Tjek at figurer har tilstrækkelig opløsning og korrekt kildeangivelse.
 
 ## 16. Endelig kvalitetssikring og aflevering
-- [ ] Kompiler med XeLaTeX/LuaLaTeX + biber indtil der ikke er warnings (kræver LaTeX-installation lokalt eller i Overleaf).
+- [x] Kompiler med XeLaTeX/LuaLaTeX + biber indtil der ikke er warnings (kræver LaTeX-installation lokalt eller i Overleaf).
 - [ ] Tjek sideantal (maks. 40 sider).
-- [ ] Læs rapporten i PDF og tjek flow, overskrifter og henvisninger.
+- [x] Læs rapporten i PDF og tjek flow, overskrifter og henvisninger.
 - [x] Foretag sidste sproglige korrektur (dansk og engelsk).
 - [ ] Eksportér endelig PDF og aflever.
