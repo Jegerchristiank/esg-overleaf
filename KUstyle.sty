@@ -5,65 +5,32 @@
 \RequirePackage[absolute]{textpos}
 \RequirePackage{hyperref}
 
-\makeatletter
-\@ifundefined{AddToShipoutPictureBG}{%
-    \let\AddToShipoutPictureBG\AddToShipoutPicture
-}{}
-\@ifundefined{AddToShipoutPictureFG}{%
-    \let\AddToShipoutPictureFG\AddToShipoutPictureBG
-}{}
-\makeatother
-
 \definecolor{KUrod}{RGB}{144,26,30}
 
-\newif\ifKU@backgroundfileok
-\newif\ifKU@brandfileok
+\newif\ifKU@logofileok
 \newread\KU@logoread
-\def\KU@backgroundfile{sund-logo.pdf}
-\def\KU@brandfile{sund-danish.pdf}
+\def\KU@logofile{KU-logo.pdf}
 \def\KU@lfspointer{version https://git-lfs.github.com/spec/v1}
 
-\newcommand*{\KU@checkbackgroundfile}{%
-    \KU@backgroundfileokfalse
-    \IfFileExists{\KU@backgroundfile}{%
+\newcommand*{\KU@checklogofile}{%
+    \KU@logofileokfalse
+    \IfFileExists{\KU@logofile}{%
         \begingroup
         \endlinechar=-1
-        \openin\KU@logoread=\KU@backgroundfile
+        \openin\KU@logoread=\KU@logofile
         \read\KU@logoread to \KU@logofirstline
         \closein\KU@logoread
         \ifx\KU@logofirstline\KU@lfspointer
-            \global\KU@backgroundfileokfalse
+            \global\KU@logofileokfalse
         \else
-            \global\KU@backgroundfileoktrue
+            \global\KU@logofileoktrue
         \fi
         \endgroup
-        \ifKU@backgroundfileok\else
-            \PackageWarning{KUstyle}{sund-logo.pdf is a Git LFS pointer. Replace it with the actual PDF to enable the cover background}%
+        \ifKU@logofileok\else
+            \PackageWarning{KUstyle}{KU-logo.pdf is a Git LFS pointer. Replace it with the actual PDF to enable the cover background}%
         \fi
     }{%
-        \PackageWarning{KUstyle}{sund-logo.pdf not found. Cover background omitted}%
-    }%
-}
-
-\newcommand*{\KU@checkbrandfile}{%
-    \KU@brandfileokfalse
-    \IfFileExists{\KU@brandfile}{%
-        \begingroup
-        \endlinechar=-1
-        \openin\KU@logoread=\KU@brandfile
-        \read\KU@logoread to \KU@logofirstline
-        \closein\KU@logoread
-        \ifx\KU@logofirstline\KU@lfspointer
-            \global\KU@brandfileokfalse
-        \else
-            \global\KU@brandfileoktrue
-        \fi
-        \endgroup
-        \ifKU@brandfileok\else
-            \PackageWarning{KUstyle}{sund-danish.pdf is a Git LFS pointer. Replace it with the actual PDF to enable the cover logo}%
-        \fi
-    }{%
-        \PackageWarning{KUstyle}{sund-danish.pdf not found. Cover logo omitted}%
+        \PackageWarning{KUstyle}{KU-logo.pdf not found. Cover background omitted}%
     }%
 }
 
@@ -79,27 +46,22 @@
 \newcommand*{\ptype}[1]{\def\@ptype{#1}}
 \newcommand*{\subtitle}[1]{\def\@subtitle{#1}}
 \newcommand*{\fpimage}[1]{\def\@fpimage{#1}}
-\newcommand*{\normalsider}[1]{\def\@normalsider{#1}}
 
 \def\maketitle{
     \thispagestyle{empty}
-    \KU@checkbackgroundfile
-    \KU@checkbrandfile
-    \ifKU@backgroundfileok
-        \AddToShipoutPictureBG*{\includegraphics[width=\paperwidth,height=\paperheight]{\KU@backgroundfile}}
-    \fi
-    \ifKU@brandfileok
-        \AddToShipoutPictureFG*{\includegraphics[width=\paperwidth,height=\paperheight]{\KU@brandfile}}
+    \KU@checklogofile
+    \ifKU@logofileok
+        \AddToShipoutPictureBG*{\includegraphics[width=\paperwidth,height=\paperheight]{\KU@logofile}}
     \fi
     \ 
     
     \ifdefined\@fpimage
         \begin{textblock}{10}(1.5,4.7)
-        \ifx\@fpimage\KU@backgroundfile
-            \ifKU@backgroundfileok
+        \ifx\@fpimage\KU@logofile
+            \ifKU@logofileok
                 \noindent\includegraphics*[width=\textwidth, height=80mm, keepaspectratio]{\@fpimage}
             \else
-                \PackageWarning{KUstyle}{Frontpage image omitted because sund-logo.pdf is not a valid PDF}%
+                \PackageWarning{KUstyle}{Frontpage image omitted because KU-logo.pdf is not a valid PDF}%
             \fi
         \else
             \IfFileExists{\@fpimage}{%
@@ -136,12 +98,6 @@
     \ifdefined\@advisor
         \begin{textblock}{10}(1.5,14.2)
         \noindent\fontsize{11}{11}\selectfont \@advisor 
-        \end{textblock}
-    \fi
-
-    \ifdefined\@normalsider
-        \begin{textblock}{10}(1.5,14.7)
-        \noindent\fontsize{11}{11}\selectfont \@normalsider
         \end{textblock}
     \fi
     
