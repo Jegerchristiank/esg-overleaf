@@ -76,16 +76,7 @@
 \InputIfFileExists{normalpages-count.tex}{}{}
 
 \ifluatex
-  \newcount\KU@countlevel
-  \KU@countlevel=1
 
-  \newcommand{\KU@updatecountstate}{%
-    \ifnum\KU@countlevel=0\relax
-      \directlua{ku_counting = true}%
-    \else
-      \directlua{ku_counting = false}%
-    \fi
-  }
 
   \newcommand{\NormalTextOff}{%
     \global\advance\KU@countlevel by 1\relax
