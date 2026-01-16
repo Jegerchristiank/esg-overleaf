@@ -4,7 +4,7 @@
 Dataindsamlingen er organiseret som et guidet modulforløb, hvor brugeren indtaster eller uploader data pr. modul. Input valideres gennem faste regler, og data gemmes med versionshistorik, så ændringer kan spores over tid. Detaljer om datadefinitioner og kontrolpunkter fremgår af bilag \ref{app:teknisk-dokumentation}.
 
 Figur \ref{fig:dataflow-pipeline} opsummerer dataflowet fra datakilder til rapportoutput og viser, hvor validering og beregning sker i processen.
-\begin{figure}[t]
+\begin{figure}[h]
   \centering
   \fbox{\begin{tabular}{c}
     Datakilder (drift, HR, økonomi) \\
@@ -24,7 +24,7 @@ Automatisering sker gennem løbende gemmefunktion og beregning af indikatorer. D
 Dataindsamling kan ske via API-integrationer eller CSV-udtræk fra drifts-, økonomi- og HR-data, men løsningen understøtter også manuel indtastning for at sikre, at rapporteringen kan gennemføres uden fulde integrationer. Kvalitetskontrol sker gennem valideringsregler, obligatoriske felter og konsistente enheder.
 
 For at synliggøre governance i datakvalitet er det nyttigt at knytte typiske fejltyper til konkrete kontrolpunkter. Tabel \ref{tab:datakvalitet-kontrol} viser eksempler på, hvordan MVP'en teknisk reducerer risikoen for fejl og inkonsistens.
-\begin{table}[t]
+\begin{table}[h]
   \caption{Datakvalitetsfejl, der viser hvorfor tekniske kontrolpunkter er nødvendige.}
   \label{tab:datakvalitet-kontrol}
   \begin{tabularx}{\textwidth}{l X X}
