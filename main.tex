@@ -1,0 +1,109 @@
+% IMPORTANT! In order for the document to compile, one needs to use XeLaTeX or LuaLaTeX as compiler.
+% In Overleaf this can be done via Menu -> Settings -> Compiler -> Choose XeLaTeX/LuaLaTeX.
+\documentclass[12pt]{article}
+
+\input{preamble}
+
+% This change the content of the frontpage
+\ptype{Selvtilrettelagt valgfag (15 ECTS)}
+\author{Christian Kristensen}
+\title{ESG-rapportering i sundhedssektoren}
+\subtitle{Policy, organisering, økonomisk relevans og kommercialisering}
+\date{Dato: 15. januar 2026}
+\advisor{Vejleder: Karsten Vrangbæk}
+\fpimage{picture.png} % Remove this command if no image is desired
+
+\begin{document}
+
+\maketitle
+
+\onehalfspacing
+
+\begin{table}[h]
+\def\arraystretch{1.5}
+\begin{tabularx}{\textwidth}{l X}
+Institution: & Københavns Universitet, Fakultet for Sundheds- og Medicinvidenskab \\
+Institut: & Institut for Folkesundhedsvidenskab \\
+Uddannelse: & Bachelor i Sundhed og Informatik (5. semester) \\
+Kursus: & SITA17001U Individuelt tilrettelagt studieenhed (15 ECTS) \\
+Forfatter: & Christian Kristensen \\
+KUID: & tdh522 \\
+Titel og undertitel: & ESG-rapportering i sundhedssektoren: Policy, organisering, økonomisk relevans og kommercialisering \\
+Vejleder: & Karsten Vrangbæk \\
+Prøveform: & Skriftlig rapport \\
+Bedømmelse: & Bestået / Ikke bestået \\
+Maks. omfang: & 40 sider \\
+Dato: & 15. januar 2026
+\end{tabularx}
+\end{table}
+\newpage
+
+\tableofcontents
+\clearpage
+
+\input{opgaver/00/00-resume}
+\clearpage
+\input{opgaver/01/01-abstract}
+\clearpage
+\input{opgaver/01/01-01-begrebsliste}
+\clearpage
+
+\input{opgaver/02/02-indledning}
+\input{opgaver/02/02-01-baggrund-og-motivation}
+\input{opgaver/02/02-02-formaal-og-forskningssporgsmaal}
+\input{opgaver/02/02-03-problemformulering}
+\input{opgaver/02/02-04-afgraensning}
+\input{opgaver/02/02-05-rapportens-opbygning}
+
+\input{opgaver/03/03-kontekst-og-rammer}
+\input{opgaver/03/03-01-esg-rapportering-i-sundhedssektoren}
+\input{opgaver/03/03-02-regulatoriske-rammer-csrd-eu-taksonomien-og-gri}
+\input{opgaver/03/03-03-smver-og-behovet-for-forenkling}
+\input{opgaver/03/03-04-esg-as-a-service-som-servicekoncept}
+
+\input{opgaver/04/04-teoretisk-ramme}
+\input{opgaver/04/04-01-standardisering-og-organisationer-brunsson}
+\input{opgaver/04/04-02-policy-og-governanceperspektiver}
+\input{opgaver/04/04-03-oekonomiske-og-kommercielle-perspektiver}
+\input{opgaver/04/04-04-opsamling-af-den-teoretiske-ramme}
+
+\input{opgaver/05/05-metode}
+\input{opgaver/05/05-01-design-og-tilgang}
+\input{opgaver/05/05-02-datagrundlag-og-kilder}
+\input{opgaver/05/05-03-case-egen-virksomhed-som-pilot}
+\input{opgaver/05/05-04-etik-compliance-og-kvalitet}
+\input{opgaver/05/05-05-begraensninger}
+
+\input{opgaver/06/06-software-og-mvp}
+\input{opgaver/06/06-01-formaal-og-krav}
+\input{opgaver/06/06-02-systemoversigt-og-arkitektur}
+\input{opgaver/06/06-03-datamodel-og-esg-indikatorer}
+\input{opgaver/06/06-04-dataindsamling-og-automatisering}
+\input{opgaver/06/06-05-brugerflow-og-rapportoutput}
+\input{opgaver/06/06-06-demonstration-og-evaluering}
+
+\input{opgaver/07/07-analyse}
+\input{opgaver/07/07-01-esg-som-organisationsstandard}
+\input{opgaver/07/07-02-vaerdiforslag-og-forretningsmodel}
+\input{opgaver/07/07-03-prisfastsaettelse-og-kundesegmentering}
+\input{opgaver/07/07-04-organisatoriske-og-oekonomiske-implikationer}
+\input{opgaver/07/07-05-implementering-i-sundhedssektoren}
+
+\input{opgaver/08/08-diskussion}
+\input{opgaver/08/08-01-sammenhaeng-mellem-teori-empiri-og-software}
+\input{opgaver/08/08-02-implikationer-for-smver}
+\input{opgaver/08/08-03-begraensninger-og-alternative-forklaringer}
+
+\input{opgaver/09/09-konklusion}
+
+\input{opgaver/10/10-perspektivering-og-anbefalinger}
+
+\printbibliography[heading=bibintoc,title={Referencer}]
+
+\appendix
+\input{opgaver/11/11-bilag}
+\input{opgaver/11/11-01-projektbeskrivelse}
+\input{opgaver/11/11-02-supplerende-figurer-og-tabeller}
+\input{opgaver/11/11-03-teknisk-dokumentation}
+
+\end{document}

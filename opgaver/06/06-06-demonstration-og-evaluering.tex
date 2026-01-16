@@ -1,0 +1,52 @@
+\subsection{Demonstration og evaluering}
+\label{subsec:demonstration-og-evaluering}
+
+Evalueringen tager udgangspunkt i kravene i tabel \ref{tab:krav-prioritering} og demonstrerer, om MVP'en leverer de forventede funktioner. Demonstrationen er kvalitativ og bygger på tre scenarier, der dækker energi, affald og sociale indikatorer (tabel \ref{tab:testscenarier}).
+
+\begin{table}[t]
+  \caption{Testscenarier og relation til krav.}
+  \label{tab:testscenarier}
+  \begin{tabularx}{\textwidth}{l X X}
+    \toprule
+    Scenarie & Forventet output & Relaterede krav \\
+    \midrule
+    Energi (B2) & Valideret input, beregnet resultat og auditspor. & Dataindsamling, validering, beregning, auditspor. \\
+    Affald & Registrering af mængder og konsistent rapportering. & Dataindsamling, validering, rapporteksport. \\
+    Sociale indikatorer & Samlet KPI-oversigt til rapport. & Dataindsamling, rapporteksport. \\
+    \bottomrule
+  \end{tabularx}
+  \TableSource{Egen fremstilling.}
+  \TableNote{Scenarierne er illustrative og afspejler MVP'ens scope.}
+\end{table}
+
+Resultaterne viser, at MVP'en opfylder de centrale MVP-krav om dataindsamling, validering, beregning og sporbarhed. Brugerflowet giver en klar progression fra profil til modul og review, og output kan eksporteres i de forventede formater. Dokumentationen fremgår af bilag \ref{app:supplerende-figurer-og-tabeller} og \ref{app:teknisk-dokumentation}.
+
+\subsubsection{Indikativt tidsestimat}
+\label{subsec:indikativt-tidsestimat}
+
+For at gøre værdiforslaget mere håndgribeligt kan tidsforbrug estimeres pr. rapporteringscyklus for en mindre klinik. Tabel \ref{tab:tidsforbrug-mvp} viser et groft overslag, hvor MVP'en reducerer manuel indsats på centrale aktiviteter.
+\begin{table}[t]
+  \caption{Illustrativt tidsforbrug før og efter MVP.}
+  \label{tab:tidsforbrug-mvp}
+  \begin{tabularx}{\textwidth}{X r r}
+    \toprule
+    Aktivitet & Manuel (timer) & MVP (timer) \\
+    \midrule
+    Dataindsamling (energi, affald, sociale KPI'er) & 24 & 12 \\
+    Validering og fejlkontrol & 8 & 4 \\
+    Konsolidering og rapporteksport & 10 & 4 \\
+    \midrule
+    I alt & 42 & 20 \\
+    \bottomrule
+  \end{tabularx}
+  \TableSource{Egen fremstilling.}
+  \TableNote{Tidsestimaterne er illustrative og afhænger af datamodenhed og integrationsniveau.}
+\end{table}
+
+Det samlede besparelsespotentiale kan udtrykkes som:
+\begin{equation*}
+  T_{\text{besparelse}} = T_{\text{manuel}} - T_{\text{mvp}}
+\end{equation*}
+Formlen synliggør, at gevinsten primært afhænger af graden af standardisering og automatisering i dataindsamling og validering.
+
+Der er samtidig begrænsninger. Integrationsniveauet er grundlæggende og kræver manuelle eller semiautomatiske input, og avancerede funktioner som benchmarking og alerts ligger uden for MVP'ens scope. Evalueringen understøtter dermed, at MVP'en er egnet til compliance og dokumentation, men at yderligere funktionalitet er nødvendig for strategisk anvendelse og skalering.

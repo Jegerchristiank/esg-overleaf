@@ -1,0 +1,69 @@
+Kursets titel
+ESG-rapportering i sundhedssektoren: Policy, organisering, økonomisk relevans og
+kommercialisering
+English title:
+ESG reporting in the healthcare sector: Policy, organization, economic relevance, and
+commercialization
+Kursets faglige indhold:
+Kurset undersøger ESG-rapporteringens rolle og betydning i sundhedssektoren, og hvordan
+denne rapportering kan udvikles til en selvstændig serviceydelse (ESG-as-a-Service) i en
+startup-kontekst. Der lægges vægt på:
+• Relevans, lovkrav og strategiske gevinster ved ESG-rapportering for
+sundhedsorganisationer og deres leverandørkæder.
+• Nationale og EU-rammer (bl.a. CSRD, EU-taksonomien, GRI-standarderne).
+• Udvikling af forretningsmodeller for ESG-rapportering som service, herunder
+prisfastsættelse, værdiforslag og kundesegmentering.
+• Digitalisering og automatisering af ESG-dataindsamling og -rapportering (software-
+platforme og data-API’er).
+• Casestudie: Den studerendes egen virksomhed som pilot for udvikling af en ESG-
+rapporteringstjeneste til eksterne kunder.
+Kurset kulminerer i en skriftlig rapport, der kombinerer teori, praksis, analyse og konkrete
+anbefalinger til både sundhedssektoren og den studerendes virksomhed.
+Kursets formål:
+At give den studerende en sundhedsvidenskabeligt forankret forståelse af ESG-rapportering
+og at kunne analysere, vurdere og kommercialisere dens organisatoriske, politiske og
+økonomiske implikationer. Dette gælder både internt i sundhedsorganisationer og som
+ekstern serviceydelse leveret af den studerendes egen startup.
+Kursets omfang i ECTS:
+15 ECTS.
+Cirka 375 timer total (25 timer pr. ECTS), cirka 275 timers forberedelse/læsning, cirka 100
+timer på skriftlig aflevering.
+Supplerende målbeskrivelse:
+Viden
+• Redegøre for ESG-rapporteringens betydning i en sundhedssektor-kontekst.
+• Forklare centrale lovrammer (CSRD, GRI, EU-taksonomien) og markedsforventninger.
+• Beskrive forretningsmæssige aspekter ved at tilbyde ESG-rapportering som service.
+• Anvende Brunsson og andre teoretikere til at forstå ESG som eksempel på en
+organisationsstandard.
+Færdigheder
+• Analysere sundhedspolitiske, organisatoriske og økonomiske implikationer af ESG-
+rapportering.
+• Udarbejde et koncept og en minimum viable product (MVP) for en ESG-
+rapporteringstjeneste målrettet sundhedssektorens aktører.
+• Redegøre for digitale værktøjer til dataindsamling, analyse og visualisering af ESG-
+nøgletal.
+Kompetencer
+• Gennemføre en tværfaglig analyse i spændingsfeltet mellem sundhedsvidenskab,
+bæredygtighed og forretningsudvikling.
+• Skabe en selvstændig, markedsorienteret service baseret på ESG-rapportering og
+implementere denne i egen virksomhed.
+• Reflektere kritisk over etiske, compliance-mæssige og økonomiske aspekter ved ESG-
+data og -rapportering.
+• Reflektere kritisk over ESG som organisationsstandard, herunder styringsmæssige og
+institutionelle implikationer.
+Form for produkt:
+Skriftlig rapport (maks. 40 sider).
+Supplerende karakterbeskrivelse:
+Et bestået projekt demonstrerer:
+• Klar struktur, metodisk stringens og faglig dybde.
+• Velunderbygget forretningsmodel for ESG-rapportering som service.
+• Selvstændig vurdering af ESG’s betydning for sundhedsorganisationer samt startup-
+markedsmuligheder.
+• Refleksion over økonomisk, politisk og etisk kontekst.
+Sprog
+Dansk
+Prøveform
+Skriftlig rapport
+Uden ekstern censur
+Beståelsesform
+Bestået / Ikke bestået

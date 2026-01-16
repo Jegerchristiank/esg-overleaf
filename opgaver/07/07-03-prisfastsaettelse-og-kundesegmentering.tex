@@ -1,0 +1,32 @@
+\subsection{Prisfastsættelse og kundesegmentering}
+\label{subsec:prisfastsaettelse-og-kundesegmentering}
+
+Kundesegmenteringen tager udgangspunkt i SMV'er i sundhedssektoren, men segmenterne varierer i modenhed og datakompleksitet. Der kan skelnes mellem (1) private klinikker med begrænset datagrundlag, (2) mindre hospitaler med mere kompleks drift, og (3) medtech-leverandører med compliancepres fra forsyningskæden. Segmenterne adskiller sig på rapporteringsbehov, integrationskrav og betalingsvillighed.
+
+Prisfastsættelsen er derfor differentieret efter kompleksitet og behov. Casen peger på en abonnementsmodel for standardmoduler, et projektgebyr for integration og opsætning, samt usage-gebyrer for eksport af specifikke rapportpakker (bilag \ref{app:teknisk-dokumentation}). Denne struktur afspejler, at en stor del af omkostningen ligger i initial opsætning og datakortlægning, mens løbende drift kan standardiseres.
+
+Et simpelt prisudtryk kan beskrives som:
+\begin{equation*}
+  P = \frac{F}{N} + V + m
+\end{equation*}
+hvor $F$ er faste omkostninger, $N$ er antal kunder, $V$ er variable omkostninger pr. kunde, og $m$ er en risikomargin. Modellen synliggør, at skalerbarhed i onboarding og support er afgørende for at holde $P$ konkurrencedygtig.
+
+Betalingsvilligheden er tæt knyttet til compliancepres og interessentkrav. Selvom mange SMV'er ikke er direkte CSRD-pligtige, møder de dataanmodninger fra kunder og finansielle aktører og vælger derfor frivillig rapportering som risikoreduktion.\parencite{PwC2025GuideESGSMV,Erhvervsstyrelsen2025StopClock} EY's analyse af VSME-rapporter indikerer, at mange virksomheder rapporterer ud over basismodullets krav, hvilket peger på en villighed til at investere i bedre datakvalitet.\parencite{EY2025VSME}
+
+Analytisk betyder det, at prisstrategien bør balancere lav adgangsbarriere for mindre aktører med mulighed for opgradering for kunder med højere compliancekrav. En modulopbygget prisstruktur understøtter denne balance, fordi den knytter omkostninger direkte til datakompleksitet og rapporteringsomfang.
+
+\begin{table}[t]
+  \caption{Illustrativ prisdifferentiering på kundesegmenter.}
+  \label{tab:pris-segmenter}
+  \begin{tabularx}{\textwidth}{l X r}
+    \toprule
+    Segment & Karakteristika & Indikativ pris pr. måned (DKK) \\
+    \midrule
+    Private klinikker & Basismodul, få datakilder, lav integrationsgrad. & \numrange{1500}{3000} \\
+    Mindre hospitaler & Flere moduler, flere datakilder, højere kompleksitet. & \numrange{4000}{7000} \\
+    Medtech-leverandører & Høj compliance, eksportkrav, dokumentationskrav fra kunder. & \numrange{7000}{12000} \\
+    \bottomrule
+  \end{tabularx}
+  \TableSource{Egen fremstilling.}
+  \TableNote{Prisintervallerne er illustrative og afhænger af datakompleksitet og serviceomfang.}
+\end{table}
