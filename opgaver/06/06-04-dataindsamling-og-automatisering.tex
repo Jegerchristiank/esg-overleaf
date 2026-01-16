@@ -21,7 +21,7 @@ Figur \ref{fig:dataflow-pipeline} opsummerer dataflowet fra datakilder til rappo
 
 Automatisering sker gennem løbende gemmefunktion og beregning af indikatorer. Det reducerer risikoen for datatab og skaber et konsistent grundlag for rapportoutput. Auditsporet registrerer ændringer og versioner og gør det muligt at efterprøve resultater og antagelser.
 
-Dataindsamling kan ske via API-integrationer eller CSV-udtræk fra drifts-, økonomi- og HR-data, men løsningen understøtter også manuel indtastning for at sikre, at rapporteringen kan gennemføres uden fulde integrationer. Kvalitetskontrol sker gennem valideringsregler, obligatoriske felter og konsistente enheder.
+Dataindsamling kan ske via API-integrationer eller CSV-udtræk fra drifts-, økonomi- og HR-data, men løsningen understøtter også manuel indtastning for at sikre, at rapporteringen kan gennemføres uden fulde integrationer. Kvalitetskontrol sker gennem valideringsregler, obligatoriske felter og konsistente enheder. IWA 48 understreger behovet for standardiserede KPI'er og rapporteringsprincipper med validering og dokumentation, hvilket understøtter krav om sporbarhed og datakvalitet i MVP'en.\parencite{ISO2024IWA48}
 
 For at synliggøre governance i datakvalitet er det nyttigt at knytte typiske fejltyper til konkrete kontrolpunkter. Tabel \ref{tab:datakvalitet-kontrol} viser eksempler på, hvordan MVP'en teknisk reducerer risikoen for fejl og inkonsistens.
 \begin{table}[h]
@@ -40,3 +40,5 @@ For at synliggøre governance i datakvalitet er det nyttigt at knytte typiske fe
   \TableSource{Egen fremstilling.}
   \TableNote{Eksemplerne er illustrative og bygger på almindelige datakvalitetsproblemer i ESG-rapportering.}
 \end{table}
+
+Når dataindsamlingen er etableret, bliver det afgørende at forstå brugerflow og rapportoutput, som behandles i \ref{subsec:brugerflow-og-rapportoutput}.
