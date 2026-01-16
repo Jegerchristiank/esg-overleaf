@@ -10,9 +10,6 @@
 \newif\ifKU@logofileok
 \newread\KU@logoread
 \def\KU@logofile{KU-logo.pdf}
-\IfFileExists{sund-danish.pdf}{%
-    \def\KU@logofile{sund-danish.pdf}%
-}{}
 \def\KU@lfspointer{version https://git-lfs.github.com/spec/v1}
 
 \newcommand*{\KU@checklogofile}{%
@@ -30,10 +27,10 @@
         \fi
         \endgroup
         \ifKU@logofileok\else
-            \PackageWarning{KUstyle}{\KU@logofile\space is a Git LFS pointer. Replace it with the actual PDF to enable the cover background}%
+            \PackageWarning{KUstyle}{KU-logo.pdf is a Git LFS pointer. Replace it with the actual PDF to enable the cover background}%
         \fi
     }{%
-        \PackageWarning{KUstyle}{\KU@logofile\space not found. Cover background omitted}%
+        \PackageWarning{KUstyle}{KU-logo.pdf not found. Cover background omitted}%
     }%
 }
 
@@ -49,7 +46,6 @@
 \newcommand*{\ptype}[1]{\def\@ptype{#1}}
 \newcommand*{\subtitle}[1]{\def\@subtitle{#1}}
 \newcommand*{\fpimage}[1]{\def\@fpimage{#1}}
-\newcommand*{\normalsider}[1]{\def\@normalsider{#1}}
 
 \def\maketitle{
     \thispagestyle{empty}
@@ -65,7 +61,7 @@
             \ifKU@logofileok
                 \noindent\includegraphics*[width=\textwidth, height=80mm, keepaspectratio]{\@fpimage}
             \else
-                \PackageWarning{KUstyle}{Frontpage image omitted because the cover background PDF is not valid}%
+                \PackageWarning{KUstyle}{Frontpage image omitted because KU-logo.pdf is not a valid PDF}%
             \fi
         \else
             \IfFileExists{\@fpimage}{%
@@ -102,12 +98,6 @@
     \ifdefined\@advisor
         \begin{textblock}{10}(1.5,14.2)
         \noindent\fontsize{11}{11}\selectfont \@advisor 
-        \end{textblock}
-    \fi
-
-    \ifdefined\@normalsider
-        \begin{textblock}{10}(1.5,14.7)
-        \noindent\fontsize{11}{11}\selectfont \@normalsider
         \end{textblock}
     \fi
     
