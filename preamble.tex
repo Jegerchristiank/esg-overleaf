@@ -1,4 +1,6 @@
 % Common packages and configuration for the KU thesis template
+\PassOptionsToPackage{table}{xcolor}
+\usepackage{xcolor}
 \usepackage{KUstyle}
 \usepackage[margin=0.8in]{geometry}
 \usepackage{fontspec}
@@ -11,8 +13,6 @@
 \usepackage{fvextra}
 \usepackage{float}
 \usepackage{booktabs} % Consistent table rules for evidence tables.
-\usepackage[table]{xcolor}
-\usepackage{etoolbox}
 \usepackage{csquotes}
 
 % Package decisions:
@@ -68,9 +68,6 @@
 % Customisation of default names
 \renewcommand{\contentsname}{Indholdsfortegnelse}
 
-% Keep table styling scoped to each float to avoid rowcolors leaking into non-table tabulars.
-\AtBeginEnvironment{table}{\begingroup}
-\AtEndEnvironment{table}{\endgroup}
 
 % Legal reference helpers.
 \newcommand{\lawpar}[1]{\S~#1}
