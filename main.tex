@@ -3,7 +3,13 @@
 \documentclass[12pt]{article}
 
 \input{preamble}
-\IfFileExists{appendix.aux}{\externaldocument{appendix}}{}
+
+% Toggle for main-only PDF (compile full once to populate appendix labels).
+\newif\ifmainonly
+\mainonlyfalse
+\ifmainonly
+  \includeonly{opgaver/00,opgaver/01,opgaver/02,opgaver/03,opgaver/04,opgaver/05,opgaver/06,opgaver/07,opgaver/08,opgaver/09,opgaver/10}
+\fi
 
 % This change the content of the frontpage
 \ptype{Selvtilrettelagt valgfag (15 ECTS)}
@@ -43,29 +49,23 @@ Dato: & 15. januar 2026
 \tableofcontents
 \clearpage
 
-\input{opgaver/00}
-\clearpage
-\input{opgaver/01}
-\clearpage
-\input{opgaver/02}
-\clearpage
-\input{opgaver/03}
-\clearpage
-\input{opgaver/04}
-\clearpage
-\input{opgaver/05}
-\clearpage
-\input{opgaver/06}
-\clearpage
-\input{opgaver/07}
-\clearpage
-\input{opgaver/08}
-\clearpage
-\input{opgaver/09}
-\clearpage
-\input{opgaver/10}
+\include{opgaver/00}
+\include{opgaver/01}
+\include{opgaver/02}
+\include{opgaver/03}
+\include{opgaver/04}
+\include{opgaver/05}
+\include{opgaver/06}
+\include{opgaver/07}
+\include{opgaver/08}
+\include{opgaver/09}
+\include{opgaver/10}
 
 \clearpage
 \printbibliography[heading=bibintoc,title={Referencer}]
+
+\clearpage
+\appendix
+\include{opgaver/11}
 
 \end{document}
