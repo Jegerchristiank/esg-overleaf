@@ -144,7 +144,11 @@ local function safe_utf8_len(s)
   return len
 end
 
-local count = safe_utf8_len(all)
+local count_chars = safe_utf8_len(all)
+local count_bytes = #all
+texio.write_nl("log", "RAW_COUNT_CHARS: " .. count_chars)
+texio.write_nl("log", "RAW_COUNT_BYTES: " .. count_bytes)
+local count = count_chars
 local pages = count / 2400
 
 tex.sprint("\\gdef\\RawCharCount{" .. count .. "}")
