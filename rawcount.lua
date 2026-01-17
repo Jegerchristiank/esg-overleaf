@@ -97,8 +97,54 @@ for _, path in ipairs(files) do
 end
 
 all = all:gsub("%s+", " "):gsub("^%s+", ""):gsub("%s+$", "")
-local utf8mod = utf8 or (unicode and unicode.utf8)
-local count = (utf8mod and utf8mod.len and utf8mod.len(all)) or #all
+
+local function safe_utf8_len(s)
+  if utf8 and utf8.len then
+    local len = utf8.len(s)
+    if len then return len end
+  end
+  local len = 0
+  local i = 1
+  local n = #s
+  while i <= n do
+    local c = s:byte(i)
+    if c < 0x80 then
+      i = i + 1
+    elseif c < 0xC2 then
+      i = i + 1
+    elseif c < 0xE0 then
+      local c2 = s:byte(i + 1)
+      if c2 and c2 >= 0x80 and c2 < 0xC0 then
+        i = i + 2
+      else
+        i = i + 1
+      end
+    elseif c < 0xF0 then
+      local c2, c3 = s:byte(i + 1), s:byte(i + 2)
+      if c2 and c3 and c2 >= 0x80 and c2 < 0xC0 and c3 >= 0x80 and c3 < 0xC0 then
+        i = i + 3
+      else
+        i = i + 1
+      end
+    elseif c < 0xF5 then
+      local c2, c3, c4 = s:byte(i + 1), s:byte(i + 2), s:byte(i + 3)
+      if c2 and c3 and c4
+        and c2 >= 0x80 and c2 < 0xC0
+        and c3 >= 0x80 and c3 < 0xC0
+        and c4 >= 0x80 and c4 < 0xC0 then
+        i = i + 4
+      else
+        i = i + 1
+      end
+    else
+      i = i + 1
+    end
+    len = len + 1
+  end
+  return len
+end
+
+local count = safe_utf8_len(all)
 local pages = count / 2400
 
 tex.sprint("\\gdef\\RawCharCount{" .. count .. "}")
