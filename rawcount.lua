@@ -19,21 +19,21 @@ local function read_file(path)
 end
 
 local function strip_comments(text)
-  text = text:gsub("\\\\%%", "__PERCENT__")
+  text = text:gsub("\\%%", "__PERCENT__")
   text = text:gsub("%%[^\n]*", "")
-  text = text:gsub("__PERCENT__", "\\\\%%")
+  text = text:gsub("__PERCENT__", "\\%%")
   return text
 end
 
 local function remove_env(text, env_pattern)
-  local pattern = "\\\\begin%s*{" .. env_pattern .. "}%s*[%s%S]-\\\\end%s*{" .. env_pattern .. "}"
+  local pattern = "\\begin%s*{" .. env_pattern .. "}%s*[%s%S]-\\end%s*{" .. env_pattern .. "}"
   return text:gsub(pattern, " ")
 end
 
 local function remove_cmd(text, cmd)
   for _ = 1, 3 do
-    text = text:gsub("\\\\" .. cmd .. "%s*%b[]%s*%b{}", " ")
-    text = text:gsub("\\\\" .. cmd .. "%s*%b{}", " ")
+    text = text:gsub("\\" .. cmd .. "%s*%b[]%s*%b{}", " ")
+    text = text:gsub("\\" .. cmd .. "%s*%b{}", " ")
   end
   return text
 end
@@ -53,19 +53,19 @@ local function clean(text)
   text = remove_env(text, "tabulary")
   text = remove_env(text, "tabu")
 
-  text = text:gsub("\\\\caption%s*%b[]%s*%b{}", " ")
-  text = text:gsub("\\\\caption%s*%b{}", " ")
-  text = text:gsub("\\\\captionof%s*%b{}%s*%b{}", " ")
-  text = text:gsub("\\\\includegraphics%s*%b[]%s*%b{}", " ")
-  text = text:gsub("\\\\includegraphics%s*%b{}", " ")
-  text = text:gsub("\\\\rowcolors%s*%b{}%s*%b{}%s*%b{}", " ")
-  text = text:gsub("\\\\rowcolor%s*%b{}", " ")
-  text = text:gsub("\\\\cellcolor%s*%b{}", " ")
+  text = text:gsub("\\caption%s*%b[]%s*%b{}", " ")
+  text = text:gsub("\\caption%s*%b{}", " ")
+  text = text:gsub("\\captionof%s*%b{}%s*%b{}", " ")
+  text = text:gsub("\\includegraphics%s*%b[]%s*%b{}", " ")
+  text = text:gsub("\\includegraphics%s*%b{}", " ")
+  text = text:gsub("\\rowcolors%s*%b{}%s*%b{}%s*%b{}", " ")
+  text = text:gsub("\\rowcolor%s*%b{}", " ")
+  text = text:gsub("\\cellcolor%s*%b{}", " ")
 
-  text = text:gsub("[Tt]abel%s*\\\\ref%s*%b{}", " ")
-  text = text:gsub("[Ff]igur%s*\\\\ref%s*%b{}", " ")
-  text = text:gsub("[Ff]ig%.?%s*\\\\ref%s*%b{}", " ")
-  text = text:gsub("[Bb]ilag%s*\\\\ref%s*%b{}", " ")
+  text = text:gsub("[Tt]abel%s*\\ref%s*%b{}", " ")
+  text = text:gsub("[Ff]igur%s*\\ref%s*%b{}", " ")
+  text = text:gsub("[Ff]ig%.?%s*\\ref%s*%b{}", " ")
+  text = text:gsub("[Bb]ilag%s*\\ref%s*%b{}", " ")
 
   local cite_cmds = {
     "parencite", "parenciteshort", "textcite", "textcitefull", "cite", "citep",
@@ -89,13 +89,13 @@ local function clean(text)
     text = remove_cmd(text, cmd)
   end
 
-  text = text:gsub("\\\\begin%s*%b{}", " ")
-  text = text:gsub("\\\\end%s*%b{}", " ")
-  text = text:gsub("\\\\item%s*%b[]", " ")
-  text = text:gsub("\\\\item", " ")
+  text = text:gsub("\\begin%s*%b{}", " ")
+  text = text:gsub("\\end%s*%b{}", " ")
+  text = text:gsub("\\item%s*%b[]", " ")
+  text = text:gsub("\\item", " ")
 
-  text = text:gsub("\\\\[A-Za-z@]+%*?", "")
-  text = text:gsub("\\\\", " ")
+  text = text:gsub("\\[A-Za-z@]+%*?", "")
+  text = text:gsub("\\", " ")
 
   text = text:gsub("{", "")
   text = text:gsub("}", "")
