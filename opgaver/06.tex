@@ -1,15 +1,15 @@
 \section{Software og MVP}
 \label{sec:software-og-mvp}
 
-MVP'en omsætter ESG-krav til konkrete data- og rapporteringsprocesser i en SMV-kontekst. Fokus er på den organisatoriske oversættelse fra krav til praksis: hvilke data der efterspørges, hvordan de valideres, og hvordan rapportoutput gøres sporbart. Case- og teknisk dokumentation understøtter sporbarhed og efterprøvning (bilag \ref{app:teknisk-dokumentation}).
+MVP'en omsætter ESG-krav til konkrete data- og rapporteringsprocesser i en SMV-kontekst. Fokus er på den organisatoriske \textit{oversættelse} fra krav til praksis: hvilke data der efterspørges, hvordan de valideres, og hvordan rapportoutput gøres \textit{sporbart}. Case- og teknisk dokumentation understøtter sporbarhed og efterprøvning (bilag \ref{app:teknisk-dokumentation}).
 
 MVP'en operationaliserer forskningsspørgsmål~3 ved at konkretisere, hvordan krav bliver til data, kontroller og rapportoutput. Det giver en direkte forbindelse mellem regulative krav og softwarelogik.
 Afsnittet er organiseret i krav, arkitektur, datamodel, dataindsamling og rapportoutput, så koblingen mellem jura og datapunkter kan følges trin for trin.
-Traceability-matricen fra afsnit \ref{subsec:traceability-matrice} fungerer som reference for, hvilke felter der skal indsamles, valideres og logges i auditspor; fuld matrix fremgår af bilagstabel \ref{tab:traceability-matrix-full}.
+\textit{Traceability-matricen} fra afsnit \ref{subsec:traceability-matrice} fungerer som reference for, hvilke felter der skal indsamles, valideres og logges i \textit{auditspor}; fuld matrix fremgår af bilagstabel \ref{tab:traceability-matrix-full}.
 \subsection{Formål og krav}
 \label{subsec:formaal-og-krav}
 
-Formålet med MVP'en er at reducere rapporteringsbyrden for SMV'er ved at samle ESG-data i en ensartet proces og skabe et auditabelt output. Løsningen skal gøre det muligt at indsamle kernedata, validere dem og generere dokumentation, som kan anvendes over for ledelse, revisorer og myndigheder. Kravene operationaliseres i case- og softwarematerialet i bilag \ref{app:teknisk-dokumentation}.
+Formålet med MVP'en er at reducere rapporteringsbyrden for SMV'er ved at samle ESG-data i en ensartet proces og skabe et \textit{auditabelt output}. Løsningen skal gøre det muligt at indsamle kernedata, validere dem og generere dokumentation, som kan anvendes over for ledelse, revisorer og myndigheder. Kravene operationaliseres i case- og softwarematerialet i bilag \ref{app:teknisk-dokumentation}.
 
 Kravene dækker både funktionelle og ikke-funktionelle behov og prioriteres efter, hvad der er nødvendigt i MVP'en frem for en fuld løsning. Prioriteringen, der afgrænser MVP'ens scope, fremgår af tabel \ref{tab:krav-prioritering}.
 \begin{table}[h]
@@ -35,7 +35,7 @@ Kravene dækker både funktionelle og ikke-funktionelle behov og prioriteres eft
 \subsubsection{Konsekvens af fravalg}
 \label{subsec:konsekvens-fravalg}
 
-Fravalget af iXBRL/XBRL i MVP'en er et bevidst designvalg for at holde scope på dataindsamling, validering og beregningsspor. Konsekvensen er, at output ikke kan indsendes som digitalt tagged compliance-format og derfor kræver manuel konvertering ved ekstern indberetning. For at sikre fremtidig kompatibilitet fastholdes en minimumskontrakt i datamodellen: entydigt datapunkt-ID, ESRS-reference, periode, enhed, kilde-ID og beregningsregel-ID. En minimal teknisk pathway til senere implementering omfatter (1) mapping af datapunkter til XBRL-taxonomi, (2) namespace- og tag-regler for hver datapunktklasse og (3) validering mod taxonomiens konsistensregler før eksport. Dermed er fravalget en prioritering af kernefunktionalitet over indberetningsformat, men uden at ændre datamodellens krav til sporbarhed.
+Fravalget af iXBRL/XBRL i MVP'en er et bevidst designvalg for at holde scope på dataindsamling, validering og beregningsspor. Konsekvensen er, at output ikke kan indsendes som digitalt tagged compliance-format og derfor kræver manuel konvertering ved ekstern indberetning. For at sikre fremtidig kompatibilitet fastholdes en \textit{minimumskontrakt} i datamodellen: entydigt datapunkt-ID, ESRS-reference, periode, enhed, kilde-ID og beregningsregel-ID. En minimal teknisk pathway til senere implementering omfatter (1) mapping af datapunkter til XBRL-taxonomi, (2) namespace- og tag-regler for hver datapunktklasse og (3) validering mod taxonomiens konsistensregler før eksport. Dermed er fravalget en prioritering af kernefunktionalitet over indberetningsformat, men uden at ændre datamodellens krav til sporbarhed.
 
 \subsection{Systemoversigt og arkitektur}
 \label{subsec:systemoversigt-og-arkitektur}
@@ -44,7 +44,7 @@ MVP'en er en webbaseret løsning med en klar opdeling mellem brugergrænseflade,
 
 Teknisk er MVP'en implementeret som en Next.js-baseret webapp med en Node.js-backend, der persisterer wizard-data i PostgreSQL. Beregninger og schema-validering ligger i en fælles komponent, mens rapportoutput genereres via en PDF-renderer. Backend udstiller et snapshot-endpoint, som understøtter hentning og lagring af state og gør auditspor og versionshistorik operationelle. Det understreger, at artefakten er et fungerende softwareprodukt og ikke kun en konceptuel skitse (bilag \ref{app:teknisk-dokumentation} og \ref{app:software-spec}).
 
-Dataflowet er kontrolleret: input indsamles, valideres og gemmes med historik, så ændringer kan spores og genskabes. Arkitekturen understøtter sporbarhed og gør det muligt at udvide komponenter uden at bryde den samlede proceslogik. Det skaber en stabil ramme for audit og videreudvikling.
+\textbf{Dataflowet er kontrolleret: input indsamles, valideres og gemmes med historik, så ændringer kan spores og genskabes.} Arkitekturen understøtter sporbarhed og gør det muligt at udvide komponenter uden at bryde den samlede proceslogik. Det skaber en stabil ramme for audit og videreudvikling.
 
 Arkitekturens hovedkomponenter og relationer fremgår af figur \ref{fig:system-arkitektur}.
 \begin{figure}[h]
@@ -65,8 +65,8 @@ Sporbarhed operationaliseres i en datamodel og i valget af centrale ESG-indikato
 \subsection{Datamodel og ESG-indikatorer}
 \label{subsec:datamodel-og-esg-indikatorer}
 
-Datamodelafsnittet forklarer sporbarhedsprincippet og angiver, hvilke indikatorer der operationaliseres i MVP'en.
-Datamodellen er designet til at understøtte sporbarhed gennem versionshistorik og auditspor. Den organiserer data i tre logiske lag: profil og afgrænsning, indikatorregistreringer og ændringshistorik.
+Datamodelafsnittet forklarer \textit{sporbarhedsprincippet} og angiver, hvilke indikatorer der operationaliseres i MVP'en.
+Datamodellen er designet til at understøtte sporbarhed gennem \textit{versionshistorik} og \textit{auditspor}. Den organiserer data i tre logiske lag: profil og afgrænsning, indikatorregistreringer og ændringshistorik.
 
 Datamodellens hovedkomponenter og deres funktion i MVP'en fremgår af tabel \ref{tab:datamodel-kernetable}.
 \begin{table}[h]
@@ -103,7 +103,7 @@ For at gøre oversættelsen fra standard til software eksplicit er udvalgte data
     Scope 3 (udvalgt kategori) & Affaldsmængder og faktor pr. fraktion. & $\mathrm{CO_2e}_{\text{aff}} = m \cdot EF_{\text{aff}}$ & Scope 3 \ensuremath{\mathrm{CO_2e}} pr. fraktion. \\
     \bottomrule
   \end{tabularx}
-  \TableSource{\parencite{EU2023ESRS,GHGProtocol2004}}
+  \TableSource{\parenciteshort{EU2023ESRS,GHGProtocol2004}}
   \TableNote{Mappingen er illustrativ og viser principper for oversættelse fra standard til datapunkter.}
 \end{table}
 
@@ -147,7 +147,7 @@ En samlet moduloversigt med scopes og moduler fremgår af bilagene (tabel \ref{t
 \subsection{Dataindsamling og automatisering}
 \label{subsec:dataindsamling-og-automatisering}
 
-Dataindsamlingen er organiseret som et guidet modulforløb, hvor brugeren indtaster eller uploader data pr. modul. Input valideres gennem faste regler, og data gemmes med versionshistorik, så ændringer kan spores over tid. Detaljer om datadefinitioner og kontrolpunkter fremgår af bilag \ref{app:teknisk-dokumentation}.
+Dataindsamlingen er organiseret som et guidet modulforløb, hvor brugeren indtaster eller uploader data pr. modul. Input valideres gennem faste regler, og data gemmes med \textit{versionshistorik}, så ændringer kan spores over tid. Detaljer om datadefinitioner og kontrolpunkter fremgår af bilag \ref{app:teknisk-dokumentation}.
 
 Dataflowet fra datakilder til rapportoutput samt placeringen af validering og beregning fremgår af figur \ref{fig:dataflow-pipeline}.
 \begin{figure}[h]
@@ -165,7 +165,7 @@ Dataflowet fra datakilder til rapportoutput samt placeringen af validering og be
   \FigureSource{Egen fremstilling.}
 \end{figure}
 
-Automatisering sker gennem løbende gemmefunktion og beregning af indikatorer. Det reducerer risikoen for datatab og skaber et konsistent grundlag for rapportoutput. Auditsporet registrerer ændringer og versioner og gør det muligt at efterprøve resultater og antagelser.
+Automatisering sker gennem løbende gemmefunktion og beregning af indikatorer. Det reducerer risikoen for datatab og skaber et konsistent grundlag for rapportoutput. \textit{Auditsporet} registrerer ændringer og versioner og gør det muligt at efterprøve resultater og antagelser.
 
 Dataindsamling kan ske via API-integrationer eller CSV-udtræk fra drifts-, økonomi- og HR-data, men løsningen understøtter også manuel indtastning for at sikre, at rapporteringen kan gennemføres uden fulde integrationer. Kvalitetskontrol sker gennem valideringsregler, obligatoriske felter og konsistente enheder. \textcite{ISO2024IWA48} understreger, at ESG-implementering kræver standardiserede KPI'er og rapporteringsprincipper med validering og dokumentation, hvilket understøtter krav om sporbarhed og datakvalitet i MVP'en. Det betyder, at valideringsreglerne ikke blot er tekniske, men en direkte operationalisering af standardernes krav til konsistens.
 

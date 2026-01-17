@@ -47,6 +47,15 @@
 \usepackage[backend=biber,style=authoryear,maxcitenames=2,giveninits=true,uniquename=init]{biblatex}
 \addbibresource{references.bib}
 
+% Short-form parenthetical citations for selected institutional authors.
+\DeclareCiteCommand{\parenciteshort}
+  {\bibopenparen\usebibmacro{prenote}}
+  {\ifnameundef{shortauthor}{\printnames{labelname}}{\printnames{shortauthor}}%
+   \setunit{\nameyeardelim}%
+   \printlabeldate}
+  {\multicitedelim}
+  {\usebibmacro{postnote}\bibcloseparen}
+
 % Customisation of default names
 \renewcommand{\contentsname}{Indholdsfortegnelse}
 
