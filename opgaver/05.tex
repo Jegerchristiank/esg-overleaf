@@ -60,6 +60,23 @@ Datatyperne med periode, rolle og kvalitetsvurdering fremgår af tabel \ref{tab:
 
 Sporbarhed sikres gennem dokumenteret case- og softwaremateriale (bilag \ref{app:teknisk-dokumentation}). Det skaber grundlag for den efterfølgende caseanalyse.
 
+For at løfte triangulering fra kildehierarki til inferenslogik tydeliggøres, hvordan observationer kan forklares af konkurrerende mekanismer, og hvilke data der i princippet kan skelne mellem dem. Tabel \ref{tab:inferenslogik} gør alternative forklaringer testbare ved at koble dem til konkrete, observerbare implikationer.
+
+\begin{table}[h]
+  \caption{Inferenslogik med konkurrerende forklaringer og testbare implikationer.}
+  \label{tab:inferenslogik}
+  \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.26\textwidth} >{\raggedright\arraybackslash}p{0.32\textwidth} >{\raggedright\arraybackslash}X}
+    \toprule
+    Observation & Alternative forklaringer & Testbar implikation og datakrav \\
+    \midrule
+    Frivillig ESG-rapportering i SMV'er & A) Regulatorisk forventning; B) Bank- og kundekrav. & A: adoption følger rapporteringsdeadlines; B: adoption følger kreditprocesser og kundekrav. Data: tidslinjer, kreditkrav, kundekontrakter. \\
+    Forbedret sporbarhed i MVP & A) Teknisk auditspor driver kvalitet; B) Governance/rollefordeling driver kvalitet. & A: kvalitet forbedres uden ændret rollefordeling; B: kvalitet forbedres kun efter klar sign-off. Data: auditlogs, governance-roller, ændringshistorik. \\
+    Værdiforslag for ESG-as-a-Service & A) Tidsbesparelse/omkostning; B) Risikoreduktion og adgang til kapital. & A: besparelser uafhængigt af kravintensitet; B: gevinster opstår primært ved ekstern efterspørgsel. Data: tidsmålinger, kreditvilkår, kundekrav. \\
+    \bottomrule
+  \end{tabularx}
+  \TableSource{Egen fremstilling.}
+\end{table}
+
 Casen anvendes som pilot for operationalisering og konkretiserer datagrundlaget i praktiske processer.
 \subsection{Case: Egen virksomhed som pilot}
 \label{subsec:case-egen-virksomhed-som-pilot}

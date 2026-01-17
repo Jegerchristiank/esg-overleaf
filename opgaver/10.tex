@@ -12,6 +12,24 @@ Afsnittet organiserer anbefalingerne i tre niveauer: empirisk baserede, produktm
   \item Stop-the-clock bør ikke tolkes som en pause, men som en tidsbuffer til at etablere datagrundlag og governance-strukturer, i tråd med \textcite{Erhvervsstyrelsen2025StopClock}.
 \end{itemize}
 
+Gradvis overgang kan operationaliseres som et beslutningskriterium. Tabel \ref{tab:gearshift-kriterier} angiver, hvornår en SMV bør skifte fra basismodul til udvidet scope.
+
+\begin{table}[h]
+  \caption{Skifte-kriterier for overgang fra basismodul til udvidet scope.}
+  \label{tab:gearshift-kriterier}
+  \begin{tabularx}{\textwidth}{l X}
+    \toprule
+    Kriterietype & Indikator og trigger \\
+    \midrule
+    Eksternt pres & Bankkrav, udbudskrav eller kundekrav om udvidede datapunkter. \\
+    Datamodenhed & Min. 50\% af kernedata via automatiske kilder og valideringsfejlrate under 5\%. \\
+    Sporbarhed & $C_{\text{trace}} \geq 90\%$ for kernemoduler i mindst to rapporteringscykler. \\
+    Governance & Navngiven dataejer og sign-off-proces med fast responstid. \\
+    \bottomrule
+  \end{tabularx}
+  \TableSource{Egen fremstilling.}
+\end{table}
+
 \textbf{Produktmæssige næste skridt:}
 \begin{itemize}
   \item Udvid integrationer til centrale datakilder, så manuel indtastning reduceres.

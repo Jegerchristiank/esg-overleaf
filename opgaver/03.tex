@@ -108,7 +108,7 @@ Hierarkiet bruges som analytisk ramme i resten af rapporten. Direktivniveauet fo
 For at gøre kontrakten operationel anvendes en fast traceability-matrice, som binder retskilde til datapunkt, input, validering, beregning, output og audit-evidens. Matricen fungerer som et gennemgående analysegreb og genbruges i software- og evalueringsafsnittene, så hver central påstand kan spores tilbage til et regulatorisk krav og et konkret dataflow.
 
 \begin{table}[htbp]
-  \caption{Traceability-matrice (udsnit), der binder retskilde, datapunkt, datafelter og auditspor.}
+  \caption{Traceability-matrice for rapportens evidensscope (B2, C5, S1), der binder retskilde, datapunkt, datafelter og auditspor.}
   \label{tab:traceability-matrix}
   \begingroup
   \renewcommand{\arraystretch}{1.1}
@@ -124,7 +124,31 @@ For at gøre kontrakten operationel anvendes en fast traceability-matrice, som b
   \end{tabularx}
   \endgroup
   \TableSource{\parencite{EU2022CSRD,EU2023ESRS,GHGProtocol2004}}
-  \TableNote{Udsnittet er illustrativt og viser princippet; den fulde matrix udvides i MVP- og evalueringsafsnittene.}
+  \TableNote{Matricen er fuldt udfyldt for de moduler, der evalueres i rapporten; øvrige moduler er afgrænset i tabel \ref{tab:traceability-coverage}.}
+\end{table}
+
+\subsubsection{Dækningsafgrænsning for MVP-scope}
+\label{subsec:daekning-traceability}
+
+MVP'ens modulstruktur er bred, men rapportens evidensscope er afgrænset til de moduler, der faktisk demonstreres og evalueres (B2, C5 og S1). Det betyder, at traceability-matricen er fuldt udfyldt for disse moduler, mens øvrige moduler alene er specificeret på struktur- og designniveau (bilag \ref{app:teknisk-dokumentation} og \ref{tab:app-moduloversigt}). For kravene i tabel \ref{tab:krav-prioritering} er 6 ud af 8 krav operationaliseret i MVP'en (alle markeret som MVP-krav).
+
+\begin{table}[htbp]
+  \caption{Dækningsafgrænsning, der viser hvilke moduler der er demonstreret og hvilke der kun er specificeret.}
+  \label{tab:traceability-coverage}
+  \begingroup
+  \renewcommand{\arraystretch}{1.2}
+  \begin{tabularx}{\textwidth}{l X l}
+    \toprule
+    Modul/område & Datatype og output & Status i rapporten \\
+    \midrule
+    B2 (energi) & Energiforbrug og Scope 2 CO$_2$e. & Demonstreret og evalueret. \\
+    C5 (affald) & Affald pr. fraktion og evt. CO$_2$e. & Demonstreret og evalueret. \\
+    S1 (arbejdsmiljø) & Arbejdsmiljø-KPI'er. & Demonstreret og evalueret. \\
+    Øvrige moduler i moduloversigten & Udledninger, aktiviteter og sociale/governance-data uden evaluering. & Specificeret, men ikke demonstreret. \\
+    \bottomrule
+  \end{tabularx}
+  \endgroup
+  \TableSource{Egen fremstilling baseret på bilag \ref{app:teknisk-dokumentation} og tabel \ref{tab:app-moduloversigt}.}
 \end{table}
 
 \subsubsection{Gennemgående regulatoriske principper}
@@ -200,6 +224,26 @@ For at gøre reguleringen operationel i rapporteringen kan centrale retskilder b
   \endgroup
   \TableSource{\parencite{EU2022CSRD,EU2020Taxonomy,EU2016GDPR}}
   \TableNote{Paragraffer i dansk lovgivning angives typisk med \lawpar{...}.}
+\end{table}
+
+For at gøre transpositionen juridisk operationel i systemdesignet kan kravene bindes til konkrete datapunkter, validering og auditfelter. Tabel \ref{tab:juridisk-til-data} viser et mini-katalog for rapportens MVP-scope, hvor den transitive kæde fra retskilde til output gøres eksplicit.
+
+\begin{table}[htbp]
+  \caption{Mini-katalog, der binder retskilde til datapunkt, validering og auditspor i MVP-scope.}
+  \label{tab:juridisk-til-data}
+  \begingroup
+  \renewcommand{\arraystretch}{1.2}
+  \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.26\textwidth} >{\raggedright\arraybackslash}p{0.18\textwidth} >{\raggedright\arraybackslash}p{0.16\textwidth} >{\raggedright\arraybackslash}p{0.16\textwidth} >{\raggedright\arraybackslash}X}
+    \toprule
+    Retskilde (EU + DK) & Datapunkt & Valideringsregel & Auditfelt & Outputfelt \\
+    \midrule
+    CSRD \lawart{19a}/\lawart{29a} transponeret via lov nr 480/2024 & ESRS E1 (energi/Scope 2) & Enheder og periodelås & Kilde-ID, EF-version, sign-off & Scope 2 CO$_2$e pr. periode \\
+    CSRD \lawart{19a} transponeret via lov nr 480/2024 & ESRS E5 (affald) & Fraktionsmatch og ikke-negative mængder & Vejeseddel, ændringslog & Affald pr. fraktion \\
+    CSRD \lawart{19a} transponeret via lov nr 480/2024 & ESRS S1 (arbejdsmiljø) & Konsistens med HR-data & HR-log, ansvarlig godkendelse & Arbejdsmiljø-KPI'er \\
+    \bottomrule
+  \end{tabularx}
+  \endgroup
+  \TableSource{\parencite{EU2022CSRD,Lov2024CSRD,Aarsregnskabsloven2022,EU2023ESRS}}
 \end{table}
 
 Samlet peger rammerne på et flerniveau-regime med høje krav til data, sporbarhed og fortolkning. Det gør SMV'ers kapacitet og behov for forenkling afgørende.

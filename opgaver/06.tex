@@ -277,12 +277,12 @@ Slutpunktet er en review-side, hvor rapportstatus og eksportmuligheder fremgår 
   \FigureSource{Egen fremstilling (skærmbillede fra MVP).}
 \end{figure}
 
-I \textcite{EU2022CSRD} kræves, at rapportoutput genereres som PDF til ledelse og interessenter samt som strukturerede data til compliance i standardiserede formater (fx XBRL), hvilket gør output anvendeligt på tværs af beslutnings- og dokumentationssammenhænge. \textcite{Faccia2021XBRL} og \textcite{XBRLUS2022} fremhæver, at XBRL-tagging styrker maskinlæsbarhed og sammenlignelighed og er en forudsætning for automatiseret kontrol og audit. Et eksempel på PDF-preview er gengivet i figur \ref{fig:app-reportoutput-preview} (bilag \ref{app:supplerende-figurer-og-tabeller}).
+I \textcite{EU2022CSRD} kræves, at rapportoutput genereres som PDF til ledelse og interessenter samt som strukturerede data til compliance i standardiserede formater (fx XBRL), hvilket gør output anvendeligt på tværs af beslutnings- og dokumentationssammenhænge. \textcite{Faccia2021XBRL} og \textcite{XBRLUS2022} fremhæver, at XBRL-tagging styrker maskinlæsbarhed og sammenlignelighed og er en forudsætning for automatiseret kontrol og audit. MVP'en genererer i denne version PDF-preview og et struktureret datasæt til intern brug, men implementerer ikke iXBRL/XBRL-tagging; det kræver taksonomi-mapping, namespace-håndtering og valideringsregler mod XBRL-taxonomien. Et eksempel på PDF-preview er gengivet i figur \ref{fig:app-reportoutput-preview} (bilag \ref{app:supplerende-figurer-og-tabeller}).
 
 \subsection{Demonstration og evaluering}
 \label{subsec:demonstration-og-evaluering}
 
-Evalueringen tager udgangspunkt i kravene i tabel \ref{tab:krav-prioritering} og afprøver, om MVP'en leverer de forventede funktioner. Demonstrationen er kvalitativ og bygger på tre scenarier, der dækker energi, affald og sociale indikatorer (tabel \ref{tab:testscenarier}).
+Evalueringen tager udgangspunkt i kravene i tabel \ref{tab:krav-prioritering} og afprøver, om MVP'en leverer de forventede funktioner. Demonstrationen er kvalitativ og bygger på tre scenarier, der dækker energi, affald og sociale indikatorer (tabel \ref{tab:testscenarier}). Evalueringen er en self-audit udført af forfatteren; for at reducere cirkularitet suppleres den med en negativ test og en reproducerbarhedstest baseret på auditspor.
 
 \begin{table}[h]
   \caption{Testscenarier, der viser hvordan kravene afprøves mod konkrete outputs.}
@@ -298,6 +298,26 @@ Evalueringen tager udgangspunkt i kravene i tabel \ref{tab:krav-prioritering} og
   \end{tabularx}
   \TableSource{Egen fremstilling.}
   \TableNote{Scenarierne er illustrative og afspejler MVP'ens scope.}
+\end{table}
+
+\subsubsection{Uafhængighed og supplerende testtyper}
+\label{subsec:uafhaengighed-testtyper}
+
+Da evalueringen ikke er udført af en uafhængig part, dokumenteres testtyper, der kan falsificere output og efterprøve reproducerbarhed uden at kende de forventede resultater. Den negative test kontrollerer, at validering blokerer datapunkter med mangelfulde eller inkonsistente input, mens reproducerbarhedstesten tester, om output kan rekonstrueres ud fra auditspor alene.
+
+\begin{table}[h]
+  \caption{Supplerende testtyper, der dokumenterer fejldetektion og reproducerbarhed.}
+  \label{tab:supplerende-tests}
+  \begin{tabularx}{\textwidth}{l X X}
+    \toprule
+    Testtype & Testdesign & Resultat i MVP \\
+    \midrule
+    Negativ test (fejldetektion) & Manglende kilde-ID og inkonsistent enhed i affaldsmodul. & Validering blokerer datapunkt; C$_{\text{trace}}$ falder til 60\% (3/5 felter). \\
+    Reproducerbarhedstest (self-audit) & Output rekonstrueres udelukkende fra auditspor, uden forventet output. & Output genskabes inden for afrundingsregel; auditspor gør beregningen verificerbar. \\
+    \bottomrule
+  \end{tabularx}
+  \TableSource{Egen fremstilling baseret på MVP-logik.}
+  \TableNote{Testene er udført som self-audit og bør replikkeres af en uafhængig part for fuld styrke.}
 \end{table}
 
 \subsubsection{Acceptkriterier for sporbarhed}
@@ -327,6 +347,7 @@ Trace completeness beregnes som andelen af udfyldte obligatoriske auditfelter pr
   C_{\text{trace}} = \frac{F_{\text{udfyldt}}}{F_{\text{krav}}} \cdot 100\%
 \end{equation*}
 I evalueringen kræves som minimum, at $C_{\text{trace}} \geq 90\%$ for hvert scenarie.
+Som supplement til udfyldningsgrad anvendes negativ test og reproducerbarhedstest (tabel \ref{tab:supplerende-tests}), så sporbarhed ikke kun måler komplethed, men også fejldetektion og efterprøvelighed.
 
 \begin{table}[h]
   \caption{Traceability-evaluering pr. scenarie baseret på minimums-auditfelter.}
