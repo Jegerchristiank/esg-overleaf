@@ -3,7 +3,7 @@
 
 MVP'en omsætter ESG-krav til konkrete data- og rapporteringsprocesser i en SMV-kontekst. Fokus er på den organisatoriske oversættelse fra krav til praksis: hvilke data der efterspørges, hvordan de valideres, og hvordan rapportoutput gøres sporbar. Case- og teknisk dokumentation understøtter sporbarhed og efterprøvning (bilag \ref{app:teknisk-dokumentation}).
 
-MVP'en operationaliserer forskningsspørgsmål~3 ved at konkretisere, hvordan krav bliver til data, kontroller og rapportoutput.
+MVP'en operationaliserer forskningsspørgsmål~3 ved at konkretisere, hvordan krav bliver til data, kontroller og rapportoutput. Det giver en direkte forbindelse mellem regulative krav og softwarelogik.
 \subsection{Formål og krav}
 \label{subsec:formaal-og-krav}
 
@@ -37,7 +37,7 @@ MVP'en er en webbaseret løsning med en klar opdeling mellem brugergrænseflade,
 
 Teknisk er MVP'en implementeret som en Next.js-baseret webapp med en Node.js-backend, der persisterer wizard-data i PostgreSQL. Beregninger og schema-validering ligger i en fælles komponent, mens rapportoutput genereres via en PDF-renderer. Backend udstiller et snapshot-endpoint, som understøtter hentning og lagring af state, og gør auditspor og versionshistorik operationelle. Det understreger, at artefakten er et fungerende softwareprodukt og ikke kun en konceptuel skitse (bilag \ref{app:teknisk-dokumentation} og \ref{app:software-spec}).
 
-Dataflowet er kontrolleret: input indsamles, valideres og gemmes med historik, så ændringer kan spores og genskabes. Arkitekturen understøtter sporbarhed og gør det muligt at udvide komponenter uden at bryde den samlede proceslogik.
+Dataflowet er kontrolleret: input indsamles, valideres og gemmes med historik, så ændringer kan spores og genskabes. Arkitekturen understøtter sporbarhed og gør det muligt at udvide komponenter uden at bryde den samlede proceslogik. Det skaber en stabil ramme for audit og videreudvikling.
 
 Arkitekturens hovedkomponenter og relationer fremgår af figur \ref{fig:system-arkitektur}.
 \begin{figure}[h]
@@ -120,7 +120,7 @@ De centrale beregninger kan udtrykkes med følgende forenklede relationer, der g
   \mathrm{CO_2e}_{\text{el}} &= E_{\text{el}} \cdot EF_{\text{el}} \\
   \mathrm{CO_2e}_{\text{varme}} &= E_{\text{varme}} \cdot EF_{\text{varme}}
 \end{align*}
-hvor $A_i$ er aktivitetsdata (fx \si{\kilo\watt\hour} eller \si{\kilogram}) og $EF_i$ er emissionsfaktorer (kg \ensuremath{\mathrm{CO_2e}} pr. enhed). Emissionsfaktorer antages at være scope- og periodespecifikke og hentes fra standardtabeller.\parencite{GHGProtocol2004}
+hvor $A_i$ er aktivitetsdata (fx \si{\kilo\watt\hour} eller \si{\kilogram}) og $EF_i$ er emissionsfaktorer (kg \ensuremath{\mathrm{CO_2e}} pr. enhed). \textcite{GHGProtocol2004} angiver, at emissionsfaktorer antages at være scope- og periodespecifikke og hentes fra standardtabeller.
 
 \paragraph{Illustrative beregningseksempler}
 For at gøre input-output konkret viser tabel \ref{tab:beregningseksempler} to forenklede eksempler, der følger principperne i tabel \ref{tab:esrs-e1-operationalisering}. Tallene er illustrative og anvendes til at synliggøre auditspor og sporbarhed.
@@ -138,7 +138,7 @@ For at gøre input-output konkret viser tabel \ref{tab:beregningseksempler} to f
   \TableSource{Egen fremstilling baseret på beregningsprincipperne i MVP'en.}
 \end{table}
 
-Indikatorerne er organiseret efter ESG-domæner, hvilket gør det muligt at mappe data til de overordnede strukturer i ESRS og GRI uden at påstå fuld dækning af alle datapunkter.\parencite{EU2023ESRS,GRI2021} Afgrænsningen afspejler standardernes modulære logik og peger på, at fuld dækning kræver yderligere moduler og datakilder.
+Indikatorerne er organiseret efter ESG-domæner, hvilket gør det muligt at mappe data til de overordnede strukturer i ESRS og GRI uden at påstå fuld dækning af alle datapunkter. I tråd med \textcite{EU2023ESRS} og \textcite{GRI2021} afspejler afgrænsningen standardernes modulære logik og peger på, at fuld dækning kræver yderligere moduler og datakilder.
 En samlet moduloversigt med scopes og moduler fremgår af bilagene (tabel \ref{tab:app-moduloversigt}).
 
 \subsection{Dataindsamling og automatisering}
@@ -164,7 +164,7 @@ Dataflowet fra datakilder til rapportoutput samt placeringen af validering og be
 
 Automatisering sker gennem løbende gemmefunktion og beregning af indikatorer. Det reducerer risikoen for datatab og skaber et konsistent grundlag for rapportoutput. Auditsporet registrerer ændringer og versioner og gør det muligt at efterprøve resultater og antagelser.
 
-Dataindsamling kan ske via API-integrationer eller CSV-udtræk fra drifts-, økonomi- og HR-data, men løsningen understøtter også manuel indtastning for at sikre, at rapporteringen kan gennemføres uden fulde integrationer. Kvalitetskontrol sker gennem valideringsregler, obligatoriske felter og konsistente enheder. IWA 48 understreger behovet for standardiserede KPI'er og rapporteringsprincipper med validering og dokumentation, hvilket understøtter krav om sporbarhed og datakvalitet i MVP'en.\parencite{ISO2024IWA48} Det betyder, at valideringsreglerne ikke blot er tekniske, men en direkte operationalisering af standardernes krav til konsistens.
+Dataindsamling kan ske via API-integrationer eller CSV-udtræk fra drifts-, økonomi- og HR-data, men løsningen understøtter også manuel indtastning for at sikre, at rapporteringen kan gennemføres uden fulde integrationer. Kvalitetskontrol sker gennem valideringsregler, obligatoriske felter og konsistente enheder. \textcite{ISO2024IWA48} understreger, at ESG-implementering kræver standardiserede KPI'er og rapporteringsprincipper med validering og dokumentation, hvilket understøtter krav om sporbarhed og datakvalitet i MVP'en. Det betyder, at valideringsreglerne ikke blot er tekniske, men en direkte operationalisering af standardernes krav til konsistens.
 
 For at synliggøre governance i datakvalitet er det nyttigt at knytte typiske fejltyper til konkrete kontrolpunkter. Sammenhængen mellem fejltyper og MVP-kontrolpunkter fremgår af tabel \ref{tab:datakvalitet-kontrol}.
 \begin{table}[h]
@@ -244,7 +244,7 @@ Slutpunktet er en review-side, hvor rapportstatus og eksportmuligheder fremgår 
   \FigureSource{Egen fremstilling (skærmbillede fra MVP).}
 \end{figure}
 
-Rapportoutput genereres som PDF til ledelse og interessenter samt som strukturerede data til compliance i standardiserede formater (fx XBRL), hvilket gør output anvendeligt på tværs af beslutnings- og dokumentationssammenhænge.\parencite{EU2022CSRD} XBRL-tagging styrker maskinlæsbarhed og sammenlignelighed, hvilket fremhæves som en forudsætning for automatiseret kontrol og audit.\parencite{Faccia2021XBRL,XBRLUS2022} Et eksempel på PDF-preview er gengivet i figur \ref{fig:app-reportoutput-preview} (bilag \ref{app:supplerende-figurer-og-tabeller}).
+I \textcite{EU2022CSRD} kræves, at rapportoutput genereres som PDF til ledelse og interessenter samt som strukturerede data til compliance i standardiserede formater (fx XBRL), hvilket gør output anvendeligt på tværs af beslutnings- og dokumentationssammenhænge. \textcite{Faccia2021XBRL} og \textcite{XBRLUS2022} fremhæver, at XBRL-tagging styrker maskinlæsbarhed og sammenlignelighed og er en forudsætning for automatiseret kontrol og audit. Et eksempel på PDF-preview er gengivet i figur \ref{fig:app-reportoutput-preview} (bilag \ref{app:supplerende-figurer-og-tabeller}).
 
 \subsection{Demonstration og evaluering}
 \label{subsec:demonstration-og-evaluering}
