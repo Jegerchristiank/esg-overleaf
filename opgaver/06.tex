@@ -1,0 +1,268 @@
+\section{Software og MVP}
+\label{sec:software-og-mvp}
+
+MVP'en omsætter ESG-krav til konkrete data- og rapporteringsprocesser i en SMV-kontekst. Fokus er på den organisatoriske oversættelse fra krav til praksis: hvilke data der efterspørges, hvordan de valideres, og hvordan rapportoutput gøres sporbar. Case- og teknisk dokumentation understøtter sporbarhed og efterprøvning (bilag \ref{app:teknisk-dokumentation}).
+
+MVP'en operationaliserer forskningsspørgsmål~3 ved at konkretisere, hvordan krav bliver til data, kontroller og rapportoutput.
+\subsection{Formål og krav}
+\label{subsec:formaal-og-krav}
+
+Formålet med MVP'en er at reducere rapporteringsbyrden for SMV'er ved at samle ESG-data i en ensartet proces og skabe et auditabelt output. Løsningen skal gøre det muligt at indsamle kernedata, validere dem og generere dokumentation, som kan anvendes over for ledelse, revisorer og myndigheder. Kravene operationaliseres i case- og softwarematerialet i bilag \ref{app:teknisk-dokumentation}.
+
+Kravene dækker både funktionelle og ikke-funktionelle behov og prioriteres efter, hvad der er nødvendigt i MVP'en versus en fuld løsning. Prioriteringen, der afgrænser MVP'ens scope, fremgår af tabel \ref{tab:krav-prioritering}.
+\begin{table}[h]
+  \caption{Krav og prioritering, der afgrænser hvad MVP'en skal kunne dokumentere.}
+  \label{tab:krav-prioritering}
+  \begin{tabularx}{\textwidth}{X l X}
+    \toprule
+    Krav & Prioritet & Begrundelse \\
+    \midrule
+    Modulbaseret dataindsamling & MVP & Nødvendig for at strukturere ESG-data efter scope og tema. \\
+    Validering af input & MVP & Sikrer datakvalitet og konsistens på tværs af moduler. \\
+    Beregning af indikatorer & MVP & Omsætter input til målbare resultater og beslutningsgrundlag. \\
+    Sporbarhed og ændringshistorik & MVP & Understøtter efterprøvbarhed og audit. \\
+    Rapporteksport (PDF og standardiserede formater) & MVP & Gør output anvendeligt for ledelse og compliance. \\
+    Integration til eksisterende datakilder & Fuld & Reducerer manuelt arbejde og øger skalerbarhed. \\
+    Benchmark og proaktive alarmer & Fuld & Tilføjer strategisk indsigt ud over compliance. \\
+    Rollebaseret adgang og sikkerhed & MVP & Krævet for GDPR-kompatibel databehandling. \\
+    \bottomrule
+  \end{tabularx}
+  \TableSource{Egen fremstilling baseret på case- og softwaremateriale (bilag \ref{app:teknisk-dokumentation}).}
+\end{table}
+
+\subsection{Systemoversigt og arkitektur}
+\label{subsec:systemoversigt-og-arkitektur}
+
+MVP'en er en webbaseret løsning med en klar opdeling mellem brugergrænseflade, applikationslogik og datalagring. Løsningen håndterer brugerflow, dataindtastning, validering og lagring i et sammenhængende forløb. Teknisk dokumentation og software-specifikation fremgår af bilag \ref{app:teknisk-dokumentation} og bilag \ref{app:software-spec}. Den detaljerede software-specifikation vedlægges som separat fil.
+
+Teknisk er MVP'en implementeret som en Next.js-baseret webapp med en Node.js-backend, der persisterer wizard-data i PostgreSQL. Beregninger og schema-validering ligger i en fælles komponent, mens rapportoutput genereres via en PDF-renderer. Backend udstiller et snapshot-endpoint, som understøtter hentning og lagring af state, og gør auditspor og versionshistorik operationelle. Det understreger, at artefakten er et fungerende softwareprodukt og ikke kun en konceptuel skitse (bilag \ref{app:teknisk-dokumentation} og \ref{app:software-spec}).
+
+Dataflowet er kontrolleret: input indsamles, valideres og gemmes med historik, så ændringer kan spores og genskabes. Arkitekturen understøtter sporbarhed og gør det muligt at udvide komponenter uden at bryde den samlede proceslogik.
+
+Arkitekturens hovedkomponenter og relationer fremgår af figur \ref{fig:system-arkitektur}.
+\begin{figure}[h]
+  \centering
+  \fbox{\begin{tabular}{c}
+    Brugergrænseflade \\
+    $\downarrow$ \\
+    Applikationslogik \\
+    $\downarrow$ \\
+    Datalagring \\
+  \end{tabular}}
+  \caption{Systemoversigt, der viser hvor data valideres og gøres sporbare.}
+  \label{fig:system-arkitektur}
+  \FigureSource{Egen fremstilling.}
+\end{figure}
+
+Sporbarhed operationaliseres i en datamodel og i valget af centrale ESG-indikatorer.
+\subsection{Datamodel og ESG-indikatorer}
+\label{subsec:datamodel-og-esg-indikatorer}
+
+Datamodellen er designet til at understøtte sporbarhed gennem versionshistorik og auditspor. Den organiserer data i tre logiske lag: profil og afgrænsning, indikatorregistreringer og ændringshistorik.
+
+Datamodellens hovedkomponenter og deres funktion i MVP'en fremgår af tabel \ref{tab:datamodel-kernetable}.
+\begin{table}[h]
+  \caption{Datamodelkomponenter, der binder input til rapporterbare felter og auditspor.}
+  \label{tab:datamodel-kernetable}
+  \begin{tabularx}{\textwidth}{l X X}
+    \toprule
+    Dataobjekt & Formål & Eksempler på indhold \\
+    \midrule
+    Profil og afgrænsning & Fastlægger organisationens scope og relevante moduler. & Grundoplysninger, perioder, afgrænsninger. \\
+    Indikatorregistrering & Samler data pr. modul til beregning og rapportering. & Forbrugstal, mængder, enheder, datakilder. \\
+    Ændrings- og beregningsspor & Dokumenterer ændringer og udledte resultater. & Tidsstempel, ændringstype, beregningsgrundlag. \\
+    \bottomrule
+  \end{tabularx}
+  \TableSource{Egen fremstilling; datadefinitioner fremgår af bilag \ref{app:teknisk-dokumentation}.}
+\end{table}
+
+MVP'en fokuserer på indikatorer inden for energi, affald og sociale forhold, i tråd med casebeskrivelsen og sektorens ESG-profil. Eksempler på indikatorer og datakilder fremgår af tabel \ref{tab:esg-indikatorer}.
+\begin{table}[h]
+  \caption{Indikatoreksempler, der operationaliserer sektorens kernerisici i konkrete datapunkter.}
+  \label{tab:esg-indikatorer}
+  \begin{tabularx}{\textwidth}{l X l X}
+    \toprule
+    Område & Eksempel på datafelt & Enhed & Typisk datakilde \\
+    \midrule
+    Energi & Varme- og elforbrug & kWh & Drifts- og energidata. \\
+    Affald & Mængde affald pr. fraktion & kg/ton & Affaldsopgørelser og leverandørdata. \\
+    Sociale forhold & Arbejdsmiljøindikatorer & antal/\% & HR-data og interne registreringer. \\
+    \bottomrule
+  \end{tabularx}
+  \TableSource{Egen fremstilling baseret på case-materiale (bilag \ref{app:teknisk-dokumentation}).}
+  \TableNote{Indikatorerne er illustrative og afspejler MVP'ens fokus.}
+\end{table}
+
+\subsubsection{Operationalisering af ESRS E1 til rapporteringsvariable}
+\label{subsec:operationalisering-esrs-e1}
+
+For at gøre oversættelsen fra standard til software eksplicit er udvalgte datapunkter fra ESRS E1 operationaliseret til konkrete input, beregningsregler og outputfelter i MVP'en. Den forenklede mapping af ESRS E1 til input, beregning og output fremgår af tabel \ref{tab:esrs-e1-operationalisering}.
+\begin{table}[h]
+  \caption{Operationalisering af ESRS E1, der viser sporbarhed fra standard til beregning.}
+  \label{tab:esrs-e1-operationalisering}
+  \begin{tabularx}{\textwidth}{l X X X}
+    \toprule
+    ESRS E1-datapunkt & Input & Beregningsregel & Output i MVP \\
+    \midrule
+    Energiforbrug & El- og varmeforbrug (kWh) pr. periode. & $E = \sum kWh$ & Energiforbrug pr. modul/periode. \\
+    Scope 2-udledninger & Energiforbrug og emissionsfaktor. & $\mathrm{CO_2e}_{\text{el}} = kWh \cdot EF_{\text{el}}$ & Scope 2 \ensuremath{\mathrm{CO_2e}} pr. periode. \\
+    Scope 1-udledninger & Brændselsforbrug og emissionsfaktor. & $\mathrm{CO_2e}_{\text{br}} = m \cdot EF_{\text{br}}$ & Scope 1 \ensuremath{\mathrm{CO_2e}} pr. periode. \\
+    Scope 3 (udvalgt kategori) & Affaldsmængder og faktor pr. fraktion. & $\mathrm{CO_2e}_{\text{aff}} = m \cdot EF_{\text{aff}}$ & Scope 3 \ensuremath{\mathrm{CO_2e}} pr. fraktion. \\
+    \bottomrule
+  \end{tabularx}
+  \TableSource{\parencite{EU2023ESRS,GHGProtocol2004}}
+  \TableNote{Mappingen er illustrativ og viser principper for oversættelse fra standard til datapunkter.}
+\end{table}
+
+De centrale beregninger kan udtrykkes med følgende forenklede relationer, der gør auditlogikken synlig:
+\begin{align*}
+  \mathrm{CO_2e}_{\text{total}} &= \sum_i \left( A_i \cdot EF_i \right) \\
+  \mathrm{CO_2e}_{\text{el}} &= E_{\text{el}} \cdot EF_{\text{el}} \\
+  \mathrm{CO_2e}_{\text{varme}} &= E_{\text{varme}} \cdot EF_{\text{varme}}
+\end{align*}
+hvor $A_i$ er aktivitetsdata (fx \si{\kilo\watt\hour} eller \si{\kilogram}) og $EF_i$ er emissionsfaktorer (kg \ensuremath{\mathrm{CO_2e}} pr. enhed). Emissionsfaktorer antages at være scope- og periodespecifikke og hentes fra standardtabeller.\parencite{GHGProtocol2004}
+
+\paragraph{Illustrative beregningseksempler}
+For at gøre input-output konkret viser tabel \ref{tab:beregningseksempler} to forenklede eksempler, der følger principperne i tabel \ref{tab:esrs-e1-operationalisering}. Tallene er illustrative og anvendes til at synliggøre auditspor og sporbarhed.
+\begin{table}[h]
+  \caption{Illustrative eksempler på input, beregning og output i MVP'en.}
+  \label{tab:beregningseksempler}
+  \begin{tabularx}{\textwidth}{l X X X}
+    \toprule
+    Eksempel & Input & Beregning & Output \\
+    \midrule
+    B2 varme (Scope 2) & Varmeforbrug 120.000 kWh; genindvundet varme 20.000 kWh; EF 0,20 kg CO$_2$e/kWh; vedvarende andel 10\%. & Nettoforbrug = 100.000 kWh; brutto = 20.000 kg CO$_2$e; reduktion = 2.000 kg; netto = 18.000 kg. & 18,0 t CO$_2$e registreres i beregningsspor. \\
+    C5 affald (Scope 3) & Affaldsmængde 500 kg; EF 1,2 kg CO$_2$e/kg. & 500 $\times$ 1,2 = 600 kg CO$_2$e. & 0,6 t CO$_2$e pr. fraktion. \\
+    \bottomrule
+  \end{tabularx}
+  \TableSource{Egen fremstilling baseret på beregningsprincipperne i MVP'en.}
+\end{table}
+
+Indikatorerne er organiseret efter ESG-domæner, hvilket gør det muligt at mappe data til de overordnede strukturer i ESRS og GRI uden at påstå fuld dækning af alle datapunkter.\parencite{EU2023ESRS,GRI2021} Afgrænsningen afspejler standardernes modulære logik og peger på, at fuld dækning kræver yderligere moduler og datakilder.
+En samlet moduloversigt med scopes og moduler fremgår af bilagene (tabel \ref{tab:app-moduloversigt}).
+
+\subsection{Dataindsamling og automatisering}
+\label{subsec:dataindsamling-og-automatisering}
+
+Dataindsamlingen er organiseret som et guidet modulforløb, hvor brugeren indtaster eller uploader data pr. modul. Input valideres gennem faste regler, og data gemmes med versionshistorik, så ændringer kan spores over tid. Detaljer om datadefinitioner og kontrolpunkter fremgår af bilag \ref{app:teknisk-dokumentation}.
+
+Dataflowet fra datakilder til rapportoutput samt placeringen af validering og beregning fremgår af figur \ref{fig:dataflow-pipeline}.
+\begin{figure}[h]
+  \centering
+  \fbox{\begin{tabular}{c}
+    Datakilder (drift, HR, økonomi) \\
+    $\downarrow$ Strukturering og manuel input \\
+    Guidet indsamling og validering \\
+    $\downarrow$ Beregningsmotor \\
+    $\downarrow$ Auditspor og versionshistorik \\
+    $\downarrow$ Rapportoutput (PDF og standardiserede formater) \\
+  \end{tabular}}
+  \caption{Forenklet dataflow, der viser hvor validering, beregning og auditspor skaber sporbarhed.}
+  \label{fig:dataflow-pipeline}
+  \FigureSource{Egen fremstilling.}
+\end{figure}
+
+Automatisering sker gennem løbende gemmefunktion og beregning af indikatorer. Det reducerer risikoen for datatab og skaber et konsistent grundlag for rapportoutput. Auditsporet registrerer ændringer og versioner og gør det muligt at efterprøve resultater og antagelser.
+
+Dataindsamling kan ske via API-integrationer eller CSV-udtræk fra drifts-, økonomi- og HR-data, men løsningen understøtter også manuel indtastning for at sikre, at rapporteringen kan gennemføres uden fulde integrationer. Kvalitetskontrol sker gennem valideringsregler, obligatoriske felter og konsistente enheder. IWA 48 understreger behovet for standardiserede KPI'er og rapporteringsprincipper med validering og dokumentation, hvilket understøtter krav om sporbarhed og datakvalitet i MVP'en.\parencite{ISO2024IWA48} Det betyder, at valideringsreglerne ikke blot er tekniske, men en direkte operationalisering af standardernes krav til konsistens.
+
+For at synliggøre governance i datakvalitet er det nyttigt at knytte typiske fejltyper til konkrete kontrolpunkter. Sammenhængen mellem fejltyper og MVP-kontrolpunkter fremgår af tabel \ref{tab:datakvalitet-kontrol}.
+\begin{table}[h]
+  \caption{Datakvalitetsfejl, der viser hvorfor tekniske kontrolpunkter er nødvendige.}
+  \label{tab:datakvalitet-kontrol}
+  \begin{tabularx}{\textwidth}{l X X}
+    \toprule
+    Fejltype & Konsekvens & MVP-kontrolpunkt \\
+    \midrule
+    Manglende scope-data & Under- eller fejlrapportering af udledninger. & Obligatoriske felter og datadækningstjek pr. modul. \\
+    Inkonsekvente enheder & Misvisende beregninger og sammenligninger. & Enhedsvalidering og automatisk normalisering. \\
+    Periodeafgrænsning & Uens rapporteringsår og manglende sammenlignelighed. & Låste rapporteringsperioder og versionshistorik. \\
+    Dubletter i input & Overestimerede mængder og KPI'er. & Dubletkontrol ved import og ændringslog. \\
+    \bottomrule
+  \end{tabularx}
+  \TableSource{Egen fremstilling.}
+  \TableNote{Eksemplerne er illustrative og bygger på almindelige datakvalitetsproblemer i ESG-rapportering.}
+\end{table}
+
+\subsection{Brugerflow og rapportoutput}
+\label{subsec:brugerflow-og-rapportoutput}
+
+Brugerflowet er designet til at guide en SMV gennem en struktureret indsamling af ESG-data. Flowet starter med et profiloverblik, hvor brugeren kan oprette eller fortsætte en profil, som definerer relevante moduler (figur \ref{fig:app-landing-profil-overblik}). Dernæst følger et kort profil-flow, der afgrænser scope og databehov (figur \ref{fig:app-profil-flow-start}), og et moduloverblik, der giver adgang til de enkelte moduler (figur \ref{fig:app-modul-overblik}).
+
+Brugerrejsen fra onboarding til eksport fremgår af figur \ref{fig:brugerflow-diagram} og illustrerer den overordnede proceslogik.
+\begin{figure}[h]
+  \centering
+  \fbox{\begin{tabular}{c}
+    Onboarding og profil \\
+    $\downarrow$ \\
+    Modulvalg \\
+    $\downarrow$ \\
+    Dataindsamling og validering \\
+    $\downarrow$ \\
+    Review og kvalitetstjek \\
+    $\downarrow$ \\
+    Eksport (PDF og standardiserede formater) \\
+  \end{tabular}}
+  \caption{Brugerflow, der synliggør overgangen fra dataindsamling til rapportoutput.}
+  \label{fig:brugerflow-diagram}
+  \FigureSource{Egen fremstilling.}
+\end{figure}
+
+Dataindtastningen foregår modul for modul. Et konkret eksempel på udfyldt input i et energimodul fremgår af figur \ref{fig:app-b2-udfyldt}, mens figur \ref{fig:app-b2-trace} dokumenterer beregningslogikken, der gør resultatet efterprøvbart. Supplerende skærmbilleder af tomt modul og beregnet CO$_2$-estimat fremgår af bilag \ref{app:supplerende-figurer-og-tabeller} (figurer \ref{fig:app-b2-tomt} og \ref{fig:app-b2-resultat}). Slutpunktet er en review-side, hvor rapportstatus og eksportmuligheder fremgår (figur \ref{fig:app-review-topoverblik}).
+
+Rapportoutput genereres som PDF til ledelse og interessenter samt som strukturerede data til compliance i standardiserede formater (fx XBRL), hvilket gør output anvendeligt på tværs af beslutnings- og dokumentationssammenhænge.\parencite{EU2022CSRD} XBRL-tagging styrker maskinlæsbarhed og sammenlignelighed, hvilket fremhæves som en forudsætning for automatiseret kontrol og audit.\parencite{Faccia2021XBRL,XBRLUS2022} Et eksempel på PDF-preview er gengivet i figur \ref{fig:app-reportoutput-preview} (bilag \ref{app:supplerende-figurer-og-tabeller}).
+
+\subsection{Demonstration og evaluering}
+\label{subsec:demonstration-og-evaluering}
+
+Evalueringen tager udgangspunkt i kravene i tabel \ref{tab:krav-prioritering} og demonstrerer, om MVP'en leverer de forventede funktioner. Demonstrationen er kvalitativ og bygger på tre scenarier, der dækker energi, affald og sociale indikatorer (tabel \ref{tab:testscenarier}).
+
+\begin{table}[h]
+  \caption{Testscenarier, der viser hvordan kravene afprøves mod konkrete outputs.}
+  \label{tab:testscenarier}
+  \begin{tabularx}{\textwidth}{l X X}
+    \toprule
+    Scenarie & Forventet output & Relaterede krav \\
+    \midrule
+    Energi (B2) & Valideret input, beregnet resultat og auditspor. & Dataindsamling, validering, beregning, auditspor. \\
+    Affald & Registrering af mængder og konsistent rapportering. & Dataindsamling, validering, rapporteksport. \\
+    Sociale indikatorer & Samlet KPI-oversigt til rapport. & Dataindsamling, rapporteksport. \\
+    \bottomrule
+  \end{tabularx}
+  \TableSource{Egen fremstilling.}
+  \TableNote{Scenarierne er illustrative og afspejler MVP'ens scope.}
+\end{table}
+
+Resultaterne viser, at MVP'en opfylder de centrale MVP-krav om dataindsamling, validering, beregning og sporbarhed. Brugerflowet giver en klar progression fra profil til modul og review, og output kan eksporteres i de forventede formater. Dokumentation i bilag \ref{app:supplerende-figurer-og-tabeller} og \ref{app:teknisk-dokumentation} understøtter vurderingen.
+
+\subsubsection{Indikativt tidsestimat}
+\label{subsec:indikativt-tidsestimat}
+
+For at gøre værdiforslaget mere håndgribeligt kan tidsforbrug estimeres pr. rapporteringscyklus for en mindre klinik. Et groft overslag over tidsforbrug fremgår af tabel \ref{tab:tidsforbrug-mvp}.
+\begin{table}[h]
+  \caption{Illustrativt tidsforbrug før og efter MVP, der synliggør forventet effektivisering.}
+  \label{tab:tidsforbrug-mvp}
+  \begin{tabularx}{\textwidth}{X r r}
+    \toprule
+    Aktivitet & Manuel (timer) & MVP (timer) \\
+    \midrule
+    Dataindsamling (energi, affald, sociale KPI'er) & 24 & 12 \\
+    Validering og fejlkontrol & 8 & 4 \\
+    Konsolidering og rapporteksport & 10 & 4 \\
+    \midrule
+    I alt & 42 & 20 \\
+    \bottomrule
+  \end{tabularx}
+  \TableSource{Egen fremstilling.}
+  \TableNote{Tidsestimaterne er illustrative og afhænger af datamodenhed og integrationsniveau.}
+\end{table}
+
+Det samlede besparelsespotentiale kan udtrykkes som:
+\begin{equation*}
+  T_{\text{besparelse}} = T_{\text{manuel}} - T_{\text{mvp}}
+\end{equation*}
+Formlen synliggør, at gevinsten primært afhænger af graden af standardisering og automatisering i dataindsamling og validering.
+
+Der er samtidig begrænsninger. Integrationsniveauet er grundlæggende og kræver manuelle eller semiautomatiske input, og avancerede funktioner som benchmarking og alerts ligger uden for MVP'ens scope. Evalueringen understøtter dermed, at MVP'en er egnet til compliance og dokumentation, men at yderligere funktionalitet er nødvendig for strategisk anvendelse og skalering.
+
+Resultaterne peger på, at værdiskabelse, governance og implementering især afhænger af datakvalitet og organisatorisk forankring.

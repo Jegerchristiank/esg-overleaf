@@ -1,0 +1,93 @@
+\section{Metode}
+\label{sec:metode}
+
+Undersøgelsen er tilrettelagt med fokus på sporbarhed, konsistens og analytisk holdbarhed. Tilgangen kombinerer dokumentanalyse af regulatoriske krav med empirisk sektorviden, en casebaseret pilot og en analyse af en MVP som artefakt. Det muliggør en kobling mellem policy, organisatorisk praksis og teknisk operationalisering af ESG-krav.
+
+Metoden kobler regulative krav, empirisk sektorviden og artefaktanalyse, så MVP'en kan anvendes som empirisk grundlag i vurderingen af implementering og beslutningsrelevans.
+\subsection{Design og tilgang}
+\label{subsec:design-og-tilgang}
+
+Undersøgelsen anvender et kvalitativt, eksplorativt design. Formålet er at forklare, hvordan ESG-krav omsættes til organisatoriske processer og tekniske datastrukturer i sundhedssektoren, snarere end at teste kausale effekter. Designet kombinerer dokumentanalyse af regulering med empirisk sektorkontekst og en casebaseret pilot.
+
+Tilgangen er abduktiv: den teoretiske ramme bruges til at strukturere fortolkningen af case og MVP, mens empiriske fund justerer og nuancerer analysen. Der arbejdes i tre analytiske spor: (1) regulatorisk kortlægning og kravfortolkning, (2) empirisk kontekstualisering af sektorens ESG-udfordringer, og (3) artefaktanalyse af MVP'en som operationalisering af krav til data, sporbarhed og rapportoutput.
+
+Triangulering opnås ved at sammenholde regulatoriske dokumenter, empiriske sektorkilder og interne case- og softwarekilder. Det giver et samlet billede af, hvordan standarder, governance og praktiske constraints former ESG-rapportering for SMV'er i sundhedssektoren. OECD peger på fragmenterede ESG-data og begrænset sammenlignelighed, hvilket styrker behovet for at krydstjekke krav, sektorviden og praksisbaserede artefakter.\parencite{OECD2020ESG,Berg2022AggregateConfusion}
+
+Sammenhængen mellem forskningsspørgsmål og evidensgrundlag fremgår af tabel \ref{tab:rq-evidens-overblik}.
+\begin{table}[h]
+  \caption{Forskningsspørgsmål og evidensgrundlag, der synliggør den røde tråd i analysen.}
+  \label{tab:rq-evidens-overblik}
+  \begin{tabularx}{\textwidth}{X X l}
+    \toprule
+    Forskningsspørgsmål & Primært evidensgrundlag & Afsnit \\
+    \midrule
+    RQ1: Regulative rammer og konsekvenser for SMV'er. & CSRD/ESRS/EU-taksonomien/GRI samt sektorstatistik og nationale vejledninger. & \ref{sec:kontekst-og-rammer} \\
+    RQ2: Værdiforslag og governance i ESG-as-a-Service. & Teori om standardisering, governance og materialitet samt markeds- og praksiskilder. & \ref{sec:teoretisk-ramme}, \ref{sec:analyse} \\
+    RQ3: MVP som operationalisering af krav. & Case- og softwaremateriale, artefaktanalyse og bilag. & \ref{sec:software-og-mvp} \\
+    \bottomrule
+  \end{tabularx}
+  \TableSource{Egen fremstilling.}
+\end{table}
+
+\subsection{Datagrundlag og kilder}
+\label{subsec:datagrundlag-og-kilder}
+
+Datagrundlaget består af fire hovedkategorier: (1) regulatoriske kilder og standarder, (2) empiriske sektorkilder, (3) teoretisk litteratur og (4) case- og softwaremateriale. Kombinationen giver både normative rammer og praktiske indsigter, som er nødvendige for at analysere ESG-rapporteringens implementering.
+
+Kilderne anvendes i et tydeligt kildehierarki. Regulatoriske dokumenter og peer-reviewet litteratur udgør det normative og analytiske fundament, mens branche- og konsulentkilder primært bruges til at beskrive markedstendenser, implementeringspraksis og kontekstuelle forhold. Case- og softwaremateriale anvendes til at dokumentere operationalisering og sporbarhed. Opdelingen gør det klart, hvad der er krav og teori, og hvad der er kontekst, og reducerer risikoen for, at konklusioner hviler på markedsnarrativer alene.
+
+Regulatoriske kilder vurderes som høj på autenticitet og stabilitet, men kræver fortolkning i anvendelsen. Empiriske sektorkilder er robuste, men aggregerede og derfor mindre egnede til at forklare lokale variationer. Case- og softwaremateriale giver detaljegrad og sporbarhed, men har begrænset ekstern validitet og behandles derfor som casebaseret evidens. CSRD og ESRS fungerer som bindende baseline for datapunkter og struktur, mens GRI og IWA 48 bidrager med frivillige principper for indikatorvalg og datakvalitet.\parencite{EU2022CSRD,EU2023ESRS,GRI2021,ISO2024IWA48}
+
+Datatyperne med periode, rolle og kvalitetsvurdering fremgår af tabel \ref{tab:datakilder-overblik}.
+\begin{table}[h]
+  \caption{Datakilder og kvalitetsvurdering, der afgrænser evidensstyrken.}
+  \label{tab:datakilder-overblik}
+  \begin{tabularx}{\textwidth}{X X X}
+    \toprule
+    Datakategori & Rolle i analysen & Kvalitetsvurdering \\
+    \midrule
+    Regulering og standarder (2020--2025) & Fastlægger krav, scope og væsentlighed. & Høj autenticitet; fortolkningsrum i praksis. \\
+    Empiriske sektorkilder (2019--2024) & Understøtter sektorens ESG-profil og behov. & Robuste, men aggregerede data. \\
+    Teoretisk litteratur (1970--2022) & Analytisk ramme for fortolkning. & Relevant, men kontekstafhængig. \\
+    Case- og softwaremateriale (2025--2026) & Operationalisering af krav og processer (bilag \ref{app:teknisk-dokumentation}). & Høj detaljegrad; begrænset ekstern validitet. \\
+    \bottomrule
+  \end{tabularx}
+  \TableSource{\parencite{EU2022CSRD,EU2023ESRS,EU2020Taxonomy,GRI2021,HCWH2019ClimateFootprint,WHO2024HealthCareWaste,WHO2021HealthWorkerDeaths}}
+  \TableNote{Oversigten er ikke udtømmende.}
+\end{table}
+
+Sporbarhed sikres gennem dokumenteret case- og softwaremateriale (bilag \ref{app:teknisk-dokumentation}).
+
+Casen anvendes som pilot for operationalisering og konkretiserer datagrundlaget i praktiske processer.
+\subsection{Case: Egen virksomhed som pilot}
+\label{subsec:case-egen-virksomhed-som-pilot}
+
+Casen tager udgangspunkt i en egen virksomhed, der udvikler en ESG-as-a-Service-løsning til SMV'er i sundhedssektoren. Casen anvendes som pilot for at konkretisere, hvordan regulatoriske krav omsættes til datafelter, processer og rapportoutput i en praktisk kontekst. Dokumentationen er samlet i bilag \ref{app:teknisk-dokumentation} og understøttes af interne specifikationer af system og dataflows.\parencite{InternalSoftwareSpec2026,InternalSoftwareDetails2026}
+
+Datamaterialet er struktureret i en caseskabelon, der dækker produktbeskrivelse, målgruppe, leveranceprocesser og økonomiske antagelser. Casen beskriver modulbaseret dataindsamling inden for energi, affald og sociale KPI'er og viser, hvordan input valideres og omsættes til rapportoutput. Den giver dermed et konkret grundlag for at vurdere gennemførbarhed, ressourcebehov og organisatoriske implikationer.
+
+Casen er valgt, fordi den repræsenterer en typisk SMV-kontekst med begrænsede ressourcer og samtidig markeds- og compliancepres. Samtidig indebærer valget en risiko for bias, da materialet er egenproduceret. Det håndteres ved at afgrænse generaliseringer og anvende casen som illustrativ evidens frem for statistisk repræsentativ dokumentation.
+
+Egenproduceret case kræver særlig opmærksomhed på etik, compliance og kvalitet.
+\subsection{Etik, compliance og kvalitet}
+\label{subsec:etik-compliance-og-kvalitet}
+
+Etik og compliance vurderes med udgangspunkt i EU's databeskyttelsesforordning (GDPR) og generelle krav til behandling af personoplysninger i en ESG-kontekst.\parencite{EU2016GDPR} Hvor persondata indgår (fx medarbejderdata), anvendes principper om dataminimering, formålsbegrænsning og adgangskontrol. For case og MVP betyder det, at datatyper holdes på et nødvendigt niveau, og at adgang til systemet er rollebaseret.
+
+Kvalitet og sporbarhed understøttes af versionshistorik og auditspor, der dokumenterer ændringer i data og beregninger (bilag \ref{app:teknisk-dokumentation}). Det gør det muligt at efterprøve resultater og identificere antagelser og datakilder bag rapporterede tal. Transparens om antagelser indgår som en eksplicit del af den faglige redegørelse.
+
+Der er en potentiel interessekonflikt, idet casen bygger på egen virksomhed. Dette håndteres ved at dokumentere metodevalg og antagelser eksplicit og ved at afgrænse analysens generaliserbarhed.
+
+\subsection{Begrænsninger}
+\label{subsec:begraensninger}
+
+Metodens primære begrænsninger er:
+\begin{itemize}
+  \item Single-case design med egenproduceret materiale, hvilket begrænser generaliserbarhed.
+  \item MVP'en analyseres som artefakt og er ikke testet på tværs af flere organisationer.
+  \item Datagrundlaget er primært sekundært og aggregeret, hvilket reducerer indsigt i lokale variationer.
+  \item Regulering og standarder er i bevægelse, så krav kan ændre sig i projektperioden.
+  \item Tidsmæssig afgrænsning betyder, at der ikke er gennemført longitudinelle analyser af effekt og adfærdsændring.
+\end{itemize}
+
+Begrænsningerne indebærer, at konklusionerne primært er analytiske og konceptuelle og bør valideres i fremtidige empiriske studier.

@@ -1,0 +1,76 @@
+\section{Diskussion}
+\label{sec:diskussion}
+
+\begin{quote}
+Evidens, begrænsninger og implikationer afgør, hvor robuste konklusionerne kan være.
+\end{quote}
+
+Tre hovedfund står centralt: (1) reguleringen skaber et vedvarende behov for standardiserede data og sporbarhed, (2) servicekonceptet og MVP'en kan operationalisere centrale krav, og (3) organisatorisk forankring er afgørende for at undgå symbolsk rapportering. Det viser, at løsningen kan understøtte teoretiske antagelser om standardisering, governance og værdiskabelse, men kun hvis datapraksis forankres organisatorisk.
+
+Evidensgrundlaget er stærkt for de regulatoriske krav og de teoretiske perspektiver, men mere begrænset empirisk, fordi sektordata er aggregerede og casen er single-case. Det betyder, at alternative forklaringer og implikationer for SMV'er må vurderes kritisk, og at konklusionerne bør forstås som analytiske snarere end generaliserbare. Kritiske analyser af ESG-markedet peger samtidig på uensartede standarder og uklar performance-måling, hvilket forstærker behovet for sporbarhed og datakvalitet i praktisk implementering.\parencite{Economist2022Broken,Winston2022Tumultuous}
+
+Afvejningen af evidensstyrke, praktiske implikationer og usikkerheder nuancerer dermed svarene på forskningsspørgsmålene.
+\subsection{Sammenhæng mellem teori, empiri og software}
+\label{subsec:sammenhaeng-mellem-teori-empiri-og-software}
+
+Analysen peger på en grundlæggende konsistens mellem teori, empiri og MVP. Brunssons standardiseringsperspektiv beskriver, hvordan standarder skaber legitimitet og sammenlignelighed, men også risiko for dekobling mellem rapportering og praksis.\parencite{BrunssonWorldOfStandards} MVP'en adresserer denne risiko ved at indbygge auditspor, validering og beregningsspor, som gør data efterprøvbare og reducerer symbolsk rapportering (bilag \ref{app:teknisk-dokumentation}). Det understøtter den teoretiske antagelse om, at standardisering kræver konkrete infrastrukturer for at få organisatorisk effekt.
+
+Pensum om translasion understreger, at ideer altid oversættes til lokale praksisser.\parencite{RoevikTrenderTranslasjoner,TranslationTheoryKnowledgeTransfer} Det genfindes i casen, hvor MVP'en prioriterer et begrænset sæt af indikatorer (energi, affald og sociale KPI'er) for at gøre rapporteringen gennemførbar for SMV'er. Dette bekræfter, at implementering ikke er en direkte kopi af ESRS/GRI, men en kontekstualiseret oversættelse.
+
+Samtidig peger empirien på afvigelser, hvor implementering i praksis ofte drives af kundekrav og ressourcebegrænsninger snarere end af standardlogik alene. Det kan betyde, at rapporteringen bliver mere compliance-orienteret end den teoretiske ambition om strategisk værdiskabelse.
+
+Empirien om sundhedssektorens klimaaftryk og arbejdsvilkår viser, at centrale ESG-dimensioner ligger i scope~3, affaldsstrømme og sociale risici.\parencite{HCWH2019ClimateFootprint,WHO2024HealthCareWaste,WHO2021HealthWorkerDeaths} MVP'ens fokus på sporbar dataindsamling og strukturerede outputs matcher disse behov og fungerer som et praktisk svar på sektorens dokumentationskrav.\parencite{Sepetis2024Healthcare,Bosco2024ESGHealth}
+
+Samtidig viser pensum om ESG, at mangel på standardisering og datakvalitet er en tilbagevendende barriere for værdiskabelse.\parencite{ESGBook} ESG-ratinger divergerer og understreger, at standarder endnu ikke skaber fuld sammenlignelighed på tværs af aktører.\parencite{Berg2022AggregateConfusion} Det betyder, at MVP'en bør ses som et skridt mod standardisering, men ikke som en garanti for fuld konsensus eller endelig validitet. Samlet peger dette på, at software kan reducere friktion og skabe bedre datakvalitet, men at organisatorisk forankring og governance stadig er afgørende for at undgå dekobling.
+
+\subsubsection{Minimum compliance versus beslutningsrelevant ESG}
+\label{subsec:minimum-compliance-vs-beslutningsrelevant-esg}
+
+Den analytiske spændvidde i ESG-as-a-Service kan tydeliggøres ved at skelne mellem minimum compliance og beslutningsrelevant ESG. Distinktionen er central, fordi den markerer, hvornår rapportering bliver styringsinformation frem for dokumentation. Forskellene i formål, datakrav og organisatorisk anvendelse fremgår af tabel \ref{tab:compliance-vs-beslutningsrelevant}.
+\begin{table}[h]
+  \caption{Kontrast, der viser hvorfor beslutningsrelevant ESG kræver mere end minimum compliance.}
+  \label{tab:compliance-vs-beslutningsrelevant}
+  \begin{tabularx}{\textwidth}{l X X}
+    \toprule
+    Dimension & Minimum compliance & Beslutningsrelevant ESG \\
+    \midrule
+    Formål & Opfylde eksterne krav og dokumentation. & Understøtte strategiske beslutninger og værdiskabelse. \\
+    Datakrav & Minimumsdatapunkter og lav granuleringsgrad. & Højere granularitet, sporbarhed og sammenhæng til KPI'er. \\
+    Proces & Periodisk rapportering med fokus på kontrol. & Løbende styring og integration i driftsprocesser. \\
+    Output & Rapport og dokumentation til myndigheder/kunder. & Ledelsesinformation, risikostyring og forbedringstiltag. \\
+    \bottomrule
+  \end{tabularx}
+  \TableSource{Egen fremstilling baseret på teori og case.}
+\end{table}
+
+Normativt er minimum compliance utilstrækkelig governance i sundhedssektoren, når ESG-data bruges til risikostyring, prioritering og ansvarlighed. ``God nok'' ESG er derfor dårlig governance, når den reducerer ESG til efterlevelse uden læring, prioritering eller beslutningsrelevans.
+
+Troværdig ESG-rapportering kræver derfor både tekniske kontroller og organisatoriske rutiner, der sikrer, at data faktisk afspejler praksis og ikke kun formel efterlevelse.
+\subsection{Implikationer for SMV'er}
+\label{subsec:implikationer-for-smver}
+
+SMV'er møder ESG som et vedvarende krav, selv når de ikke er direkte omfattet af CSRD. \textcite{PwC2025GuideESGSMV} peger på, at kravene i stigende grad kommer via kunder, banker og forsyningskæder, hvilket gør frivillig rapportering til en praktisk nødvendighed.\parencite{Virksomhedsguiden2025SMVDefinition}
+
+VSME-standarden tilbyder en lavere adgangsbarriere og reducerer kompleksiteten ved at opstille et basismodul med begrænset datakrav og uden krav om dobbelt væsentlighed.\parencite{Virksomhedsguiden2025VSMEIntro,Virksomhedsguiden2025VSMEModules,Virksomhedsguiden2025NoDualMateriality} EY's evaluering viser samtidig, at mange virksomheder vælger at rapportere ud over minimumsniveauet, hvilket indikerer en strategisk anvendelse af ESG-data snarere end ren compliance.\parencite{EY2025VSME}
+
+VSME kan være tilstrækkelig som minimumsniveau, men den kan også vise sig utilstrækkelig, når kunder, banker eller offentlige aktører kræver mere detaljeret dokumentation. Det kan skabe dobbeltarbejde, hvis SMV'er både skal opfylde VSME og mere avancerede krav, og dermed øge byrden frem for at reducere den.
+
+Implikationen for SMV'er er derfor todelt. På kort sigt er der behov for forenklede arbejdsgange og teknisk støtte, som servicekonceptet kan levere. På lang sigt er der behov for organisatorisk læring og datakapacitet, så ESG-arbejdet kan integreres i driften og skabe beslutningsrelevante indsigter. Stop-the-clock-aftalen giver ekstra tid, men nedsætter ikke markedets efterspørgsel efter dokumentation, hvilket betyder, at udsættelse ikke bør tolkes som en pause i implementeringen.\parencite{Erhvervsstyrelsen2025StopClock}
+
+Samlet set understøtter diskussionen, at SMV'er bør anvende standarder og digitale løsninger som en gradvis overgangsstrategi: start med minimumsmoduler, dokumenter sporbarhed, og udvid derefter til mere komplekse krav, når datakvalitet og ressourcer tillader det.
+\subsection{Begrænsninger og alternative forklaringer}
+\label{subsec:begraensninger-og-alternative-forklaringer}
+
+Begrænsningerne er strukturelle: analysen er casebaseret og konceptuel. Casen er egenproduceret, og MVP'en er ikke afprøvet i flere organisationer. Det betyder, at konklusionerne primært er analytiske og bør valideres i fremtidige empiriske studier.
+\begin{displayquote}
+Effektiv videnoverførsel er meget udfordrende; sådanne processer lykkes nogle gange, men fejler ofte.
+\quoteattrib{\textcite{TranslationTheoryKnowledgeTransfer}}
+\end{displayquote}
+
+Der findes flere alternative forklaringer på de observerede sammenhænge. For det første kan motivationen for ESG-rapportering være drevet af generel digitaliseringsmodenhed snarere end af standardiseringslogikken i sig selv. For det andet kan implementering handle mere om efterlevelse af kundekrav i forsyningskæden end om strategisk værdiskabelse, hvilket reducerer muligheden for at udlede økonomiske effekter af ESG-arbejdet.\parencite{Berg2022AggregateConfusion}
+
+En metodisk begrænsning er antagelserne i MVP'en om datatilgængelighed og standardiserede inputformater. Hvis data er mere fragmenterede end antaget, kan beregninger og rapportoutput blive mindre valide, hvilket påvirker konklusionernes styrke.
+
+Regulatorisk usikkerhed er en tredje forklaring. CSRD, ESRS og EU-taksonomien er under løbende justering, og stop-the-clock-aftalen kan skabe midlertidige tilpasninger i virksomhedernes prioriteringer.\parencite{EU2022CSRD,EU2023ESRS,EU2020Taxonomy,Erhvervsstyrelsen2025StopClock} Effekter, der i analysen tolkes som implementeringsbarrierer, kan derfor delvist skyldes timing og regulatorisk bevægelse.
+
+Endelig kan dataforskelle og rating-divergens betyde, at selv standardiseret rapportering ikke skaber entydige evalueringer på tværs af interessenter.\parencite{Berg2022AggregateConfusion} Dette understreger, at diskussionens konklusioner skal tolkes med forbehold for datakvalitet, fortolkningsrum og aktørers forskellige anvendelse af ESG-information. Yderligere empirisk test bør derfor omfatte flere cases, kvantitative data og brugeradoption over tid.

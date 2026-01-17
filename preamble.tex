@@ -3,7 +3,6 @@
 \usepackage[margin=0.8in]{geometry}
 \usepackage{fontspec}
 \usepackage[english,danish]{babel}
-\usepackage{csquotes}
 \usepackage{setspace}
 \usepackage{tabularx}
 \usepackage{amsmath}
@@ -11,6 +10,7 @@
 \usepackage{mdframed}
 \usepackage{fvextra}
 \usepackage{booktabs} % Consistent table rules for evidence tables.
+\usepackage{csquotes}
 
 % Package decisions:
 % - siunitx: used for numeric examples/units.
@@ -38,7 +38,7 @@
 % Figure standard: PDF/PNG preferred, 300 dpi for raster, caption+label, source below.
 
 % Bibliography setup
-\usepackage[backend=biber,style=authoryear,maxcitenames=2,giveninits=true]{biblatex}
+\usepackage[backend=biber,style=authoryear,maxcitenames=2,giveninits=true,uniquename=init]{biblatex}
 \addbibresource{references.bib}
 
 % Customisation of default names
