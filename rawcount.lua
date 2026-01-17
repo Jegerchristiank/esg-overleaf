@@ -100,7 +100,7 @@ all = all:gsub("%s+", " "):gsub("^%s+", ""):gsub("%s+$", "")
 local count = #all
 local pages = count / 2400
 
-tex.sprint("\\\\gdef\\\\RawCharCount{" .. count .. "}")
-tex.sprint(string.format("\\\\gdef\\\\RawPageCount{%.2f}", pages))
+tex.sprint("\\gdef\\RawCharCount{" .. count .. "}")
+tex.sprint(string.format("\\gdef\\RawPageCount{%.2f}", pages))
 texio.write_nl("log", "RAW_CHAR_COUNT: " .. count)
 texio.write_nl("log", string.format("RAW_PAGE_ESTIMATE: %.2f", pages))
