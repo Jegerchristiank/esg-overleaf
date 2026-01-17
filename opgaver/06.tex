@@ -141,7 +141,7 @@ For at gøre input-output konkret viser tabel \ref{tab:beregningseksempler} to f
   \TableSource{Egen fremstilling baseret på beregningsprincipperne i MVP'en.}
 \end{table}
 
-Indikatorerne er organiseret efter ESG-domæner, hvilket gør det muligt at mappe data til de overordnede strukturer i ESRS og GRI uden at påstå fuld dækning af alle datapunkter. I tråd med \textcite{EU2023ESRS} og \textcite{GRI2021} afspejler afgrænsningen standardernes modulære logik og peger på, at fuld dækning kræver yderligere moduler og datakilder.
+Indikatorerne er organiseret efter ESG-domæner, hvilket gør det muligt at mappe data til de overordnede strukturer i ESRS og GRI uden at påstå fuld dækning af alle datapunkter. I tråd med \textcitefull{EU2023ESRS} og \textcitefull{GRI2021} afspejler afgrænsningen standardernes modulære logik og peger på, at fuld dækning kræver yderligere moduler og datakilder.
 En samlet moduloversigt med scopes og moduler fremgår af bilagene (tabel \ref{tab:app-moduloversigt}).
 
 \subsection{Dataindsamling og automatisering}
@@ -167,7 +167,7 @@ Dataflowet fra datakilder til rapportoutput samt placeringen af validering og be
 
 Automatisering sker gennem løbende gemmefunktion og beregning af indikatorer. Det reducerer risikoen for datatab og skaber et konsistent grundlag for rapportoutput. \textit{Auditsporet} registrerer ændringer og versioner og gør det muligt at efterprøve resultater og antagelser.
 
-Dataindsamling kan ske via API-integrationer eller CSV-udtræk fra drifts-, økonomi- og HR-data, men løsningen understøtter også manuel indtastning for at sikre, at rapporteringen kan gennemføres uden fulde integrationer. Kvalitetskontrol sker gennem valideringsregler, obligatoriske felter og konsistente enheder. \textcite{ISO2024IWA48} understreger, at ESG-implementering kræver standardiserede KPI'er og rapporteringsprincipper med validering og dokumentation, hvilket understøtter krav om sporbarhed og datakvalitet i MVP'en. Det betyder, at valideringsreglerne ikke blot er tekniske, men en direkte operationalisering af standardernes krav til konsistens.
+Dataindsamling kan ske via API-integrationer eller CSV-udtræk fra drifts-, økonomi- og HR-data, men løsningen understøtter også manuel indtastning for at sikre, at rapporteringen kan gennemføres uden fulde integrationer. Kvalitetskontrol sker gennem valideringsregler, obligatoriske felter og konsistente enheder. \textcitefull{ISO2024IWA48} understreger, at ESG-implementering kræver standardiserede KPI'er og rapporteringsprincipper med validering og dokumentation, hvilket understøtter krav om sporbarhed og datakvalitet i MVP'en. Det betyder, at valideringsreglerne ikke blot er tekniske, men en direkte operationalisering af standardernes krav til konsistens.
 
 For at synliggøre governance i datakvalitet er det nyttigt at knytte typiske fejltyper til konkrete kontrolpunkter. Sammenhængen mellem fejltyper og MVP-kontrolpunkter er flyttet til bilagstabel \ref{tab:datakvalitet-kontrol}.
 
@@ -217,7 +217,7 @@ Brugerrejsen fra onboarding til eksport fremgår af figur \ref{fig:brugerflow-di
 
 Dataindtastningen foregår modul for modul. Eksempler på udfyldt input, beregnet CO$_2$-estimat, beregningstrace og review-side er samlet i bilag \ref{app:supplerende-figurer-og-tabeller} (figurer \ref{fig:app-b2-tomt} til \ref{fig:app-review-topoverblik}), mens hovedteksten fokuserer på krav, validering og auditspor.
 
-I \textcite{EU2022CSRD} kræves, at rapportoutput genereres som PDF til ledelse og interessenter samt som strukturerede data til compliance i standardiserede formater (fx XBRL), hvilket gør output anvendeligt på tværs af beslutnings- og dokumentationssammenhænge. \textcite{Faccia2021XBRL} og \textcite{XBRLUS2022} fremhæver, at XBRL-tagging styrker maskinlæsbarhed og sammenlignelighed og er en forudsætning for automatiseret kontrol og audit. MVP'en genererer i denne version PDF-preview og et struktureret datasæt til intern brug, men implementerer ikke iXBRL/XBRL-tagging; det kræver taksonomi-mapping, namespace-håndtering og valideringsregler mod XBRL-taxonomien. Et eksempel på PDF-preview er gengivet i figur \ref{fig:app-reportoutput-preview} (bilag \ref{app:supplerende-figurer-og-tabeller}).
+I \textcitefull{EU2022CSRD} kræves, at rapportoutput genereres som PDF til ledelse og interessenter samt som strukturerede data til compliance i standardiserede formater (fx XBRL), hvilket gør output anvendeligt på tværs af beslutnings- og dokumentationssammenhænge. \textcite{Faccia2021XBRL} og \textcite{XBRLUS2022} fremhæver, at XBRL-tagging styrker maskinlæsbarhed og sammenlignelighed og er en forudsætning for automatiseret kontrol og audit. MVP'en genererer i denne version PDF-preview og et struktureret datasæt til intern brug, men implementerer ikke iXBRL/XBRL-tagging; det kræver taksonomi-mapping, namespace-håndtering og valideringsregler mod XBRL-taxonomien. Et eksempel på PDF-preview er gengivet i figur \ref{fig:app-reportoutput-preview} (bilag \ref{app:supplerende-figurer-og-tabeller}).
 
 \subsection{Demonstration og evaluering}
 \label{subsec:demonstration-og-evaluering}

@@ -56,6 +56,13 @@
   {\multicitedelim}
   {\usebibmacro{postnote}\bibcloseparen}
 
+% Full-name narrative citations for institutional sources with shortauthor.
+\DeclareCiteCommand{\textcitefull}
+  {\usebibmacro{prenote}}
+  {\printnames{author}\setunit{\nameyeardelim}\printtext[parens]{\printlabeldate}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+
 % Customisation of default names
 \renewcommand{\contentsname}{Indholdsfortegnelse}
 
