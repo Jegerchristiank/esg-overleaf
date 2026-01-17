@@ -102,6 +102,31 @@ Reguleringen er analytisk interessant: på den ene side øger standarderne samme
 
 Hierarkiet bruges som analytisk ramme i resten af rapporten. Direktivniveauet forklarer, hvorfor rapportering er uomgængelig og hvilke pligter der udløses; standardniveauet (ESRS) forklarer, hvordan data skal struktureres, valideres og gøres auditerbare; og forordningsniveauet (taksonomien) forklarer, hvilke aktiviteter der bliver økonomisk relevante. Dermed etableres en eksplicit kontrakt med læseren: senere analyser af datamodel, governance og værdiforslag må kunne spores tilbage til disse niveauer.
 
+\subsubsection{Traceability-matrice som analytisk greb}
+\label{subsec:traceability-matrice}
+
+For at gøre kontrakten operationel anvendes en fast traceability-matrice, som binder retskilde til datapunkt, input, validering, beregning, output og audit-evidens. Matricen fungerer som et gennemgående analysegreb og genbruges i software- og evalueringsafsnittene, så hver central påstand kan spores tilbage til et regulatorisk krav og et konkret dataflow.
+
+\begin{table}[htbp]
+  \caption{Traceability-matrice (udsnit), der binder retskilde, datapunkt, datafelter og auditspor.}
+  \label{tab:traceability-matrix}
+  \begingroup
+  \renewcommand{\arraystretch}{1.1}
+  \small
+  \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.17\textwidth} >{\raggedright\arraybackslash}p{0.12\textwidth} >{\raggedright\arraybackslash}p{0.13\textwidth} >{\raggedright\arraybackslash}p{0.11\textwidth} >{\raggedright\arraybackslash}p{0.12\textwidth} >{\raggedright\arraybackslash}p{0.12\textwidth} >{\raggedright\arraybackslash}X}
+    \toprule
+    Retskilde + reference & ESRS-datapunkt & Inputfelter & Valideringsregel & Beregningsregel & Outputfelt & Audit-evidens \\
+    \midrule
+    CSRD \lawart{19a}, \lawart{29a} (rapportering og digital tagging) & ESRS E1-5/E1-6 (energi og GHG) & El/varme (kWh), brændsel (L/kg), emissionsfaktorer & Enheder, periodelås, kilde angivet & CO$_2$e = aktivitet $\times$ EF; energisum pr. periode & Scope 1/2 CO$_2$e; energiforbrug pr. periode & Kilde-ID, EF-version, ændringslog, godkendelse af dataejer \\
+    CSRD \lawart{19a} (bæredygtighedsoplysninger) & ESRS E5 (affald og ressourcebrug) & Affald pr. fraktion (kg/ton), behandlingsform & Ikke-negative mængder, fraktionsmatch & Summering pr. fraktion; evt. CO$_2$e = m $\times$ EF & Affald pr. fraktion; andel farligt affald & Vejesedler, leverandørdokumentation, godkendt af drift \\
+    CSRD \lawart{19a} (sociale forhold) & ESRS S1 (arbejdsmiljø) & Antal hændelser, arbejdstimer, medarbejderantal & Konsistens med HR-data, periodelås & Frekvens = hændelser/arbejdstimer & Arbejdsmiljø-KPI'er & HR-log, hændelsesjournal, sign-off af HR \\
+    \bottomrule
+  \end{tabularx}
+  \endgroup
+  \TableSource{\parencite{EU2022CSRD,EU2023ESRS,GHGProtocol2004}}
+  \TableNote{Udsnittet er illustrativt og viser princippet; den fulde matrix udvides i MVP- og evalueringsafsnittene.}
+\end{table}
+
 \subsubsection{Gennemgående regulatoriske principper}
 \label{subsec:gennemgaaende-regulatoriske-principper}
 
@@ -113,6 +138,26 @@ På tværs af retskilderne går en række gentagende principper, der forklarer, 
 Som direktiv forudsætter CSRD national implementering. I Danmark sker implementeringen via lov nr 480 af 22/05/2024, som ændrer årsregnskabsloven og relaterede love, og som operationaliseres gennem Erhvervsstyrelsens vejledninger og værktøjer til SMV'er.\parencite{EU2022CSRD,Lov2024CSRD,Aarsregnskabsloven2022,Erhvervsstyrelsen2025ESGTemplate,Virksomhedsguiden2025VSMEIntro} I praksis mødes virksomhederne ofte gennem nationale kanaler som myndigheder, revisorer og finansielle institutioner; \textcite{Finanstilsynet2025ESGRisk} og \textcite{GrantThorntonDK2025BankESG} viser, at bankernes ESG-risikostyring gør data til en forudsætning for kredit, også når rapportering formelt er frivillig.\parencite{DanskErhvervFSR2025CSRDTimeline}
 
 Den juridiske struktur forstærker fokus på at reducere kløften mellem krav og datapraksis: ESG-as-a-Service er ikke blot et teknisk valg, men et regulatorisk mellemled i et flerniveau-regime. Det perspektiv danner overgang til SMV'ernes behov for forenkling.
+
+Dansk implementering bliver mest håndgribelig, når den omsættes til konkrete kontrolpunkter, som SMV'er faktisk møder. Tabel \ref{tab:danske-kontrolpunkter} viser, hvordan lovgivning, vejledninger og finansielle krav bliver til operative grænseflader, der skal dokumenteres i data og auditspor.
+
+\begin{table}[htbp]
+  \caption{Danske kontrolpunkter, der gør transpositionen operationel for SMV'er.}
+  \label{tab:danske-kontrolpunkter}
+  \begingroup
+  \renewcommand{\arraystretch}{1.2}
+  \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.28\textwidth} >{\raggedright\arraybackslash}p{0.32\textwidth} >{\raggedright\arraybackslash}X}
+    \toprule
+    Styringsartefakt & Udløst dokumentationskrav & Kontrolgrænseflade i praksis \\
+    \midrule
+    Lov nr 480/2024 og årsregnskabsloven & Bæredygtighedsoplysninger i ledelsesberetning samt dokumenteret datagrundlag for revision. & SMV'er møder kravet i årsrapportprocessen via revisor; datakilder og beregninger skal kunne genskabes. \\
+    Erhvervsstyrelsens VSME-skabelon & Standardiserede datapunkter (basis/udvidet modul) til ensartet rapportering. & SMV'er bruger skabelonen i dialog med kunder, banker og myndigheder som minimums-datasæt. \\
+    Finanstilsynets ESG-risikostyring og bankkrav & ESG-data som input til kredit- og risikovurdering (udledninger, risici, politikker). & SMV'er møder kravet i kreditprocesser; data skal være sporbare og validerede. \\
+    \bottomrule
+  \end{tabularx}
+  \endgroup
+  \TableSource{\parencite{Lov2024CSRD,Aarsregnskabsloven2022,Erhvervsstyrelsen2025ESGTemplate,Finanstilsynet2025ESGRisk,GrantThorntonDK2025BankESG}}
+\end{table}
 
 De centrale forskelle mellem rammerne og deres implikationer for datakrav og rapporteringslogik fremgår af tabel \ref{tab:rammer-sammenligning}.
 \begin{table}[htbp]

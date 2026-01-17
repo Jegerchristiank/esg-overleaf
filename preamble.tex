@@ -23,6 +23,11 @@
 % Main font configuration
 \setmainfont{Arial}
 
+% Reduce aggressive hyphenation to avoid hard word breaks in output.
+\hyphenpenalty=800
+\exhyphenpenalty=800
+\emergencystretch=2em
+
 % Numeric and unit formatting (Danish decimal comma).
 \sisetup{
   output-decimal-marker = {,},

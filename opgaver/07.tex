@@ -9,6 +9,8 @@ Standardiserings-, governance- og økonomiske perspektiver anvendes til at forto
 
 Fokus er at vurdere, om standardisering via ESG-as-a-Service reducerer risikoen for dekobling, og om rapporteringen bliver beslutningsrelevant frem for blot minimum compliance. Dermed kan det vurderes, hvor løftet om governance faktisk indfries i praksis.
 Analysen er organiseret i delafsnit, der bevæger sig fra standardisering og værdiforslag til pris, implikationer og implementering i sundhedssektoren.
+
+Som gennemgående analysegreb anvendes traceability-matricen (tabel \ref{tab:traceability-matrix}), så sammenhængen mellem retskilde, datapunkt, beregning og auditspor kontrolleres eksplicit i vurderingen af governance og værdiforslag.
 \subsection{ESG som organisationsstandard}
 \label{subsec:esg-som-organisationsstandard}
 
@@ -52,7 +54,9 @@ Et simpelt prisudtryk kan beskrives som:
 \end{equation*}
 hvor $F$ er faste omkostninger, $N$ er antal kunder, $V$ er variable omkostninger pr. kunde, og $m$ er en risikomargin. Modellen synliggør, at skalerbarhed i onboarding og support er afgørende for at holde $P$ konkurrencedygtig.
 
-Betalingsvilligheden er tæt knyttet til compliancepres og interessentkrav. \textcite{PwC2025GuideESGSMV} og \textcite{Erhvervsstyrelsen2025StopClock} beskriver, at mange SMV'er møder dataanmodninger fra kunder og finansielle aktører og derfor vælger frivillig rapportering som risikoreduktion. \textcite{Finanstilsynet2025ESGRisk} peger på ESG som en stigende risikofaktor i kreditvurdering, hvilket gør bankkrav til en strukturel driver for betalingsvillighed. \textcite{GrantThorntonDK2025BankESG} underbygger, at bankernes ESG‑krav allerede påvirker kreditdialogen, og \textcite{EY2025VSME} indikerer, at mange virksomheder rapporterer ud over basismodullets krav, hvilket peger på en villighed til at investere i bedre datakvalitet.
+Betalingsvilligheden er tæt knyttet til compliancepres og interessentkrav. \textcite{PwC2025GuideESGSMV} og \textcite{Erhvervsstyrelsen2025StopClock} beskriver, at mange SMV'er møder dataanmodninger fra kunder og finansielle aktører og derfor vælger frivillig rapportering som risikoreduktion. \textcite{Finanstilsynet2025ESGRisk} peger på ESG som en stigende risikofaktor i kreditvurdering, hvilket gør bankkrav til en strukturel driver for betalingsvillighed. \textcite{GrantThorntonDK2025BankESG} underbygger, at bankernes ESG-krav allerede påvirker kreditdialogen, og \textcite{EY2025VSME} indikerer, at mange virksomheder rapporterer ud over basismodullets krav, hvilket peger på en villighed til at investere i bedre datakvalitet.
+
+Tidsplansskift som stop-the-clock påvirker denne villighed: hvis rapporteringspligt udskydes, kan efterspørgslen midlertidigt falde i segmenter med lavt kundepres, mens segmenter med stærke bank- og kædekrav fortsat vil efterspørge dokumentation. Prisstrategien bør derfor ses som betinget af tidsplanen og markedets kravintensitet.
 
 Analytisk betyder det, at prisstrategien bør balancere lav adgangsbarriere for mindre aktører med mulighed for opgradering for kunder med højere compliancekrav. En modulopbygget prisstruktur understøtter denne balance, fordi den knytter omkostninger direkte til datakompleksitet og rapporteringsomfang.
 
@@ -75,6 +79,8 @@ Analytisk betyder det, at prisstrategien bør balancere lav adgangsbarriere for 
 \label{subsec:organisatoriske-og-oekonomiske-implikationer}
 
 Implementering er i praksis en governance-opgave: hvem ejer data, hvem godkender dem, og hvordan sikres sporbarhed. \textcite{EU2022CSRD} og \textcite{EU2023ESRS} fastlægger, at standarder og regulering etablerer forventninger til dokumentation, hvilket betyder, at SMV'er må definere ansvar for dataindsamling, validering og rapportering. \textcite{RoevikTrenderTranslasjoner} og \textcite{TranslationTheoryKnowledgeTransfer} viser, at sådanne krav oversættes via interne eller eksterne mellemled, hvilket skaber behov for et serviceled, der kan omsætte krav til operative beslutninger.
+
+Governance bliver derfor konkret i rolle- og kontrolfordelingen mellem software, serviceleverandør og SMV. Software kan validere og beregne, men kan ikke attestere datakilder eller vurdere rimelighed; det forbliver et ledelses- og dataejeransvar. Kontrollogikken og dokumentationen fremgår af MVP'ens kontrolfordeling (tabel \ref{tab:kontrolfordeling}), hvor auditspor og sign-off gør ansvarsdelingen efterprøvbar.
 
 Ressourcebehovet optræder på flere niveauer: tid til dataindsamling, kompetencer til fortolkning af standarder og tekniske ressourcer til at integrere data. \textcite{BrunssonWorldOfStandards} påpeger, at standardiserede arbejdsgange og auditspor kan reducere noget af dette, men organisatorisk forankring er stadig nødvendig for at undgå dekobling mellem rapportering og praksis.
 
