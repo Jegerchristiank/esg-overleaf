@@ -105,10 +105,10 @@ Hierarkiet bruges som analytisk ramme i resten af rapporten. Direktivniveauet fo
 \subsubsection{Traceability-matrice som analytisk greb}
 \label{subsec:traceability-matrice}
 
-For at gøre kontrakten operationel anvendes en fast traceability-matrice, som binder retskilde til datapunkt, input, validering, beregning, output og audit-evidens. Matricen fungerer som et gennemgående analysegreb og genbruges i software- og evalueringsafsnittene, så hver central påstand kan spores tilbage til et regulatorisk krav og et konkret dataflow.
+For at gøre kontrakten operationel anvendes en fast traceability-matrice, som binder retskilde til datapunkt, input, validering, beregning, output og audit-evidens. I hovedteksten vises en gennemarbejdet trace som eksempel, mens den fulde matrix for MVP-scope er flyttet til bilag (tabel \ref{tab:traceability-matrix-full}). Matricen fungerer som et gennemgående analysegreb og genbruges i software- og evalueringsafsnittene, så hver central påstand kan spores tilbage til et regulatorisk krav og et konkret dataflow.
 
 \begin{table}[htbp]
-  \caption{Traceability-matrice for rapportens evidensscope (B2, C5, S1), der binder retskilde, datapunkt, datafelter og auditspor.}
+  \caption{Traceability-trace (eksempel) for B2, der binder retskilde, datapunkt, datafelter og auditspor.}
   \label{tab:traceability-matrix}
   \begingroup
   \renewcommand{\arraystretch}{1.1}
@@ -117,20 +117,18 @@ For at gøre kontrakten operationel anvendes en fast traceability-matrice, som b
     \toprule
     Retskilde + reference & ESRS-datapunkt & Inputfelter & Valideringsregel & Beregningsregel & Outputfelt & Audit-evidens \\
     \midrule
-    CSRD \lawart{19a}, \lawart{29a} (rapportering og digital tagging) & ESRS E1-5/E1-6 (energi og GHG) & El/varme (kWh), brændsel (L/kg), emissionsfaktorer & Enheder, periodelås, kilde angivet & CO$_2$e = aktivitet $\times$ EF; energisum pr. periode & Scope 1/2 CO$_2$e; energiforbrug pr. periode & Kilde-ID, EF-version, ændringslog, godkendelse af dataejer \\
-    CSRD \lawart{19a} (bæredygtighedsoplysninger) & ESRS E5 (affald og ressourcebrug) & Affald pr. fraktion (kg/ton), behandlingsform & Ikke-negative mængder, fraktionsmatch & Summering pr. fraktion; evt. CO$_2$e = m $\times$ EF & Affald pr. fraktion; andel farligt affald & Vejesedler, leverandørdokumentation, godkendt af drift \\
-    CSRD \lawart{19a} (sociale forhold) & ESRS S1 (arbejdsmiljø) & Antal hændelser, arbejdstimer, medarbejderantal & Konsistens med HR-data, periodelås & Frekvens = hændelser/arbejdstimer & Arbejdsmiljø-KPI'er & HR-log, hændelsesjournal, sign-off af HR \\
+    CSRD \lawart{19a}, \lawart{29a} (Dir. EU 2022/2464) & ESRS E1-5/E1-6 (energi) & El/varme (kWh), emissionsfaktorer & Enheder, periodelås, kilde angivet & CO$_2$e = aktivitet $\times$ EF; energisum pr. periode & Scope 2 CO$_2$e; energiforbrug pr. periode & Kilde-ID, EF-version, ændringslog, godkendelse af dataejer \\
     \bottomrule
   \end{tabularx}
   \endgroup
   \TableSource{\parencite{EU2022CSRD,EU2023ESRS,GHGProtocol2004}}
-  \TableNote{Matricen er fuldt udfyldt for de moduler, der evalueres i rapporten; øvrige moduler er afgrænset i tabel \ref{tab:traceability-coverage}.}
+  \TableNote{Fuld matrix for MVP-scope fremgår af bilagstabel \ref{tab:traceability-matrix-full}.}
 \end{table}
 
 \subsubsection{Dækningsafgrænsning for MVP-scope}
 \label{subsec:daekning-traceability}
 
-MVP'ens modulstruktur er bred, men rapportens evidensscope er afgrænset til de moduler, der faktisk demonstreres og evalueres (B2, C5 og S1). Det betyder, at traceability-matricen er fuldt udfyldt for disse moduler, mens øvrige moduler alene er specificeret på struktur- og designniveau (bilag \ref{app:teknisk-dokumentation} og \ref{tab:app-moduloversigt}). For kravene i tabel \ref{tab:krav-prioritering} er 6 ud af 8 krav operationaliseret i MVP'en (alle markeret som MVP-krav).
+MVP'ens modulstruktur er bred, men rapportens evidensscope er afgrænset til de moduler, der faktisk demonstreres og evalueres (B2, C5 og S1). Den fulde traceability-matrix for disse moduler er samlet i bilagstabel \ref{tab:traceability-matrix-full}, mens hovedteksten kun viser et gennemarbejdet eksempel. Øvrige moduler er specificeret på struktur- og designniveau (bilag \ref{app:teknisk-dokumentation} og \ref{tab:app-moduloversigt}). For kravene i tabel \ref{tab:krav-prioritering} er 6 ud af 8 krav operationaliseret i MVP'en (alle markeret som MVP-krav).
 
 \begin{table}[htbp]
   \caption{Dækningsafgrænsning, der viser hvilke moduler der er demonstreret og hvilke der kun er specificeret.}
@@ -245,6 +243,8 @@ For at gøre transpositionen juridisk operationel i systemdesignet kan kravene b
   \endgroup
   \TableSource{\parencite{EU2022CSRD,Lov2024CSRD,Aarsregnskabsloven2022,EU2023ESRS}}
 \end{table}
+
+Et gennemført eksempel kan illustrere kæden fra EU-hjemmel til systemkrav: Direktiv (EU) 2022/2464 (CSRD) \lawart{19a} og \lawart{29a} fastlægger, at bæredygtighedsoplysninger skal indgå i ledelsesberetningen og være digitalt rapporterbare. I Danmark implementeres kravet via lov nr 480 af 22/05/2024, som ændrer årsregnskabsloven, og operationaliseres gennem Erhvervsstyrelsens VSME-skabelon. I MVP'en oversættes dette til datapunktet ESRS E1 (B2), hvor energiforbrug indtastes i kWh, valideres (enhed og periode), beregnes til CO$_2$e med emissionsfaktor, og logges med kilde-ID, EF-version og sign-off i auditsporet. Output er et rapporterbart Scope 2-tal, som kan efterprøves i revision.
 
 Samlet peger rammerne på et flerniveau-regime med høje krav til data, sporbarhed og fortolkning. Det gør SMV'ers kapacitet og behov for forenkling afgørende.
 \subsection{SMV'er og behovet for forenkling}

@@ -10,7 +10,7 @@ Undersøgelsen anvender et kvalitativt, eksplorativt design. Formålet er at for
 
 Tilgangen er abduktiv: den teoretiske ramme bruges til at strukturere fortolkningen af case og MVP, mens empiriske fund justerer og nuancerer analysen. Der arbejdes i tre analytiske spor: (1) regulatorisk kortlægning og kravfortolkning, (2) empirisk kontekstualisering af sektorens ESG-udfordringer, og (3) artefaktanalyse af MVP'en som operationalisering af krav til data, sporbarhed og rapportoutput. Det giver en tydelig kobling mellem teori, empiri og artefakt.
 
-Som analytisk greb anvendes en traceability-matrice, der binder retskilde til datapunkt, input, validering, beregning, output og audit-evidens (tabel \ref{tab:traceability-matrix}). Matricen fungerer som et fast mapping-skema, der genbruges i analysen og i evalueringen af MVP'en, så hvert delresultat kan spores tilbage til et konkret krav og et dokumenteret dataflow.
+Som analytisk greb anvendes en traceability-matrice, der binder retskilde til datapunkt, input, validering, beregning, output og audit-evidens (eksempel i tabel \ref{tab:traceability-matrix}, fuld matrix i bilagstabel \ref{tab:traceability-matrix-full}). Matricen fungerer som et fast mapping-skema, der genbruges i analysen og i evalueringen af MVP'en, så hvert delresultat kan spores tilbage til et konkret krav og et dokumenteret dataflow.
 
 Triangulering opnås ved at sammenholde regulatoriske dokumenter, empiriske sektorkilder og interne case- og softwarekilder. Det giver et samlet billede af, hvordan standarder, governance og praktiske constraints former ESG-rapportering for SMV'er i sundhedssektoren. \textcite{OECD2020ESG} peger på fragmenterede ESG-data og begrænset sammenlignelighed, hvilket gør krydstjek mellem krav, sektorviden og praksisbaserede artefakter nødvendigt, og \textcite{Berg2022AggregateConfusion} underbygger, at datadivergens kan opstå, selv når standarder er fælles.
 
@@ -97,17 +97,26 @@ Kvalitet og sporbarhed understøttes af versionshistorik og auditspor, der dokum
 
 Der er en potentiel interessekonflikt, idet casen bygger på egen virksomhed. Dette håndteres ved at dokumentere metodevalg og antagelser eksplicit og ved at afgrænse analysens generaliserbarhed.
 
-\subsection{Begrænsninger}
+\subsection{Validitet og afbødning}
 \label{subsec:begraensninger}
 
-Metodens primære begrænsninger er:
-\begin{itemize}
-  \item Single-case design med egenproduceret materiale, hvilket begrænser generaliserbarhed.
-  \item MVP'en analyseres som artefakt og er ikke testet på tværs af flere organisationer.
-  \item Datagrundlaget er primært sekundært og aggregeret, hvilket reducerer indsigt i lokale variationer.
-  \item Regulering og standarder er i bevægelse, så krav og tidsplaner kan ændre sig i projektperioden.
-  \item Tidsmæssig afgrænsning betyder, at der ikke er gennemført longitudinelle analyser af effekt og adfærdsændring.
-\end{itemize}
+Begrænsninger håndteres gennem konkrete afbødninger, så evidensens svagheder reduceres aktivt frem for kun at blive noteret. Tabel \ref{tab:validitet-afboedning} samler de centrale trusler, deres konsekvens og den praktiske afbødning.
+
+\begin{table}[h]
+  \caption{Validitet: trussel, konsekvens og afbødning.}
+  \label{tab:validitet-afboedning}
+  \begin{tabularx}{\textwidth}{l X X}
+    \toprule
+    Trussel & Konsekvens & Afbødning \\
+    \midrule
+    Single-case og egenproduceret materiale & Begrænset generaliserbarhed og risiko for bias. & Self-audit suppleres med negativ test og reproducerbarhedstest; anbefaling om uafhængig replikation. \\
+    Begrænset empirisk bredde & Få observationer om lokale variationer. & Tydelig afgrænsning af evidensscope og eksplicit kildehierarki med inklusionskriterier. \\
+    Regulering i bevægelse & Usikkerhed om timing og krav. & Stop-the-clock behandles som metodisk usikkerhed; scenarier formuleres som betingede. \\
+    Artefaktanalyse uden multi-site test & Risiko for overstating af effekt. & Foruddefineret evalueringsprotokol og dokumenterede mapping-regler i bilag. \\
+    \bottomrule
+  \end{tabularx}
+  \TableSource{Egen fremstilling.}
+\end{table}
 
 Stop-the-clock og andre tidsplansskift behandles derfor som metodisk usikkerhed: ændrede tidslinjer påvirker incitamenter og betalingsvillighed, hvilket betyder, at den kommercielle analyse er betinget af, at rapporteringskrav enten fastholdes eller udskydes.
 

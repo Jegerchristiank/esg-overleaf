@@ -5,7 +5,7 @@ MVP'en omsætter ESG-krav til konkrete data- og rapporteringsprocesser i en SMV-
 
 MVP'en operationaliserer forskningsspørgsmål~3 ved at konkretisere, hvordan krav bliver til data, kontroller og rapportoutput. Det giver en direkte forbindelse mellem regulative krav og softwarelogik.
 Afsnittet er organiseret i krav, arkitektur, datamodel, dataindsamling og rapportoutput, så koblingen mellem jura og datapunkter kan følges trin for trin.
-Traceability-matricen fra afsnit \ref{subsec:traceability-matrice} fungerer som reference for, hvilke felter der skal indsamles, valideres og logges i auditspor.
+Traceability-matricen fra afsnit \ref{subsec:traceability-matrice} fungerer som reference for, hvilke felter der skal indsamles, valideres og logges i auditspor; fuld matrix fremgår af bilagstabel \ref{tab:traceability-matrix-full}.
 \subsection{Formål og krav}
 \label{subsec:formaal-og-krav}
 
@@ -31,6 +31,11 @@ Kravene dækker både funktionelle og ikke-funktionelle behov og prioriteres eft
   \end{tabularx}
   \TableSource{Egen fremstilling baseret på case- og softwaremateriale (bilag \ref{app:teknisk-dokumentation}).}
 \end{table}
+
+\subsubsection{Konsekvens af fravalg}
+\label{subsec:konsekvens-fravalg}
+
+Fravalget af iXBRL/XBRL i MVP'en er et bevidst designvalg for at holde scope på dataindsamling, validering og beregningsspor. Konsekvensen er, at output ikke kan indsendes som digitalt tagged compliance-format og derfor kræver manuel konvertering ved ekstern indberetning. En minimal teknisk pathway til senere implementering omfatter (1) mapping af datapunkter til XBRL-taxonomi, (2) namespace- og tag-regler for hver datapunktklasse og (3) validering mod taxonomiens konsistensregler før eksport. Dermed er fravalget en prioritering af kernefunktionalitet over indberetningsformat, men uden at ændre datamodellens krav til sporbarhed.
 
 \subsection{Systemoversigt og arkitektur}
 \label{subsec:systemoversigt-og-arkitektur}
@@ -79,22 +84,7 @@ Datamodellens hovedkomponenter og deres funktion i MVP'en fremgår af tabel \ref
   \TableSource{Egen fremstilling; datadefinitioner fremgår af bilag \ref{app:teknisk-dokumentation}.}
 \end{table}
 
-MVP'en fokuserer på indikatorer inden for energi, affald og sociale forhold, i tråd med casebeskrivelsen og sektorens ESG-profil. Eksempler på indikatorer og datakilder fremgår af tabel \ref{tab:esg-indikatorer}.
-\begin{table}[h]
-  \caption{Indikatoreksempler, der operationaliserer sektorens kernerisici i konkrete datapunkter.}
-  \label{tab:esg-indikatorer}
-  \begin{tabularx}{\textwidth}{l X l X}
-    \toprule
-    Område & Eksempel på datafelt & Enhed & Typisk datakilde \\
-    \midrule
-    Energi & Varme- og elforbrug (ESRS E1; direkte CSRD/ESRS) & kWh & Drifts- og energidata. \\
-    Affald & Mængde affald pr. fraktion (ESRS E5; direkte CSRD/ESRS; indirekte EU-taksonomi) & kg/ton & Affaldsopgørelser og leverandørdata. \\
-    Sociale forhold & Arbejdsmiljøindikatorer (ESRS S1; direkte CSRD/ESRS; indirekte bankkrav) & antal/\% & HR-data og interne registreringer. \\
-    \bottomrule
-  \end{tabularx}
-  \TableSource{Egen fremstilling baseret på case-materiale (bilag \ref{app:teknisk-dokumentation}).}
-  \TableNote{Indikatorerne er illustrative og afspejler MVP'ens fokus.}
-\end{table}
+MVP'en fokuserer på indikatorer inden for energi, affald og sociale forhold, i tråd med casebeskrivelsen og sektorens ESG-profil. Eksempler på indikatorer og datakilder er flyttet til bilagstabel \ref{tab:esg-indikatorer}.
 
 \subsubsection{Operationalisering af ESRS E1 til rapporteringsvariable}
 \label{subsec:operationalisering-esrs-e1}
@@ -179,23 +169,7 @@ Automatisering sker gennem løbende gemmefunktion og beregning af indikatorer. D
 
 Dataindsamling kan ske via API-integrationer eller CSV-udtræk fra drifts-, økonomi- og HR-data, men løsningen understøtter også manuel indtastning for at sikre, at rapporteringen kan gennemføres uden fulde integrationer. Kvalitetskontrol sker gennem valideringsregler, obligatoriske felter og konsistente enheder. \textcite{ISO2024IWA48} understreger, at ESG-implementering kræver standardiserede KPI'er og rapporteringsprincipper med validering og dokumentation, hvilket understøtter krav om sporbarhed og datakvalitet i MVP'en. Det betyder, at valideringsreglerne ikke blot er tekniske, men en direkte operationalisering af standardernes krav til konsistens.
 
-For at synliggøre governance i datakvalitet er det nyttigt at knytte typiske fejltyper til konkrete kontrolpunkter. Sammenhængen mellem fejltyper og MVP-kontrolpunkter fremgår af tabel \ref{tab:datakvalitet-kontrol}.
-\begin{table}[h]
-  \caption{Datakvalitetsfejl, der viser hvorfor tekniske kontrolpunkter er nødvendige.}
-  \label{tab:datakvalitet-kontrol}
-  \begin{tabularx}{\textwidth}{l X X}
-    \toprule
-    Fejltype & Konsekvens & MVP-kontrolpunkt \\
-    \midrule
-    Manglende scope-data & Under- eller fejlrapportering af udledninger. & Obligatoriske felter og datadækningstjek pr. modul. \\
-    Inkonsekvente enheder & Misvisende beregninger og sammenligninger. & Enhedsvalidering og automatisk normalisering. \\
-    Periodeafgrænsning & Uens rapporteringsår og manglende sammenlignelighed. & Låste rapporteringsperioder og versionshistorik. \\
-    Dubletter i input & Overestimerede mængder og KPI'er. & Dubletkontrol ved import og ændringslog. \\
-    \bottomrule
-  \end{tabularx}
-  \TableSource{Egen fremstilling.}
-  \TableNote{Eksemplerne er illustrative og bygger på almindelige datakvalitetsproblemer i ESG-rapportering.}
-\end{table}
+For at synliggøre governance i datakvalitet er det nyttigt at knytte typiske fejltyper til konkrete kontrolpunkter. Sammenhængen mellem fejltyper og MVP-kontrolpunkter er flyttet til bilagstabel \ref{tab:datakvalitet-kontrol}.
 
 \subsubsection{Rolle- og kontrolfordeling}
 \label{subsec:rolle-kontrolfordeling}
@@ -220,23 +194,7 @@ ESG-as-a-Service forudsætter en tydelig rolle- og kontrolfordeling mellem softw
 \subsection{Brugerflow og rapportoutput}
 \label{subsec:brugerflow-og-rapportoutput}
 
-Brugerflowet er designet til at guide en SMV gennem en struktureret indsamling af ESG-data. Flowet starter med et profiloverblik, hvor brugeren kan oprette eller fortsætte en profil, som definerer relevante moduler (figur \ref{fig:mvp-landing-profil-overblik}). Profil-flowets trin og progression er dokumenteret i bilag \ref{app:supplerende-figurer-og-tabeller} (figurer \ref{fig:app-profil-flow-start}, \ref{fig:app-profil-flow-ja}, \ref{fig:app-profil-flow-nej} og \ref{fig:app-profil-flow-progression}). Dernæst giver et moduloverblik adgang til de enkelte moduler og synliggør scope-opdelingen (figur \ref{fig:mvp-modul-overblik}).
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.9\textwidth]{\detokenize{billeder af software/Landing – profil‑overblik.png}}
-  \caption{Profiloverblik som startpunkt for brugerrejsen.}
-  \label{fig:mvp-landing-profil-overblik}
-  \FigureSource{Egen fremstilling (skærmbillede fra MVP).}
-\end{figure}
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.9\textwidth]{\detokenize{billeder af software/Wizard – overblik før moduler.png}}
-  \caption{Moduloverblik med adgang til moduler og scope-opdeling.}
-  \label{fig:mvp-modul-overblik}
-  \FigureSource{Egen fremstilling (skærmbillede fra MVP).}
-\end{figure}
+Brugerflowet er designet til at guide en SMV gennem en struktureret indsamling af ESG-data. Profiloverblik, moduloverblik og profil-flowets progression er dokumenteret i bilag \ref{app:supplerende-figurer-og-tabeller} (figurer \ref{fig:app-landing-profil-overblik} til \ref{fig:app-profil-flow-progression}), så hovedteksten kan fokusere på proceslogik frem for dokumentation.
 
 Brugerrejsen fra onboarding til eksport fremgår af figur \ref{fig:brugerflow-diagram} og illustrerer den overordnede proceslogik.
 \begin{figure}[h]
@@ -257,48 +215,14 @@ Brugerrejsen fra onboarding til eksport fremgår af figur \ref{fig:brugerflow-di
   \FigureSource{Egen fremstilling.}
 \end{figure}
 
-Dataindtastningen foregår modul for modul. Et konkret eksempel på udfyldt input i et energimodul fremgår af figur \ref{fig:mvp-b2-udfyldt}. Supplerende skærmbilleder af tomt modul, beregnet CO$_2$-estimat og beregningstrace fremgår af bilag \ref{app:supplerende-figurer-og-tabeller} (figurer \ref{fig:app-b2-tomt}, \ref{fig:app-b2-resultat} og \ref{fig:app-b2-trace}).
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.9\textwidth]{\detokenize{billeder af software/B2 – udfyldt formular.png}}
-  \caption{B2-modul med udfyldt energi-input.}
-  \label{fig:mvp-b2-udfyldt}
-  \FigureSource{Egen fremstilling (skærmbillede fra MVP).}
-\end{figure}
-
-Slutpunktet er en review-side, hvor rapportstatus og eksportmuligheder fremgår (figur \ref{fig:mvp-review-topoverblik}).
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.9\textwidth]{\detokenize{billeder af software/Review – topoverblik.png}}
-  \caption{Review-side med status og eksportmuligheder.}
-  \label{fig:mvp-review-topoverblik}
-  \FigureSource{Egen fremstilling (skærmbillede fra MVP).}
-\end{figure}
+Dataindtastningen foregår modul for modul. Eksempler på udfyldt input, beregnet CO$_2$-estimat, beregningstrace og review-side er samlet i bilag \ref{app:supplerende-figurer-og-tabeller} (figurer \ref{fig:app-b2-tomt} til \ref{fig:app-review-topoverblik}), mens hovedteksten fokuserer på krav, validering og auditspor.
 
 I \textcite{EU2022CSRD} kræves, at rapportoutput genereres som PDF til ledelse og interessenter samt som strukturerede data til compliance i standardiserede formater (fx XBRL), hvilket gør output anvendeligt på tværs af beslutnings- og dokumentationssammenhænge. \textcite{Faccia2021XBRL} og \textcite{XBRLUS2022} fremhæver, at XBRL-tagging styrker maskinlæsbarhed og sammenlignelighed og er en forudsætning for automatiseret kontrol og audit. MVP'en genererer i denne version PDF-preview og et struktureret datasæt til intern brug, men implementerer ikke iXBRL/XBRL-tagging; det kræver taksonomi-mapping, namespace-håndtering og valideringsregler mod XBRL-taxonomien. Et eksempel på PDF-preview er gengivet i figur \ref{fig:app-reportoutput-preview} (bilag \ref{app:supplerende-figurer-og-tabeller}).
 
 \subsection{Demonstration og evaluering}
 \label{subsec:demonstration-og-evaluering}
 
-Evalueringen tager udgangspunkt i kravene i tabel \ref{tab:krav-prioritering} og afprøver, om MVP'en leverer de forventede funktioner. Demonstrationen er kvalitativ og bygger på tre scenarier, der dækker energi, affald og sociale indikatorer (tabel \ref{tab:testscenarier}). Evalueringen er en self-audit udført af forfatteren; for at reducere cirkularitet suppleres den med en negativ test og en reproducerbarhedstest baseret på auditspor.
-
-\begin{table}[h]
-  \caption{Testscenarier, der viser hvordan kravene afprøves mod konkrete outputs.}
-  \label{tab:testscenarier}
-  \begin{tabularx}{\textwidth}{l X X}
-    \toprule
-    Scenarie & Forventet output & Relaterede krav \\
-    \midrule
-    Energi (B2) & Valideret input, beregnet resultat og auditspor. & Dataindsamling, validering, beregning, auditspor. \\
-    Affald & Registrering af mængder og konsistent rapportering. & Dataindsamling, validering, rapporteksport. \\
-    Sociale indikatorer & Samlet KPI-oversigt til rapport. & Dataindsamling, rapporteksport. \\
-    \bottomrule
-  \end{tabularx}
-  \TableSource{Egen fremstilling.}
-  \TableNote{Scenarierne er illustrative og afspejler MVP'ens scope.}
-\end{table}
+Evalueringen tager udgangspunkt i kravene i tabel \ref{tab:krav-prioritering} og afprøver, om MVP'en leverer de forventede funktioner. Demonstrationen er kvalitativ og bygger på tre scenarier, der dækker energi, affald og sociale indikatorer (bilagstabel \ref{tab:testscenarier}). De fulde traceability-resultater rapporteres for to komplette testruns (B2 og C5), mens det sociale scenarie primært bruges som output-check. Evalueringen er en self-audit udført af forfatteren; for at reducere cirkularitet suppleres den med en negativ test og en reproducerbarhedstest baseret på auditspor.
 
 \subsubsection{Uafhængighed og supplerende testtyper}
 \label{subsec:uafhaengighed-testtyper}
@@ -323,7 +247,7 @@ Da evalueringen ikke er udført af en uafhængig part, dokumenteres testtyper, d
 \subsubsection{Acceptkriterier for sporbarhed}
 \label{subsec:acceptkriterier-sporbarhed}
 
-Sporbarhed evalueres med udgangspunkt i traceability-matricen (tabel \ref{tab:traceability-matrix}) og et minimumssæt af auditfelter. Disse felter definerer, hvad der mindst skal logges for, at et datapunkt kan anses som auditabelt.
+Sporbarhed evalueres med udgangspunkt i traceability-matricen (eksempel i tabel \ref{tab:traceability-matrix}, fuld matrix i bilagstabel \ref{tab:traceability-matrix-full}) og et minimumssæt af auditfelter. Disse felter definerer, hvad der mindst skal logges for, at et datapunkt kan anses som auditabelt.
 
 \begin{table}[h]
   \caption{Minimum auditfelter, der bruges som acceptkriterier i evalueringen.}
@@ -350,22 +274,21 @@ I evalueringen kræves som minimum, at $C_{\text{trace}} \geq 90\%$ for hvert sc
 Som supplement til udfyldningsgrad anvendes negativ test og reproducerbarhedstest (tabel \ref{tab:supplerende-tests}), så sporbarhed ikke kun måler komplethed, men også fejldetektion og efterprøvelighed.
 
 \begin{table}[h]
-  \caption{Traceability-evaluering pr. scenarie baseret på minimums-auditfelter.}
+  \caption{Traceability-resultater for to fulde testruns baseret på minimums-auditfelter.}
   \label{tab:traceability-evaluering}
-  \begin{tabularx}{\textwidth}{l X l}
+  \begin{tabularx}{\textwidth}{l r r l X}
     \toprule
-    Scenarie & Dokumenteret auditspor (udfyldte minimumsfelter) & $C_{\text{trace}}$ \\
+    Scenarie & $n_{\text{total}}$ & $n_{\text{fuldfort}}$ & $C_{\text{trace}}$ & Udfyldte auditfelter \\
     \midrule
-    Energi (B2) & Tidsstempel, kilde-ID, valideringslog, EF-version, sign-off. & 100\% \\
-    Affald & Tidsstempel, fraktionskilde, valideringslog, beregningsspor, sign-off. & 100\% \\
-    Sociale indikatorer & Tidsstempel, HR-kilde, valideringslog, beregningsspor, sign-off. & 100\% \\
+    Energi (B2) & 5 & 5 & 100\% & Tidsstempel, kilde-ID, valideringslog, EF-version, sign-off. \\
+    Affald (C5) & 5 & 5 & 100\% & Tidsstempel, fraktionskilde, valideringslog, beregningsspor, sign-off. \\
     \bottomrule
   \end{tabularx}
   \TableSource{Egen fremstilling.}
   \TableNote{Vurderingen er baseret på de dokumenterede scenarier i bilag \ref{app:teknisk-dokumentation}.}
 \end{table}
 
-Resultaterne indikerer, at MVP'en opfylder de centrale MVP-krav om dataindsamling, validering, beregning og sporbarhed. Brugerflowet giver en klar progression fra profil til modul og review, og output kan eksporteres i de forventede formater. Dokumentation i bilag \ref{app:supplerende-figurer-og-tabeller} og \ref{app:teknisk-dokumentation} understøtter vurderingen.
+Resultaterne indikerer, at MVP'en opfylder de centrale MVP-krav om dataindsamling, validering, beregning og sporbarhed, og at fulde testruns kan dokumenteres for mindst to modultyper. Den negative test viser samtidig, at valideringslogikken kan blokere mangelfulde datapunkter, hvilket gør sporbarhed efterprøvelig frem for kun komplet. Dokumentation i bilag \ref{app:supplerende-figurer-og-tabeller} og \ref{app:teknisk-dokumentation} understøtter vurderingen.
 
 \subsubsection{Indikativt tidsestimat}
 \label{subsec:indikativt-tidsestimat}

@@ -90,6 +90,74 @@ Dette bilag samler supplerende materiale, der refereres fra hovedteksten, men so
   \TableSource{Egen fremstilling baseret på case-materiale.}
 \end{table}
 
+\begin{table}[h]
+  \caption{Fuld traceability-matrix for MVP-scope (B2, C5, S1).}
+  \label{tab:traceability-matrix-full}
+  \begingroup
+  \renewcommand{\arraystretch}{1.1}
+  \small
+  \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.17\textwidth} >{\raggedright\arraybackslash}p{0.12\textwidth} >{\raggedright\arraybackslash}p{0.13\textwidth} >{\raggedright\arraybackslash}p{0.11\textwidth} >{\raggedright\arraybackslash}p{0.12\textwidth} >{\raggedright\arraybackslash}p{0.12\textwidth} >{\raggedright\arraybackslash}X}
+    \toprule
+    Retskilde + reference & ESRS-datapunkt & Inputfelter & Valideringsregel & Beregningsregel & Outputfelt & Audit-evidens \\
+    \midrule
+    CSRD \lawart{19a}, \lawart{29a} (Dir. EU 2022/2464) & ESRS E1-5/E1-6 (energi og GHG) & El/varme (kWh), brændsel (L/kg), emissionsfaktorer & Enheder, periodelås, kilde angivet & CO$_2$e = aktivitet $\times$ EF; energisum pr. periode & Scope 1/2 CO$_2$e; energiforbrug pr. periode & Kilde-ID, EF-version, ændringslog, godkendelse af dataejer \\
+    CSRD \lawart{19a} (bæredygtighedsoplysninger) & ESRS E5 (affald og ressourcebrug) & Affald pr. fraktion (kg/ton), behandlingsform & Ikke-negative mængder, fraktionsmatch & Summering pr. fraktion; evt. CO$_2$e = m $\times$ EF & Affald pr. fraktion; andel farligt affald & Vejesedler, leverandørdokumentation, godkendt af drift \\
+    CSRD \lawart{19a} (sociale forhold) & ESRS S1 (arbejdsmiljø) & Antal hændelser, arbejdstimer, medarbejderantal & Konsistens med HR-data, periodelås & Frekvens = hændelser/arbejdstimer & Arbejdsmiljø-KPI'er & HR-log, hændelsesjournal, sign-off af HR \\
+    \bottomrule
+  \end{tabularx}
+  \endgroup
+  \TableSource{\parencite{EU2022CSRD,EU2023ESRS,GHGProtocol2004}}
+\end{table}
+
+\begin{table}[h]
+  \caption{Indikatoreksempler, der operationaliserer sektorens kernerisici i konkrete datapunkter.}
+  \label{tab:esg-indikatorer}
+  \begin{tabularx}{\textwidth}{l X l X}
+    \toprule
+    Område & Eksempel på datafelt & Enhed & Typisk datakilde \\
+    \midrule
+    Energi & Varme- og elforbrug (ESRS E1; direkte CSRD/ESRS) & kWh & Drifts- og energidata. \\
+    Affald & Mængde affald pr. fraktion (ESRS E5; direkte CSRD/ESRS; indirekte EU-taksonomi) & kg/ton & Affaldsopgørelser og leverandørdata. \\
+    Sociale forhold & Arbejdsmiljøindikatorer (ESRS S1; direkte CSRD/ESRS; indirekte bankkrav) & antal/\% & HR-data og interne registreringer. \\
+    \bottomrule
+  \end{tabularx}
+  \TableSource{Egen fremstilling baseret på case-materiale (bilag \ref{app:teknisk-dokumentation}).}
+  \TableNote{Indikatorerne er illustrative og afspejler MVP'ens fokus.}
+\end{table}
+
+\begin{table}[h]
+  \caption{Datakvalitetsfejl, der viser hvorfor tekniske kontrolpunkter er nødvendige.}
+  \label{tab:datakvalitet-kontrol}
+  \begin{tabularx}{\textwidth}{l X X}
+    \toprule
+    Fejltype & Konsekvens & MVP-kontrolpunkt \\
+    \midrule
+    Manglende scope-data & Under- eller fejlrapportering af udledninger. & Obligatoriske felter og datadækningstjek pr. modul. \\
+    Inkonsekvente enheder & Misvisende beregninger og sammenligninger. & Enhedsvalidering og automatisk normalisering. \\
+    Periodeafgrænsning & Uens rapporteringsår og manglende sammenlignelighed. & Låste rapporteringsperioder og versionshistorik. \\
+    Dubletter i input & Overestimerede mængder og KPI'er. & Dubletkontrol ved import og ændringslog. \\
+    \bottomrule
+  \end{tabularx}
+  \TableSource{Egen fremstilling.}
+  \TableNote{Eksemplerne er illustrative og bygger på almindelige datakvalitetsproblemer i ESG-rapportering.}
+\end{table}
+
+\begin{table}[h]
+  \caption{Testscenarier, der viser hvordan kravene afprøves mod konkrete outputs.}
+  \label{tab:testscenarier}
+  \begin{tabularx}{\textwidth}{l X X}
+    \toprule
+    Scenarie & Forventet output & Relaterede krav \\
+    \midrule
+    Energi (B2) & Valideret input, beregnet resultat og auditspor. & Dataindsamling, validering, beregning, auditspor. \\
+    Affald & Registrering af mængder og konsistent rapportering. & Dataindsamling, validering, rapporteksport. \\
+    Sociale indikatorer & Samlet KPI-oversigt til rapport. & Dataindsamling, rapporteksport. \\
+    \bottomrule
+  \end{tabularx}
+  \TableSource{Egen fremstilling.}
+  \TableNote{Scenarierne er illustrative og afspejler MVP'ens scope.}
+\end{table}
+
 \clearpage
 
 \paragraph{Profil og modulvalg} Profiloverblik og profil-flow vises i figurer \ref{fig:app-landing-profil-overblik}, \ref{fig:app-profil-flow-start}, \ref{fig:app-profil-flow-ja}, \ref{fig:app-profil-flow-nej} og \ref{fig:app-profil-flow-progression}. Moduloverblik og navigation er dokumenteret i figurer \ref{fig:app-modul-overblik} og \ref{fig:app-modul-navigation}.
