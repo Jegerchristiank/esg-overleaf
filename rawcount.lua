@@ -26,7 +26,7 @@ local function strip_comments(text)
 end
 
 local function remove_env(text, env_pattern)
-  local pattern = "\\\\begin%s*{" .. env_pattern .. "}%s*(%b[])?%s*[%s%S]-\\\\end%s*{" .. env_pattern .. "}"
+  local pattern = "\\\\begin%s*{" .. env_pattern .. "}%s*[%s%S]-\\\\end%s*{" .. env_pattern .. "}"
   return text:gsub(pattern, " ")
 end
 
@@ -45,9 +45,22 @@ local function clean(text)
   text = remove_env(text, "table%*")
   text = remove_env(text, "figure")
   text = remove_env(text, "figure%*")
+  text = remove_env(text, "tabular")
+  text = remove_env(text, "tabular%*")
+  text = remove_env(text, "tabularx")
+  text = remove_env(text, "longtable")
+  text = remove_env(text, "longtable%*")
+  text = remove_env(text, "tabulary")
+  text = remove_env(text, "tabu")
 
   text = text:gsub("\\\\caption%s*%b[]%s*%b{}", " ")
   text = text:gsub("\\\\caption%s*%b{}", " ")
+  text = text:gsub("\\\\captionof%s*%b{}%s*%b{}", " ")
+  text = text:gsub("\\\\includegraphics%s*%b[]%s*%b{}", " ")
+  text = text:gsub("\\\\includegraphics%s*%b{}", " ")
+  text = text:gsub("\\\\rowcolors%s*%b{}%s*%b{}%s*%b{}", " ")
+  text = text:gsub("\\\\rowcolor%s*%b{}", " ")
+  text = text:gsub("\\\\cellcolor%s*%b{}", " ")
 
   text = text:gsub("[Tt]abel%s*\\\\ref%s*%b{}", " ")
   text = text:gsub("[Ff]igur%s*\\\\ref%s*%b{}", " ")
@@ -69,6 +82,10 @@ local function clean(text)
 
   local other_cmds = { "label", "addcontentsline", "addtocontents", "addtocounter" }
   for _, cmd in ipairs(other_cmds) do
+    text = remove_cmd(text, cmd)
+  end
+  local float_cmds = { "TableSource", "TableNote", "FigureSource" }
+  for _, cmd in ipairs(float_cmds) do
     text = remove_cmd(text, cmd)
   end
 
