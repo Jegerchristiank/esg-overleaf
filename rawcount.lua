@@ -26,7 +26,7 @@ local function strip_comments(text)
 end
 
 local function remove_env(text, env_pattern)
-  local pattern = "\\\\begin%s*{" .. env_pattern .. "}%s*[%s%S]-\\\\end%s*{" .. env_pattern .. "}"
+  local pattern = "\\\\begin%s*{" .. env_pattern .. "}%s*(%b[])?%s*[%s%S]-\\\\end%s*{" .. env_pattern .. "}"
   return text:gsub(pattern, " ")
 end
 
