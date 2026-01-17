@@ -97,7 +97,8 @@ for _, path in ipairs(files) do
 end
 
 all = all:gsub("%s+", " "):gsub("^%s+", ""):gsub("%s+$", "")
-local count = #all
+local utf8mod = utf8 or (unicode and unicode.utf8)
+local count = (utf8mod and utf8mod.len and utf8mod.len(all)) or #all
 local pages = count / 2400
 
 tex.sprint("\\gdef\\RawCharCount{" .. count .. "}")
