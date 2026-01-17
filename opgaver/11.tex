@@ -1,7 +1,7 @@
 \section{Bilag}
 \label{app:bilag}
 
-Bilagene understøtter sporbarhed og dokumentation for undersøgelsens metode, software og projektkontekst. Bilagene gør tre ting: de dokumenterer projektgrundlaget, samler supplerende figurer og tabeller og uddyber den tekniske dokumentation. Bilag \ref{app:projektbeskrivelse} indeholder den formelle projektbeskrivelse. Bilag \ref{app:supplerende-figurer-og-tabeller} samler supplerende figurer og tabeller, som refereres fra hovedteksten, og bilag \ref{app:teknisk-dokumentation} uddyber den tekniske dokumentation. Programkoden og den detaljerede software-specifikation vedlægges som separate filer, og bilaget giver en offentlig oversigt.
+Bilagene understøtter sporbarhed og dokumentation for undersøgelsens metode, software og projektkontekst. Bilagene gør tre ting: de dokumenterer projektgrundlaget, samler supplerende figurer og tabeller og uddyber den tekniske dokumentation. Bilag \ref{app:projektbeskrivelse} indeholder den formelle projektbeskrivelse. Bilag \ref{app:supplerende-figurer-og-tabeller} samler supplerende figurer og tabeller, som refereres fra hovedteksten, og bilag \ref{app:teknisk-dokumentation} uddyber den tekniske dokumentation. Bilagsdokumentet er et lukket evidenssystem med indholdsfortegnelse og stabile labels, så alle henvisninger kan følges uden eksterne filer. Hvis programkode eller detaljeret software-specifikation vedlægges som separate filer, er det supplerende materiale; bilaget giver den offentlige oversigt, som er en del af bedømmelsesgrundlaget.
 \subsection{Projektbeskrivelse}
 \label{app:projektbeskrivelse}
 
@@ -96,13 +96,13 @@ Dette bilag samler supplerende materiale, der refereres fra hovedteksten, men so
   \begingroup
   \renewcommand{\arraystretch}{1.1}
   \small
-  \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.17\textwidth} >{\raggedright\arraybackslash}p{0.12\textwidth} >{\raggedright\arraybackslash}p{0.13\textwidth} >{\raggedright\arraybackslash}p{0.11\textwidth} >{\raggedright\arraybackslash}p{0.12\textwidth} >{\raggedright\arraybackslash}p{0.12\textwidth} >{\raggedright\arraybackslash}X}
+  \begin{tabularx}{\textwidth}{l >{\raggedright\arraybackslash}p{0.16\textwidth} >{\raggedright\arraybackslash}p{0.12\textwidth} >{\raggedright\arraybackslash}p{0.12\textwidth} >{\raggedright\arraybackslash}p{0.11\textwidth} >{\raggedright\arraybackslash}p{0.12\textwidth} >{\raggedright\arraybackslash}p{0.12\textwidth} >{\raggedright\arraybackslash}X}
     \toprule
-    Retskilde + reference & ESRS-datapunkt & Inputfelter & Valideringsregel & Beregningsregel & Outputfelt & Audit-evidens \\
+    ID & Retskilde + reference & ESRS-datapunkt & Inputfelter & Valideringsregel & Beregningsregel & Outputfelt & Audit-evidens \\
     \midrule
-    CSRD \lawart{19a}, \lawart{29a} (Dir. EU 2022/2464) & ESRS E1-5/E1-6 (energi og GHG) & El/varme (kWh), brændsel (L/kg), emissionsfaktorer & Enheder, periodelås, kilde angivet & CO$_2$e = aktivitet $\times$ EF; energisum pr. periode & Scope 1/2 CO$_2$e; energiforbrug pr. periode & Kilde-ID, EF-version, ændringslog, godkendelse af dataejer \\
-    CSRD \lawart{19a} (bæredygtighedsoplysninger) & ESRS E5 (affald og ressourcebrug) & Affald pr. fraktion (kg/ton), behandlingsform & Ikke-negative mængder, fraktionsmatch & Summering pr. fraktion; evt. CO$_2$e = m $\times$ EF & Affald pr. fraktion; andel farligt affald & Vejesedler, leverandørdokumentation, godkendt af drift \\
-    CSRD \lawart{19a} (sociale forhold) & ESRS S1 (arbejdsmiljø) & Antal hændelser, arbejdstimer, medarbejderantal & Konsistens med HR-data, periodelås & Frekvens = hændelser/arbejdstimer & Arbejdsmiljø-KPI'er & HR-log, hændelsesjournal, sign-off af HR \\
+    M1 & CSRD \lawart{19a}, \lawart{29a} (Dir. EU 2022/2464) & ESRS E1-5/E1-6 (energi og GHG) & El/varme (kWh), brændsel (L/kg), emissionsfaktorer & Enheder, periodelås, kilde angivet & CO$_2$e = aktivitet $\times$ EF; energisum pr. periode & Scope 1/2 CO$_2$e; energiforbrug pr. periode & Kilde-ID, EF-version, ændringslog, godkendelse af dataejer \\
+    M2 & CSRD \lawart{19a} (bæredygtighedsoplysninger) & ESRS E5 (affald og ressourcebrug) & Affald pr. fraktion (kg/ton), behandlingsform & Ikke-negative mængder, fraktionsmatch & Summering pr. fraktion; evt. CO$_2$e = m $\times$ EF & Affald pr. fraktion; andel farligt affald & Vejesedler, leverandørdokumentation, godkendt af drift \\
+    M3 & CSRD \lawart{19a} (sociale forhold) & ESRS S1 (arbejdsmiljø) & Antal hændelser, arbejdstimer, medarbejderantal & Konsistens med HR-data, periodelås & Frekvens = hændelser/arbejdstimer & Arbejdsmiljø-KPI'er & HR-log, hændelsesjournal, sign-off af HR \\
     \bottomrule
   \end{tabularx}
   \endgroup

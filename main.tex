@@ -3,7 +3,7 @@
 \documentclass[12pt]{article}
 
 \input{preamble}
-\externaldocument{appendix}
+\IfFileExists{appendix.aux}{\externaldocument{appendix}}{}
 
 % This change the content of the frontpage
 \ptype{Selvtilrettelagt valgfag (15 ECTS)}

@@ -35,7 +35,7 @@ Kravene dækker både funktionelle og ikke-funktionelle behov og prioriteres eft
 \subsubsection{Konsekvens af fravalg}
 \label{subsec:konsekvens-fravalg}
 
-Fravalget af iXBRL/XBRL i MVP'en er et bevidst designvalg for at holde scope på dataindsamling, validering og beregningsspor. Konsekvensen er, at output ikke kan indsendes som digitalt tagged compliance-format og derfor kræver manuel konvertering ved ekstern indberetning. En minimal teknisk pathway til senere implementering omfatter (1) mapping af datapunkter til XBRL-taxonomi, (2) namespace- og tag-regler for hver datapunktklasse og (3) validering mod taxonomiens konsistensregler før eksport. Dermed er fravalget en prioritering af kernefunktionalitet over indberetningsformat, men uden at ændre datamodellens krav til sporbarhed.
+Fravalget af iXBRL/XBRL i MVP'en er et bevidst designvalg for at holde scope på dataindsamling, validering og beregningsspor. Konsekvensen er, at output ikke kan indsendes som digitalt tagged compliance-format og derfor kræver manuel konvertering ved ekstern indberetning. For at sikre fremtidig kompatibilitet fastholdes en minimumskontrakt i datamodellen: entydigt datapunkt-ID, ESRS-reference, periode, enhed, kilde-ID og beregningsregel-ID. En minimal teknisk pathway til senere implementering omfatter (1) mapping af datapunkter til XBRL-taxonomi, (2) namespace- og tag-regler for hver datapunktklasse og (3) validering mod taxonomiens konsistensregler før eksport. Dermed er fravalget en prioritering af kernefunktionalitet over indberetningsformat, men uden at ændre datamodellens krav til sporbarhed.
 
 \subsection{Systemoversigt og arkitektur}
 \label{subsec:systemoversigt-og-arkitektur}
@@ -236,7 +236,7 @@ Da evalueringen ikke er udført af en uafhængig part, dokumenteres testtyper, d
     \toprule
     Testtype & Testdesign & Resultat i MVP \\
     \midrule
-    Negativ test (fejldetektion) & Manglende kilde-ID og inkonsistent enhed i affaldsmodul. & Validering blokerer datapunkt; C$_{\text{trace}}$ falder til 60\% (3/5 felter). \\
+    Negativ test (fejldetektion) & Manglende kilde-ID og inkonsistent enhed i affaldsmodul. & Validering blokerer datapunkt; C$_{\text{trace}}$ falder til 60\% (3/5 felter) og eksport stoppes. \\
     Reproducerbarhedstest (self-audit) & Output rekonstrueres udelukkende fra auditspor, uden forventet output. & Output genskabes inden for afrundingsregel; auditspor gør beregningen verificerbar. \\
     \bottomrule
   \end{tabularx}
@@ -273,15 +273,17 @@ Trace completeness beregnes som andelen af udfyldte obligatoriske auditfelter pr
 I evalueringen kræves som minimum, at $C_{\text{trace}} \geq 90\%$ for hvert scenarie.
 Som supplement til udfyldningsgrad anvendes negativ test og reproducerbarhedstest (tabel \ref{tab:supplerende-tests}), så sporbarhed ikke kun måler komplethed, men også fejldetektion og efterprøvelighed.
 
+Beslutningsreglen er eksplicit: hvis $C_{\text{trace}} < 90\%$ markeres datapunktet som \emph{fail}, og rapportoutput blokeres, indtil mangler er rettet; hvis $C_{\text{trace}} \geq 90\%$ markeres datapunktet som \emph{pass}, men med auditflag, hvis der er anvendt estimater eller manuelle korrektioner.
+
 \begin{table}[h]
   \caption{Traceability-resultater for to fulde testruns baseret på minimums-auditfelter.}
   \label{tab:traceability-evaluering}
-  \begin{tabularx}{\textwidth}{l r r l X}
+  \begin{tabularx}{\textwidth}{l l r r l X}
     \toprule
-    Scenarie & $n_{\text{total}}$ & $n_{\text{fuldfort}}$ & $C_{\text{trace}}$ & Udfyldte auditfelter \\
+    Scenarie & Matrix-ID & $n_{\text{total}}$ & $n_{\text{fuldfort}}$ & $C_{\text{trace}}$ & Udfyldte auditfelter \\
     \midrule
-    Energi (B2) & 5 & 5 & 100\% & Tidsstempel, kilde-ID, valideringslog, EF-version, sign-off. \\
-    Affald (C5) & 5 & 5 & 100\% & Tidsstempel, fraktionskilde, valideringslog, beregningsspor, sign-off. \\
+    Energi (B2) & M1 & 5 & 5 & 100\% & Tidsstempel, kilde-ID, valideringslog, EF-version, sign-off. \\
+    Affald (C5) & M2 & 5 & 5 & 100\% & Tidsstempel, fraktionskilde, valideringslog, beregningsspor, sign-off. \\
     \bottomrule
   \end{tabularx}
   \TableSource{Egen fremstilling.}

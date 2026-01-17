@@ -105,7 +105,7 @@ Hierarkiet bruges som analytisk ramme i resten af rapporten. Direktivniveauet fo
 \subsubsection{Traceability-matrice som analytisk greb}
 \label{subsec:traceability-matrice}
 
-For at gøre kontrakten operationel anvendes en fast traceability-matrice, som binder retskilde til datapunkt, input, validering, beregning, output og audit-evidens. I hovedteksten vises en gennemarbejdet trace som eksempel, mens den fulde matrix for MVP-scope er flyttet til bilag (tabel \ref{tab:traceability-matrix-full}). Matricen fungerer som et gennemgående analysegreb og genbruges i software- og evalueringsafsnittene, så hver central påstand kan spores tilbage til et regulatorisk krav og et konkret dataflow.
+For at gøre kontrakten operationel anvendes en fast traceability-matrice, som binder retskilde til datapunkt, input, validering, beregning, output og audit-evidens. I hovedteksten vises en gennemarbejdet trace som eksempel, mens den fulde matrix for MVP-scope er flyttet til bilag (tabel \ref{tab:traceability-matrix-full}) og fungerer som evidensregister med entydige ID'er. Matricen genbruges i software- og evalueringsafsnittene, så hver central påstand kan spores tilbage til et regulatorisk krav og et konkret dataflow.
 
 \begin{table}[htbp]
   \caption{Traceability-trace (eksempel) for B2, der binder retskilde, datapunkt, datafelter og auditspor.}
@@ -113,22 +113,22 @@ For at gøre kontrakten operationel anvendes en fast traceability-matrice, som b
   \begingroup
   \renewcommand{\arraystretch}{1.1}
   \small
-  \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.17\textwidth} >{\raggedright\arraybackslash}p{0.12\textwidth} >{\raggedright\arraybackslash}p{0.13\textwidth} >{\raggedright\arraybackslash}p{0.11\textwidth} >{\raggedright\arraybackslash}p{0.12\textwidth} >{\raggedright\arraybackslash}p{0.12\textwidth} >{\raggedright\arraybackslash}X}
+  \begin{tabularx}{\textwidth}{l >{\raggedright\arraybackslash}p{0.16\textwidth} >{\raggedright\arraybackslash}p{0.12\textwidth} >{\raggedright\arraybackslash}p{0.12\textwidth} >{\raggedright\arraybackslash}p{0.11\textwidth} >{\raggedright\arraybackslash}p{0.12\textwidth} >{\raggedright\arraybackslash}p{0.12\textwidth} >{\raggedright\arraybackslash}X}
     \toprule
-    Retskilde + reference & ESRS-datapunkt & Inputfelter & Valideringsregel & Beregningsregel & Outputfelt & Audit-evidens \\
+    ID & Retskilde + reference & ESRS-datapunkt & Inputfelter & Valideringsregel & Beregningsregel & Outputfelt & Audit-evidens \\
     \midrule
-    CSRD \lawart{19a}, \lawart{29a} (Dir. EU 2022/2464) & ESRS E1-5/E1-6 (energi) & El/varme (kWh), emissionsfaktorer & Enheder, periodelås, kilde angivet & CO$_2$e = aktivitet $\times$ EF; energisum pr. periode & Scope 2 CO$_2$e; energiforbrug pr. periode & Kilde-ID, EF-version, ændringslog, godkendelse af dataejer \\
+    M1 & CSRD \lawart{19a}, \lawart{29a} (Dir. EU 2022/2464) & ESRS E1-5/E1-6 (energi) & El/varme (kWh), emissionsfaktorer & Enheder, periodelås, kilde angivet & CO$_2$e = aktivitet $\times$ EF; energisum pr. periode & Scope 2 CO$_2$e; energiforbrug pr. periode & Kilde-ID, EF-version, ændringslog, godkendelse af dataejer \\
     \bottomrule
   \end{tabularx}
   \endgroup
   \TableSource{\parencite{EU2022CSRD,EU2023ESRS,GHGProtocol2004}}
-  \TableNote{Fuld matrix for MVP-scope fremgår af bilagstabel \ref{tab:traceability-matrix-full}.}
+  \TableNote{Fuld matrix for MVP-scope med ID'er fremgår af bilagstabel \ref{tab:traceability-matrix-full}.}
 \end{table}
 
 \subsubsection{Dækningsafgrænsning for MVP-scope}
 \label{subsec:daekning-traceability}
 
-MVP'ens modulstruktur er bred, men rapportens evidensscope er afgrænset til de moduler, der faktisk demonstreres og evalueres (B2, C5 og S1). Den fulde traceability-matrix for disse moduler er samlet i bilagstabel \ref{tab:traceability-matrix-full}, mens hovedteksten kun viser et gennemarbejdet eksempel. Øvrige moduler er specificeret på struktur- og designniveau (bilag \ref{app:teknisk-dokumentation} og \ref{tab:app-moduloversigt}). For kravene i tabel \ref{tab:krav-prioritering} er 6 ud af 8 krav operationaliseret i MVP'en (alle markeret som MVP-krav).
+MVP'ens modulstruktur er bred, men rapportens evidensscope er afgrænset til de moduler, der faktisk demonstreres og evalueres (B2, C5 og S1; matrix-ID M1--M3). Den fulde traceability-matrix for disse moduler er samlet i bilagstabel \ref{tab:traceability-matrix-full}, mens hovedteksten kun viser et gennemarbejdet eksempel. Øvrige moduler er specificeret på struktur- og designniveau (bilag \ref{app:teknisk-dokumentation} og \ref{tab:app-moduloversigt}). For kravene i tabel \ref{tab:krav-prioritering} er 6 ud af 8 krav operationaliseret i MVP'en (alle markeret som MVP-krav).
 
 \begin{table}[htbp]
   \caption{Dækningsafgrænsning, der viser hvilke moduler der er demonstreret og hvilke der kun er specificeret.}
