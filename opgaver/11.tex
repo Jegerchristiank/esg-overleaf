@@ -1,7 +1,7 @@
 \section{Bilag}
 \label{app:bilag}
 
-Bilagene understøtter sporbarhed og dokumentation for undersøgelsens metode, software og projektkontekst. Bilag \ref{app:projektbeskrivelse} indeholder den formelle projektbeskrivelse. Bilag \ref{app:supplerende-figurer-og-tabeller} samler supplerende figurer og tabeller, som refereres fra hovedteksten, og bilag \ref{app:teknisk-dokumentation} uddyber den tekniske dokumentation. Programkoden og den detaljerede software-specifikation vedlægges som separate filer.
+Bilagene understøtter sporbarhed og dokumentation for undersøgelsens metode, software og projektkontekst. Bilag \ref{app:projektbeskrivelse} indeholder den formelle projektbeskrivelse. Bilag \ref{app:supplerende-figurer-og-tabeller} samler supplerende figurer og tabeller, som refereres fra hovedteksten, og bilag \ref{app:teknisk-dokumentation} uddyber den tekniske dokumentation. Programkoden og den detaljerede software-specifikation vedlægges som separate filer, og bilaget giver en offentlig oversigt.
 \subsection{Projektbeskrivelse}
 \label{app:projektbeskrivelse}
 
@@ -219,9 +219,9 @@ Dette bilag samler supplerende materiale, der refereres fra hovedteksten, men so
 \subsection{Teknisk dokumentation}
 \label{app:teknisk-dokumentation}
 
-Dette bilag sammenfatter det interne case- og softwaremateriale, der ligger til grund for beskrivelsen af MVP'en i kapitel \ref{sec:software-og-mvp}. Materialet er ikke offentligt tilgængeligt og er derfor gengivet her for sporbarhed.
+Dette bilag sammenfatter det interne case- og softwaremateriale, der ligger til grund for beskrivelsen af MVP'en i kapitel \ref{sec:software-og-mvp}. Materialet er internt, så nedenfor gives en kort offentlig oversigt af hensyn til fortrolighed og sporbarhed.
 
-\paragraph{Eksterne bilag} Programkoden til MVP'en samt den detaljerede software-specifikation vedlægges som separate filer og er derfor ikke indsat i rapporten.
+\paragraph{Eksterne bilag} Programkoden til MVP'en vedlægges som separat fil. Den detaljerede software-specifikation er udeladt af hensyn til fortrolighed og opsummeres derfor kun i offentlig form nedenfor.
 
 \paragraph{Systemstruktur} MVP'en er en webbaseret løsning med adskilt brugergrænseflade, applikationslogik og datalagring. Strukturen understøtter et kontrolleret flow fra input til rapportoutput og gør det muligt at udvide komponenter uden at bryde den samlede proceslogik.
 
@@ -233,7 +233,16 @@ Dette bilag sammenfatter det interne case- og softwaremateriale, der ligger til 
 
 \paragraph{Antagelser og begrænsninger} Bilaget beskriver MVP'ens aktuelle scope og forudsætter tilgængelige datakilder i konsistente formater. Det dækker ikke fuld drifts- eller sikkerhedsarkitektur, som typisk specificeres i en senere produktionsfase.
 
-\subsubsection{Software-specifikation (intern)}
+\subsubsection{Software-specifikation (offentlig oversigt)}
 \label{app:software-spec}
 
-\VerbatimInput[fontsize=\footnotesize,breaklines=true]{softwarebeskrivelser/software-spec.md}
+Oversigten opsummerer de centrale tekniske og funktionelle principper uden interne detaljer:
+\begin{itemize}
+  \item Webbaseret løsning med adskilt brugergrænseflade, applikationslogik og relationel datalagring.
+  \item Modulbaseret dataindsamling med valideringsregler og auditspor for ændringer.
+  \item Beregningslogik for centrale ESG-indikatorer og eksport til PDF samt strukturerede dataformater.
+  \item Sporbarhed via versionshistorik og dokumenterede antagelser.
+  \item Udelader fuld drifts- og sikkerhedsarkitektur, som specificeres i en senere produktionsfase.
+\end{itemize}
+
+Den detaljerede software-specifikation og programkode vedlægges som separate filer.
