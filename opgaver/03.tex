@@ -34,7 +34,7 @@ De centrale nøgletal opsummeres i tabel \ref{tab:esg-sundhedssektor-noegletal} 
 \subsection{Regulatoriske rammer: CSRD, EU-taksonomien og GRI}
 \label{subsec:regulatoriske-rammer-csrd-eu-taksonomien-og-gri}
 
-De regulatoriske rammer for ESG-rapportering i EU består af flere sammenhængende elementer. \textcitefull{EU2022CSRD} udvider rapporteringspligten og gør bæredygtighedsrapportering til en integreret del af virksomhedernes officielle rapportering. Direktivet fastsætter, at rapporteringen skal ske efter ESRS, som er vedtaget som delegerede standarder, og at oplysningerne leveres i et standardiseret, digitalt format med XBRL-tagging, jf. \textcitefull{EU2023ESRS}. Implementeringen er trinvist indfaset og politisk justeret gennem den såkaldte stop-the-clock-aftale, jf. \textcite{Erhvervsstyrelsen2025StopClock}.
+De regulatoriske rammer for ESG-rapportering i EU består af flere sammenhængende elementer. \textcitefull{EU2022CSRD} udvider rapporteringspligten og gør bæredygtighedsrapportering til en integreret del af virksomhedernes officielle rapportering. Direktivet fastsætter, at rapporteringen skal ske efter ESRS, som er vedtaget som delegerede standarder, og at oplysningerne leveres i et standardiseret, digitalt format med XBRL-tagging (standardiseret digitalt tag-format), jf. \textcitefull{EU2023ESRS}. Implementeringen er trinvist indfaset og politisk justeret gennem den såkaldte stop-the-clock-aftale, jf. \textcite{Erhvervsstyrelsen2025StopClock}.
 
 Indfasningen og de politiske justeringer betyder, at virksomheder skal planlægge rapportering under bevægelige rammer, hvor tidsplaner og præciseringer ændres over tid. \textcite{Erhvervsstyrelsen2025StopClock} peger på, at det gør fortolkning og prioritering til en reel del af compliance-arbejdet, særligt for SMV'er med begrænset kapacitet.
 
@@ -44,7 +44,7 @@ Indfasningen og de politiske justeringer betyder, at virksomheder skal planlægg
 
 EU-taksonomien supplerer rapporteringen ved at definere, hvilke økonomiske aktiviteter der kan betragtes som miljømæssigt bæredygtige.\parenciteshort{EU2020Taxonomy} Rammeværket kræver, at virksomheder kan dokumentere overensstemmelse med taksonomien og derved knytte finansielle aktiviteter til konkrete miljømæssige mål.
 
-Global Reporting Initiative (GRI) er et globalt, frivilligt rammeværk, som anvendes bredt til sammenlignelig ESG-rapportering, og standarden beskriver en struktureret tilgang til indikatorer og narrativer, der ofte bruges som supplement til regulatoriske krav.\parenciteshort{GRI2021} \textcite{OECD2020ESG} peger på, at ESG-data stadig er fragmenterede og vanskelige at sammenligne, hvilket gør frivillige rammer utilstrækkelige uden en stærk datainfrastruktur.
+Global Reporting Initiative (GRI) er et globalt, frivilligt rammeværk, som anvendes bredt til sammenlignelig ESG-rapportering, forstået som ens indikatorer, enheder og afgrænsninger mellem virksomheder og over tid. Standarden beskriver en struktureret tilgang til indikatorer og narrativer, der ofte bruges som supplement til regulatoriske krav.\parenciteshort{GRI2021} \textcite{OECD2020ESG} peger på, at ESG-data stadig er fragmenterede og vanskelige at sammenligne, hvilket gør frivillige rammer utilstrækkelige uden en stærk datainfrastruktur.
 
 International Organization for Standardization (ISO) IWA 48 samler principper for ESG-implementering og lægger vægt på standardiserede KPI'er, datakvalitet og rapporteringsprincipper.\parenciteshort{ISO2024IWA48} Aftalen er ikke bindende i EU-retlig forstand, men fungerer som et globalt referencepunkt for, hvordan organisationer kan operationalisere ESG i praksis. Implikationen er, at der opstår en forventning om konsistente målinger, sporbarhed og systematisk dokumentation på tværs af sektorer, hvilket styrker behovet for robuste dataflows og governance. For SMV'er betyder det, at selv frivillige rammer kan drive professionalisering af ESG-data og gøre implementering til en løbende kapacitetsopgave.
 
@@ -100,14 +100,16 @@ ESG does not currently benefit from a universally accepted common set of standar
 \quoteattrib{\textcite{ESGBook}}
 \end{displayquote}
 
-Reguleringen er analytisk interessant: på den ene side øger standarderne sammenligneligheden, på den anden side efterlader de et fortolkningsrum, hvor rapportering kan glide over i \textit{minimum compliance} frem for beslutningsrelevant styring.
+Reguleringen er analytisk interessant: på den ene side øger standarderne sammenligneligheden, på den anden side efterlader de et fortolkningsrum, hvor rapportering kan glide over i \textit{minimum compliance} (opfyldelse af minimumskrav uden aktiv brug af data i styringen) frem for beslutningsrelevant styring.
 
-Hierarkiet bruges som analytisk ramme i resten af rapporten. Direktivniveauet forklarer, hvorfor rapportering er uomgængelig og hvilke pligter der udløses; standardniveauet (ESRS) forklarer, hvordan data skal struktureres, valideres og gøres auditerbare; og forordningsniveauet (taksonomien) forklarer, hvilke aktiviteter der bliver økonomisk relevante. \textbf{Dermed etableres en eksplicit kontrakt med læseren: senere analyser af datamodel, \textit{governance} og værdiforslag må kunne spores tilbage til disse niveauer.}
+Hierarkiet bruges som analytisk ramme i resten af rapporten. Direktivniveauet forklarer, hvorfor rapportering er uomgængelig og hvilke pligter der udløses; standardniveauet (ESRS) forklarer, hvordan data skal struktureres, valideres og gøres auditerbare; og forordningsniveauet (taksonomien) forklarer, hvilke aktiviteter der bliver økonomisk relevante. \textbf{Efterfølgende analyser af datamodel, \textit{governance} og værdiforslag skal derfor kunne spores tilbage til disse niveauer.}
 
 \subsubsection{Traceability-matrice som analytisk greb}
 \label{subsec:traceability-matrice}
 
-For at gøre kontrakten operationel anvendes en fast \textit{traceability-matrice}, som binder retskilde til datapunkt, input, validering, beregning, output og audit-evidens. I hovedteksten vises en gennemarbejdet trace som eksempel, mens den fulde matrix for MVP-scope er flyttet til bilag (tabel \ref{tab:traceability-matrix-full}) og fungerer som evidensregister med entydige ID'er. Matricen genbruges i software- og evalueringsafsnittene, så hver central påstand kan spores tilbage til et regulatorisk krav og et konkret dataflow.
+For at gøre kontrakten operationel anvendes en fast \textit{traceability-matrice}, dvs.\ en mapping-tabel, der binder retskilde til datapunkt, input, validering, beregning, output og audit-evidens. I hovedteksten vises en gennemarbejdet trace som eksempel, mens den fulde matrix for MVP-scope er flyttet til bilag (tabel \ref{tab:traceability-matrix-full}) og fungerer som evidensregister med entydige ID'er. Matricen genbruges i software- og evalueringsafsnittene, så hver central påstand kan spores tilbage til et regulatorisk krav og et konkret dataflow.
+
+B2 betegner energimodulet i Scope 2 i MVP'ens moduloversigt (bilag \ref{app:supplerende-figurer-og-tabeller}, tabel \ref{tab:app-moduloversigt}).
 
 \begin{table}[htbp]
   \caption{Traceability-trace (eksempel) for B2, der binder retskilde, datapunkt, datafelter og auditspor.}
@@ -116,7 +118,8 @@ For at gøre kontrakten operationel anvendes en fast \textit{traceability-matric
   \renewcommand{\arraystretch}{1.1}
   \small
   \rowcolors{2}{black!5}{white}
-  \begin{tabularx}{\textwidth}{l >{\raggedright\arraybackslash}p{0.16\textwidth} >{\raggedright\arraybackslash}p{0.12\textwidth} >{\raggedright\arraybackslash}p{0.12\textwidth} >{\raggedright\arraybackslash}p{0.11\textwidth} >{\raggedright\arraybackslash}p{0.12\textwidth} >{\raggedright\arraybackslash}p{0.12\textwidth} >{\raggedright\arraybackslash}X}
+  \setlength{\tabcolsep}{4pt}
+  \begin{tabularx}{\textwidth}{l >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{0.12\textwidth} >{\raggedright\arraybackslash}p{0.12\textwidth} >{\raggedright\arraybackslash}p{0.11\textwidth} >{\raggedright\arraybackslash}p{0.11\textwidth} >{\raggedright\arraybackslash}p{0.11\textwidth} >{\raggedright\arraybackslash}X}
     \toprule
     ID & Retskilde + reference & ESRS-datapunkt & Inputfelter & Valideringsregel & Beregningsregel & Outputfelt & Audit-evidens \\
     \midrule
@@ -131,27 +134,7 @@ For at gøre kontrakten operationel anvendes en fast \textit{traceability-matric
 \subsubsection{Dækningsafgrænsning for MVP-scope}
 \label{subsec:daekning-traceability}
 
-MVP'ens modulstruktur er bred, men rapportens evidensscope er afgrænset til de moduler, der faktisk demonstreres og evalueres (B2, C5 og S1; matrix-ID M1--M3). Den fulde traceability-matrix for disse moduler er samlet i bilagstabel \ref{tab:traceability-matrix-full}, mens hovedteksten kun viser et gennemarbejdet eksempel. Øvrige moduler er specificeret på struktur- og designniveau (bilag \ref{app:teknisk-dokumentation} og \ref{tab:app-moduloversigt}). For kravene i tabel \ref{tab:krav-prioritering} er 6 ud af 8 krav operationaliseret i MVP'en (alle markeret som MVP-krav).
-
-\begin{table}[htbp]
-  \caption{Dækningsafgrænsning, der viser hvilke moduler der er demonstreret og hvilke der kun er specificeret.}
-  \label{tab:traceability-coverage}
-  \begingroup
-  \renewcommand{\arraystretch}{1.2}
-  \rowcolors{2}{black!5}{white}
-  \begin{tabularx}{\textwidth}{l X l}
-    \toprule
-    Modul/område & Datatype og output & Status i rapporten \\
-    \midrule
-    B2 (energi) & Energiforbrug og Scope 2 CO$_2$e. & Demonstreret og evalueret. \\
-    C5 (affald) & Affald pr. fraktion og evt. CO$_2$e. & Demonstreret og evalueret. \\
-    S1 (arbejdsmiljø) & Arbejdsmiljø-KPI'er. & Demonstreret og evalueret. \\
-    Øvrige moduler i moduloversigten & Udledninger, aktiviteter og sociale/governance-data uden evaluering. & Specificeret, men ikke demonstreret. \\
-    \bottomrule
-  \end{tabularx}
-  \endgroup
-  \TableSource{Egen fremstilling baseret på bilag \ref{app:teknisk-dokumentation} og tabel \ref{tab:app-moduloversigt}.}
-\end{table}
+MVP'ens modulstruktur er bred, men rapportens evidensscope er afgrænset til de moduler, der faktisk demonstreres og evalueres: B2 (energi/Scope~2), C5 (affald) og S1 (arbejdsmiljø). Disse tre moduler udgør matrix-ID M1--M3 og har fulde traceability-traces i bilagstabel \ref{tab:traceability-matrix-full}, mens hovedteksten kun viser et gennemarbejdet eksempel. Øvrige moduler er kun specificeret på struktur- og designniveau (bilag \ref{app:teknisk-dokumentation} og tabel \ref{tab:app-moduloversigt}), hvilket betyder, at rapporten ikke dokumenterer alle ESRS-datapunkter. Udvælgelsen følger de mest centrale sektorrisici og de datapunkter, som MVP'en faktisk implementerer. For kravene i tabel \ref{tab:krav-prioritering} er 6 ud af 8 krav operationaliseret i MVP'en (alle markeret som MVP-krav).
 
 \subsubsection{Gennemgående regulatoriske principper}
 \label{subsec:gennemgaaende-regulatoriske-principper}
@@ -161,7 +144,7 @@ På tværs af retskilderne går en række gentagende principper, der forklarer, 
 \subsubsection{Implementering i dansk ret og praksis}
 \label{subsec:implementering-i-dansk-ret}
 
-Som direktiv forudsætter CSRD national implementering. I Danmark sker implementeringen via lov nr 480 af 22/05/2024, som ændrer årsregnskabsloven og relaterede love, og som operationaliseres gennem Erhvervsstyrelsens vejledninger og værktøjer til SMV'er.\parenciteshort{EU2022CSRD,Lov2024CSRD,Aarsregnskabsloven2022,Erhvervsstyrelsen2025ESGTemplate,Virksomhedsguiden2025VSMEIntro} I praksis mødes virksomhederne ofte gennem nationale kanaler som myndigheder, revisorer og finansielle institutioner; \textcite{Finanstilsynet2025ESGRisk} og \textcite{GrantThorntonDK2025BankESG} viser, at bankernes ESG-risikostyring gør data til en forudsætning for kredit, også når rapportering formelt er frivillig.\parencite{DanskErhvervFSR2025CSRDTimeline}
+Som direktiv forudsætter CSRD national implementering. I Danmark sker implementeringen via lov nr 480 af 22/05/2024, som ændrer Årsregnskabsloven, bl.a.\ \lawpar{99a}--\lawpar{99b} om bæredygtighedsoplysninger i ledelsesberetningen, og som operationaliseres gennem Erhvervsstyrelsens vejledninger og værktøjer til SMV'er.\parenciteshort{EU2022CSRD,Lov2024CSRD,Aarsregnskabsloven2022,Erhvervsstyrelsen2025ESGTemplate,Virksomhedsguiden2025VSMEIntro} I praksis mødes virksomhederne ofte gennem nationale kanaler som myndigheder, revisorer og finansielle institutioner; \textcite{Finanstilsynet2025ESGRisk} og \textcite{GrantThorntonDK2025BankESG} viser, at bankernes ESG-risikostyring gør data til en forudsætning for kredit, også når rapportering formelt er frivillig.\parencite{DanskErhvervFSR2025CSRDTimeline}
 
 Den juridiske struktur forstærker fokus på at reducere kløften mellem krav og datapraksis: ESG-as-a-Service er ikke blot et teknisk valg, men et regulatorisk mellemled i et flerniveau-regime. Det perspektiv danner overgang til SMV'ernes behov for forenkling.
 
@@ -200,7 +183,7 @@ De centrale forskelle mellem rammerne og deres implikationer for datakrav og rap
     CSRD (direktiv) & Obligatorisk ramme for rapporteringspligt og indfasning. & Forankrer rapportering i års- og koncernrapport med krav om digital tagging. \\
     ESRS (delegerede standarder) & Tekniske standarder for datapunkter og struktur. & Operationaliserer dobbelt væsentlighed og sikrer sammenlignelighed. \\
     EU-taksonomien & Obligatorisk supplement; klassificerer miljømæssigt bæredygtige aktiviteter. & Kræver dokumentation for aktiviteters bidrag og overensstemmelse med minimumsgarantier. \\
-    GRI & Frivilligt rammeværk, anvendes globalt. & Indikatorbaseret rapportering med fokus på væsentlige forhold og sammenlignelighed. \\
+    GRI & Frivilligt rammeværk, anvendes globalt. & Indikatorbaseret rapportering med fokus på væsentlige forhold og sammenlignelighed på tværs af virksomheder og over tid. \\
     \bottomrule
   \end{tabularx}
   \endgroup
@@ -210,7 +193,7 @@ De centrale forskelle mellem rammerne og deres implikationer for datakrav og rap
 \subsubsection{Lovhenvisninger og paragrafformater (eksempler)}
 \label{subsec:lovhenvisninger-og-paragrafformater}
 
-For at gøre reguleringen operationel i rapporteringen kan centrale retskilder bindes til konkrete artikelhenvisninger. EU-lovgivning angives typisk med artikelnumre, mens danske love bruger paragraftegn. Udvalgte eksempler på formater og relevans fremgår af tabel \ref{tab:lovhenvisninger-eksempler}.
+For at gøre reguleringen operationel i rapporteringen kan centrale retskilder bindes til konkrete artikelhenvisninger. EU-lovgivning angives typisk med artikelnumre, mens danske love bruger paragraftegn; i dansk implementering af CSRD forankres bæredygtighedsoplysninger i Årsregnskabslovens \lawpar{99a}--\lawpar{99b}. Udvalgte eksempler på formater og relevans fremgår af tabel \ref{tab:lovhenvisninger-eksempler}.
 \begin{table}[htbp]
   \caption{Eksempler på lovhenvisninger, der gør juridiske krav operationelle i rapporteringen.}
   \label{tab:lovhenvisninger-eksempler}
@@ -222,13 +205,14 @@ For at gøre reguleringen operationel i rapporteringen kan centrale retskilder b
     Retskilde & Henvisning & Relevans for ESG-rapportering \\
     \midrule
     CSRD (Dir. EU 2022/2464) & \lawart{19a}, \lawart{29a} & Krav til bæredygtighedsrapportering i års- og koncernrapport. \\
+    Årsregnskabsloven (DK) & \lawpar{99a}--\lawpar{99b} & Danske krav til bæredygtighedsoplysninger i ledelsesberetningen som led i CSRD-transponeringen. \\
     EU-taksonomien (Reg. EU 2020/852) & \lawart{8} & Oplysning om taksonomiforenelige aktiviteter og nøgletal. \\
     GDPR (Reg. EU 2016/679) & \lawart{5} & Principper for dataminimering og lovlig behandling af persondata i ESG-data. \\
     \bottomrule
   \end{tabularx}
   \endgroup
-  \TableSource{\parenciteshort{EU2022CSRD,EU2020Taxonomy,EU2016GDPR}}
-  \TableNote{Paragraffer i dansk lovgivning angives typisk med \lawpar{...}.}
+  \TableSource{\parenciteshort{EU2022CSRD,Aarsregnskabsloven2022,EU2020Taxonomy,EU2016GDPR}}
+  \TableNote{Paragraffer i dansk lovgivning angives typisk med \lawpar{...} (fx \lawpar{99a}--\lawpar{99b} i Årsregnskabsloven).}
 \end{table}
 
 For at gøre transpositionen juridisk operationel i systemdesignet kan kravene bindes til konkrete datapunkter, validering og auditfelter. Tabel \ref{tab:juridisk-til-data} viser et mini-katalog for rapportens MVP-scope, hvor den transitive kæde fra retskilde til output gøres eksplicit.
@@ -260,7 +244,7 @@ Samlet peger rammerne på et flerniveau-regime med høje krav til data, sporbarh
 
 \textcite{Virksomhedsguiden2025SMVDefinition} fastlægger, at SMV'er defineres efter EU's størrelsesgrænser og ofte ligger uden for den direkte CSRD-pligt, men påvirkes indirekte gennem kundekrav, banker og leverandørrelationer. \textcite{PwC2025GuideESGSMV} og \textcite{GrantThorntonDK2025Omnibus} peger på, at dette gør frivillighed til en markedsforventning snarere end et reelt valg.
 
-\textcite{Virksomhedsguiden2025VSMEIntro} beskriver, at EU har udviklet en frivillig VSME-standard (Voluntary Sustainability Reporting Standard for SMEs) for at sikre ensartet dataudveksling og forhindre uforholdsmæssige datakrav fra større virksomheder. \textcite{Virksomhedsguiden2025VSMEModules} præciserer, at VSME er opbygget af et basismodul og et udvidet modul, hvor basismodullets 11 datapunkter kan anvendes som minimumsniveau. \textcite{Virksomhedsguiden2025NoDualMateriality} viser, at standarden ikke kræver en dobbelt væsentlighedsanalyse, hvilket reducerer kompleksitet og ressourceforbrug. \textcite{Erhvervsstyrelsen2025ESGTemplate} dokumenterer, at Erhvervsstyrelsen samtidig har udviklet en skabelon, der samler datapunkterne og understøtter ensartet rapportering.
+\textcite{Virksomhedsguiden2025VSMEIntro} beskriver, at EU har udviklet en frivillig VSME-standard (Voluntary Sustainability Reporting Standard for SMEs) for at sikre ensartet dataudveksling og forhindre uforholdsmæssige datakrav fra større virksomheder, og standarden er offentliggjort af EFRAG.\parencite{EFRAG2024VSMEStandard} \textcite{Virksomhedsguiden2025VSMEModules} præciserer, at VSME er opbygget af et basismodul og et udvidet modul, hvor basismodullets 11 datapunkter kan anvendes som minimumsniveau. \textcite{Virksomhedsguiden2025NoDualMateriality} viser, at standarden ikke kræver en dobbelt væsentlighedsanalyse, hvilket reducerer kompleksitet og ressourceforbrug. \textcite{Erhvervsstyrelsen2025ESGTemplate} dokumenterer, at Erhvervsstyrelsen samtidig har udviklet en skabelon, der samler datapunkterne og understøtter ensartet rapportering.
 
 Indfasningen af CSRD er trinvist implementeret, og den seneste stop-the-clock-aftale udskyder rapporteringskrav for flere virksomhedstyper, hvilket giver SMV'er mere tid, men også skaber usikkerhed om krav og timing, jf. \textcite{Erhvervsstyrelsen2025StopClock}. \textcite{EY2025VSME} viser, at mange virksomheder rapporterer ud over basismodullets krav, hvilket indikerer både ambition og behov for klar prioritering. Det peger på, at VSME ofte bruges som minimumsramme snarere end som endemål for rapporteringen.
 
