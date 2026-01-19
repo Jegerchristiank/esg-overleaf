@@ -15,6 +15,12 @@ USER_AGENT = (
     "AppleWebKit/537.36 (KHTML, like Gecko) "
     "Chrome/120.0.0.0 Safari/537.36"
 )
+REDIRECT_STATUSES = {301, 302, 303, 307, 308}
+
+
+class NoRedirectHandler(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        return None
 
 
 def normalize_url(url: str) -> str:
@@ -49,31 +55,35 @@ def check_url(url: str, timeout: float) -> tuple[int | None, str | None, str | N
         "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
         "Accept-Language": "en-US,en;q=0.9",
     }
-    opener = urllib.request.build_opener()
-    normalized = normalize_url(url)
+    opener = urllib.request.build_opener(NoRedirectHandler())
 
-    def request(method: str):
-        req = urllib.request.Request(normalized, headers=headers, method=method)
-        if method == "GET":
-            req.add_header("Range", "bytes=0-0")
-        with opener.open(req, timeout=timeout) as resp:
-            return resp.status, resp.geturl()
-
-    try:
-        status, final_url = request("HEAD")
-        if status in (400, 401, 403, 405):
-            status, final_url = request("GET")
-        return status, final_url, None
-    except urllib.error.HTTPError as err:
-        if err.code in (400, 401, 403, 405):
+    def request(method: str) -> tuple[int | None, str | None, str | None]:
+        current_url = normalize_url(url)
+        for _ in range(11):
+            req = urllib.request.Request(current_url, headers=headers, method=method)
+            if method == "GET":
+                req.add_header("Range", "bytes=0-0")
             try:
-                status, final_url = request("GET")
-                return status, final_url, None
-            except Exception as fallback_err:  # noqa: BLE001
-                return err.code, None, str(fallback_err)
-        return err.code, err.geturl(), None
-    except (urllib.error.URLError, ssl.SSLError, socket.timeout) as err:
-        return None, None, str(err)
+                with opener.open(req, timeout=timeout) as resp:
+                    return resp.status, resp.geturl(), None
+            except urllib.error.HTTPError as err:
+                if err.code in REDIRECT_STATUSES:
+                    location = err.headers.get("Location")
+                    if not location:
+                        return err.code, err.geturl(), "Missing redirect location"
+                    current_url = normalize_url(urllib.parse.urljoin(current_url, location))
+                    if err.code == 303:
+                        method = "GET"
+                    continue
+                return err.code, err.geturl(), None
+            except (urllib.error.URLError, ssl.SSLError, socket.timeout) as err:
+                return None, None, str(err)
+        return None, None, "Redirect limit exceeded"
+
+    status, final_url, error = request("HEAD")
+    if error is None and status in (400, 401, 403, 405):
+        status, final_url, error = request("GET")
+    return status, final_url, error
 
 
 def main() -> int:
@@ -105,7 +115,7 @@ def main() -> int:
 
     results.sort(key=lambda item: item[0])
 
-    report_lines = ["URL link check (errors only; 200-399 OK)"]
+    report_lines = ["URL link check (errors only; 2xx OK after redirects)"]
     for url, status, final_url, error in results:
         if error:
             report_lines.append(f"ERROR {url} :: {error}")
@@ -113,7 +123,7 @@ def main() -> int:
         if status is None:
             report_lines.append(f"ERROR {url} :: Unknown error")
             continue
-        if 200 <= status <= 399:
+        if 200 <= status <= 299:
             continue
         if final_url and final_url != url:
             report_lines.append(f"{status} {url} -> {final_url}")

@@ -1,1 +1,1 @@
-URL link check (errors only; 200-399 OK)
+URL link check (errors only; 2xx OK after redirects)
