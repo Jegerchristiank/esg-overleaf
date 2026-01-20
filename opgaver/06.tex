@@ -41,7 +41,7 @@ iXBRL/XBRL nåede ikke at blive implementeret i MVP'en inden for tidsrammen, for
 \subsection{Systemoversigt og arkitektur}
 \label{subsec:systemoversigt-og-arkitektur}
 
-MVP'en er en webbaseret løsning med en klar opdeling mellem brugergrænseflade, applikationslogik og datalagring. Løsningen håndterer brugerflow, dataindtastning, validering og lagring i et sammenhængende forløb. Interne specifikationer (bilag A.3, \ref{app:teknisk-dokumentation}) og den offentlige software-oversigt (bilag \ref{app:software-spec}) dokumenterer løsningen. Den detaljerede software-specifikation vedlægges som separat fil.
+MVP'en er en webbaseret løsning med en klar opdeling mellem brugergrænseflade, applikationslogik og datalagring. Løsningen håndterer brugerflow, dataindtastning, validering og lagring i et sammenhængende forløb. Interne specifikationer (bilag A.3, \ref{app:teknisk-dokumentation}) og den offentlige software-oversigt (bilag \ref{app:software-spec}) dokumenterer løsningen. Den detaljerede software-specifikation er udeladt af fortrolighedshensyn; programkoden er tilgængelig via GitHub (link i bilag \ref{app:teknisk-dokumentation}).
 
 Teknisk er MVP'en implementeret som en Next.js-baseret webapp med en Node.js-backend, der persisterer wizard-data i PostgreSQL. Beregninger og schema-validering ligger i en fælles komponent, mens rapportoutput genereres via en PDF-renderer. Backend udstiller et snapshot-endpoint, som understøtter hentning og lagring af state og gør auditspor og versionshistorik operationelle. Det understreger, at artefakten er et fungerende softwareprodukt og ikke kun en konceptuel skitse (bilag \ref{app:teknisk-dokumentation} og \ref{app:software-spec}).
 
