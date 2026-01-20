@@ -52,16 +52,20 @@
 % Short-form parenthetical citations for selected institutional authors.
 \DeclareCiteCommand{\parenciteshort}
   {\bibopenparen\usebibmacro{prenote}}
-  {\ifnameundef{shortauthor}{\printnames{labelname}}{\printnames{shortauthor}}%
-   \setunit{\nameyeardelim}%
-   \printlabeldate}
+  {\usebibmacro{citeindex}%
+   \printtext[bibhyperref]{%
+     \ifnameundef{shortauthor}{\printnames{labelname}}{\printnames{shortauthor}}%
+     \setunit{\nameyeardelim}%
+     \printlabeldate}}
   {\multicitedelim}
   {\usebibmacro{postnote}\bibcloseparen}
 
 % Full-name narrative citations for institutional sources with shortauthor.
 \DeclareCiteCommand{\textcitefull}
   {\usebibmacro{prenote}}
-  {\printnames{author}\setunit{\nameyeardelim}\printtext[parens]{\printlabeldate}}
+  {\usebibmacro{citeindex}%
+   \printtext[bibhyperref]{%
+     \printnames{author}\setunit{\nameyeardelim}\printtext[parens]{\printlabeldate}}}
   {\multicitedelim}
   {\usebibmacro{postnote}}
 
